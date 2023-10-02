@@ -1,9 +1,9 @@
 <?php
 
-define('BASEURL', 'htt[s://localhost/public/');
+define('BASEURL', 'https://localhost:8080/public');
 
 //db
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'DB_test');
+define('DB_HOST', 'ok');
+define('DB_USER', 'ok');
+define('DB_PASS', 'ok');
+define('DB_NAME', 'tubeswbd');
