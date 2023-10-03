@@ -13,8 +13,8 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     volumes:
-      - ./db/init:/tmp/database
-    command: mysqld --init-file="/tmp/database/init_db.sql"
+      - ./db/init:/docker-entrypoint-initdb.d
+    command: mysqld --init-file="/docker-entrypoint-initdb.d/init_db.sql"
     env_file:
       - .env
     ports:

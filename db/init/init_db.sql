@@ -47,7 +47,9 @@ CREATE TABLE `album` (
 
 INSERT INTO `album` (`id_album`, `nama_album`, `artist`, `durasi_album`, `image_path`, `tanggal_terbit`, `genre`) VALUES
 (1, 'Oneiric Diary', 'IZ*ONE', 22, '', '2023-08-08', 'K-Pop'),
-(2, 'type III', 'paris match', 30, '', '2023-07-20', 'Shibuya-kei');
+(2, 'type III', 'paris match', 30, '', '2023-07-20', 'Shibuya-kei'),
+(3, 'type IV', 'paris match', 31, '', '2023-07-22', 'Shibuya-kei'),
+(4, 'type adwaw', 'paris dd', 34, '', '2023-07-19', 'Shibuya-kei');
 
 -- --------------------------------------------------------
 
