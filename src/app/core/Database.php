@@ -26,14 +26,6 @@ class Database{
             echo $errorMessage;
         }
 
-        try{
-            $this->dbh->exec(Table::USER_TABLE);
-            $this->dbh->exec(Table::SONG_TABLE);
-            $this->dbh->exec(Table::ALBUM_TABLE);
-        } catch (PDOException $e){
-            $errorMessage = 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
-            echo $errorMessage;
-        }
     }
 
     public function query($query){

@@ -8,14 +8,26 @@ services:
     env_file: .env
     volumes:
       - ./src:/var/www/html
+  db:
+    container_name: db-tubes-1
+    image: mysql:5.7
+    restart: unless-stopped
+    volumes:
+      - ./db/init:/tmp/database
+    command: mysqld --init-file="/tmp/database/init_db.sql"
+    env_file:
+      - .env
+    ports:
+      - "3307:3306" 
   mysql:
     image: mysql:latest
     ports:
-      - 3307:3306
+      - 3310:3309
     hostname: db-tubes-1
     env_file: .env
     volumes:
       - ./mysql:/var/lib/mysql
+
 networks:
   web-mysql:
-    driver: bridge  
+    driver: bridge

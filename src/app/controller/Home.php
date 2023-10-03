@@ -9,6 +9,7 @@ class Home extends Controller{
     public function pakeParams($artist="Default_Artist"){
         echo "This is $artist";
         $data['artist'] = $artist;
+        $this->view('HomeView', $data);
     }
 
 }
