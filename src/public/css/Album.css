@@ -1,0 +1,98 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #141d2c ;
+    flex-wrap: wrap;
+}
+header .lagu{
+    background: #141d2c;
+    width: 100%;
+    border-radius: 0px 0px 0px 20px;
+    overflow: hidden;
+}
+
+
+header .lagu .daftar_album {
+    color: white;
+    font-size: 24px;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 85%;
+    /* border: 1px solid white; */
+    margin: 30px 5% 20px 5%;
+}
+
+
+header .lagu .item_album {
+    cursor: pointer;
+    margin: 20px 0px 10px 0px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #4c5262;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .lagu .item_album:hover {
+    background: #0b1222;
+    transition: 0.3s;
+}   
+
+header .lagu .item_album img {
+    margin-left: 1%;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+header .lagu .item_album h5 {
+    width: 40%;
+    margin: auto auto auto 20px;
+    /* border: 1px solid white; */
+}
+
+@media (max-width: 768px) {
+    header .lagu .item_album .icon{
+        opacity: 0;
+    }
+    
+}
+
+header .lagu .item_album h5 .sub {
+    font-size: 16px;
+    color: #4c5262;
+}
+
+header .lagu .item_album .icon {
+    /* border: 1px solid white; */
+    margin-left: 60%;
+    width: 22%;
+    display: flex;
+    align-items: center;
+}
+
+header .lagu .item_album .icon .more, .add, .delete {
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 20px;
+    margin-right: 20px;
+    height: 5%;
+}
+
+header .lagu .item_album .icon .more:hover, .add:hover, .delete:hover {
+    color: #ffd189;
+    transform: scale(1);
+    transition: 0.3s;
+}

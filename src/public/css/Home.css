@@ -1,0 +1,594 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+header{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #0b1222 ;
+    flex-wrap: wrap;
+}
+
+header .menu,
+.lagu{
+    position: relative;
+    background: #0b1222;
+    width: 25%;
+    height: 88%;
+    /* border: 1px solid white; */
+    overflow: hidden;
+    box-shadow: 5px 0px 2px #090f1f;
+}
+
+header .lagu{
+    background: #141d2c;
+    width: 75%;
+    border-radius: 0px 0px 0px 20px;   
+    overflow: hidden;
+}
+
+header .lagu iframe.active{
+    display: block;
+}
+header .lagu iframe.inactive {
+    display: none;
+}
+
+header .lagu nav {
+    width: 90%;
+    height: 10%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .lagu nav .active {
+    color: #ffd189;
+}
+
+header .lagu nav ul {
+    display: flex;
+}
+
+header .lagu nav li {
+    color: white;
+    list-style: none;
+    position: relative;
+    font-size: 20px;
+    margin-right: 40px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+header .lagu nav li:hover {
+    color: #ffd189;
+}
+
+header .lagu nav .search_bar {
+    position: relative;
+    width: 40%;
+    padding: 1px 10px;
+    border-radius: 20px;
+    background: rgb(184, 184, 184, .1);
+    /* border: 1px solid wheat; */
+    color: gray; 
+}
+
+header .lagu nav .search_bar::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(184, 184, 184, .1);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+header .lagu nav .search_bar .bi {
+    font-size: 15px;
+}
+
+header .lagu nav .search_bar input {
+    width: 90%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    color: white;
+    font-size: 13px;
+}
+
+header .lagu nav .search_bar .results {
+    position: absolute;
+    background: #252d3b;
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: -10px;
+    border-radius: 10px;
+    /* z-index: 9999999; */
+    /* border: 1px solid white; */
+}
+
+header .lagu nav .search_bar .results .card {
+    width: 100%;
+    min-height: 45px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+header .lagu nav .user {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+header .lagu nav .user:hover{
+    color:#ffd189;
+}
+
+header .lagu nav .profile {
+    position: absolute;
+    top: 10%;
+    right: 0px;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 1;
+}
+
+header .lagu nav .profile.open{
+    max-height: 400px ;
+}
+
+header .lagu nav .sub_menu {
+    border-radius: 20px 0px 20px 20px;
+    background: #0b1222;
+    padding: 20px;
+    margin: 10px;
+}
+
+header .lagu nav .sub_menu hr {
+    height: 1px;
+    width: 100%;
+    color: white;
+    margin: 15px 0 10px;
+}
+
+header .lagu nav .submenu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin: 15px 0px;
+}
+
+header .lagu nav .submenu-link:hover {
+    color: #ffd189;
+}
+
+header .lagu nav .submenu-link p {
+    width: 100%;
+}
+
+header .lagu nav .submenu-link i{
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+header .lagu nav .profile_pic {
+    display: flex;
+    align-items: center;
+}
+
+header .lagu nav .profile_pic h2 {
+    font-weight: 500;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+header .lagu nav .edit_profile {
+    position: absolute;
+    top: 10%;
+    right: 50%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 2;
+}
+
+header .lagu .edit_profile p {
+    margin-top: 15px;
+}
+
+header .lagu nav .edit_profile.open{
+    max-height: 400px ;
+}
+
+header .lagu nav .menu {
+    border-radius: 20px 0px 20px 20px;
+    background: #0b1222;
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
+}
+
+header .lagu nav .menu hr {
+    height: 1px;
+    width: 100%;
+    color: white;
+    margin: 15px 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-content {
+    background-color: #0b1222; /* Ganti "your-color" dengan warna yang Anda inginkan */
+    border-radius: 20px;
+}
+
+.modal-title{
+    color: white;
+    border: 1px solid white;
+    width: 27%;
+    margin-left: 36.5%;
+}
+
+header .menu h1 {
+    width: 90%;
+    background: #141d2c;
+    color: white;
+    font-size: 2.5vw;
+    margin: 0px 5% 0px 5%;
+    font-weight: 400;
+    padding: 20px 5% 20px 5%;
+}
+
+header .menu .side {
+    background: #141d2c;
+    border-radius: 0px 0px 20px 20px;
+    width: 90%;
+    margin: 0px 5% 20px 5%;
+    padding: 20px 0px 10px 20px;
+}
+
+header .menu .side h4 {
+    color: #4c5262;
+    font-size: 1.5vw;
+    font-weight: 400;
+    padding-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: .3s linear;
+}
+
+header .menu .side h4:hover {
+    color: white;
+}
+
+header .menu .side h4 span {
+    position: relative;
+    margin-right: 35px;
+}
+
+header .menu .side h4 span::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid #4c5262;
+    border-radius: 50%;
+    top: -4px;
+    transition: .3s linear;
+}
+
+header .menu .side h4:hover span::before{
+   border: 2px solid white;
+}
+
+header .menu .side h4 .bi{
+    display: none;
+ }
+
+header .menu .side .active{
+    color: #ffd189;
+}
+
+header .menu .side .active span {
+    display: none;
+}
+
+header .menu .side .active .bi {
+    display: flex;
+    margin-right: 20px;
+}
+
+header .menu .menu_lagu {
+    background:#141d2c;
+    width: 90%;
+    height: 49.5vh;
+    border-radius: 20px;
+    display: flex;
+    /* border: 1px solid white; */
+    margin: 0px 5% 20px 5%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    transition: height .3s ease;
+}
+
+header .dariplaylist {
+    transition: transform .18s ease;
+    transform: translateY(0px);
+}
+
+header .darihistory {
+    transition: transform .18s ease;
+    position: absolute;
+    transform: translateY(400px);
+}
+
+header .darirecommended {
+    transition: transform .18s ease;
+    position: absolute;
+    transform: translateY(800px);
+}
+
+
+header .menu .menu_lagu .dariplaylist li,
+.darihistory li, 
+.darirecommended li {
+    color: white;
+    list-style-type: none;
+    position: relative;
+    padding: 5px 0px 5px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+header .menu .menu_lagu .dariplaylist li:hover,
+.darihistory li:hover, 
+.darirecommended li:hover {
+    width: 100vw;
+    background: rgb(105, 105, 105, .1) ;
+}
+
+
+header .menu .menu_lagu .dariplaylist li img,
+.darihistory li img ,
+.darirecommended li img{
+    width: 45px;
+    height: 45px;
+    margin-left: 2px;
+    border-radius: 5px;
+}
+
+header .menu .menu_lagu .dariplaylist li h5,
+.darihistory li h5 , 
+.darirecommended li h5{
+    font-size: 16px;
+    margin-left: 20px;
+    width: 205px;
+    /* border: 1px solid white; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+header .menu .menu_lagu .dariplaylist li h5 .sub,
+.darihistory li h5 .sub , 
+.darirecommended li h5 .sub{
+    font-size: 12px;
+    color: #4c5262;
+}
+
+header .menu .menu_lagu .dariplaylist li .bi,
+.darihistory li .bi , 
+.darirecommended li .bi{
+        font-size: 24px;
+        position: absolute;
+        margin-left: 17vw;
+    }
+
+@media (max-width: 768px){
+    header .menu .menu_lagu .dariplaylist li .bi,
+    .darihistory li .bi , 
+    .darirecommended li .bi{
+        display: none;
+    }
+
+    header .menu .menu_lagu .dariplaylist li h5,
+    .darihistory li h5 , 
+    .darirecommended li h5{
+        width: 10vw;
+    }
+}
+
+header .menu_lagu .dariplaylist li i,
+.darihistory li i , 
+.darirecommended li i{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+header .play{
+    background: #0b1222;
+    align-items: center;
+    width: 100%;
+    height: 12%;
+    display: flex;
+    /* align-items: center; */
+    /* border: 1px solid white; */
+    padding: 0px 20px;
+}
+
+header .play img {
+    margin-left: 2vw;
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+}
+
+header .play .judul {
+    color:white;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+header .play .sub {
+    color: #4c5262;
+    font-size: 12px;
+}
+
+header .pemutar {
+    margin-top: -10px;
+    margin-left: 18.5vw;
+    align-items: center;
+}
+
+header .play .pemutar .icon {
+    cursor: pointer;
+    position: relative;
+    margin-left: 14vw;
+    width: 200px;
+    color: white;
+    font-size: 32px;
+}
+
+header .play .pemutar .icon :hover{
+    color: #ffd189;
+}
+
+header .play .pemutar .playback span {
+    color: white;
+    width: 32px;
+    font-size: 12px;
+}
+
+header .play .playback {
+    /* margin-left: 18.3vw; */
+    display: flex;
+}
+
+header .play .playback .garis {
+    position: relative;
+    width: 30vw;
+    border-radius: 10.5%;
+    height: 4px;
+    background:#4c5262;
+    margin: 8px 15px 0px 10px;
+}
+
+header .play .playback .garis2 {
+    position: absolute;
+    background: #ffd189;
+    width: 0%;
+    height: 100%;
+    top:0px;
+    transition: 2s linear;
+}
+
+header .play .playback .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ffd189;
+    border-radius: 50%;
+    top: -4px;
+    transition: 2s linear;
+}
+
+header .play .playback input {
+    position: absolute;
+    width: 100%;
+    top: -10px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+}
+
+header .play .vol {
+    position: relative;
+    border-radius: 12%;
+    width: 130px;
+    height: 4px;
+    background:#4c5262;
+    margin-left: 19vw;
+}
+
+header .play .vol i {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    top:-15px;
+    left: -30px;
+}
+
+header .play .vol input {
+    position: absolute;
+    width: 100%;
+    top: -9px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;    
+}
+
+header .play .vol .garis_volume {
+    position: absolute;
+    background: #ffd189;
+    width: 100%;
+    height: 100%;
+    transition: .3s;
+}
+
+header .play .vol .dot_volume {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ffd189;
+    border-radius: 50%;
+    top: -4px;
+    left: 100%;
+    transition: .3s;
+}
