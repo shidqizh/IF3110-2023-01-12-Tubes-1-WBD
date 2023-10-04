@@ -23,7 +23,7 @@ $data1 = $_SESSION['data1'];
                 
                 <div class="overlay" id="overlay"></div>
 
-                <div class="popup addAlbum" id="addAlbum">
+                <div class="popup addSong" id="addAlbum">
                     <div class="menu">
                         <div class="profile_pic">
                             <h2>Add Album</h2>
@@ -115,7 +115,7 @@ $data1 = $_SESSION['data1'];
                     </div>
                 </div>
 
-                <div class="popup editAlbum" id="editAlbum">
+                <div class="popup addSong" id="editAlbum">
                     <div class="menu">
                         <div class="profile_pic">
                             <h2>Edit Album</h2>
@@ -161,7 +161,7 @@ $data1 = $_SESSION['data1'];
                     </div>
                 </div>
 
-                <div class="popup deleteSong" id="deleteSong">
+                <div class="popup addSong" id="deleteSong">
                     <div class="menu">
                         <h5>Are you sure want to delete this song?</h5>
                         <button class="close_button">Delete</button>
@@ -243,7 +243,7 @@ $data1 = $_SESSION['data1'];
             iconAdd.addEventListener("click", function() {
                 var popup = document.getElementById("editAlbum");
                 var backgroundOverlay = document.getElementById("overlay");
-                popup.style.display = "block"; // Tampilkan popup
+                popup.style.display = "block"; 
                 backgroundOverlay.style.display = "block";
             });
 
@@ -253,12 +253,11 @@ $data1 = $_SESSION['data1'];
             iconDelete.className = "bi bi-trash-fill";
             divDelete.appendChild(iconDelete);
             divDelete.addEventListener("click", function() {
-    // Mengambil elemen popup
+
             var popup_del = document.getElementById("deleteSong");
             var backgroundOverlay_del = document.getElementById("overlay");
             
-            // Menampilkan popup
-            popup_del.style.display = "block"; // Tampilkan popup
+            popup_del.style.display = "block"; 
             backgroundOverlay_del.style.display = "block";
             });
 
