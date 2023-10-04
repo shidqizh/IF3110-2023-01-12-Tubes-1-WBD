@@ -14,127 +14,24 @@
             <div class="daftar_album">
                 <h4>Daftar Album</h4>
                 <div class="item_album_wrap">
-                    <li class="item_album">
-                        <img src="../img/december.jpg" alt="" id="">
-                        <h5 class="judul">
-                            <?php foreach($data['albumList'] as $album) : ?>
-                                <li><?= $album['nama_album']; ?> </li> 
-                            <?php endforeach; ?>
-                            <div class="sub">Neck Deep</div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square"></i>                            </div>
-                            <div class="delete">
-                                <i class="bi bi-trash-fill"></i>
+                    <?php foreach($data['albumList'] as $album) : ?>
+                        <li class="item_album">
+                            <img src="../img/december.jpg" alt="" id="">
+                            <h5 class="judul">
+                                <div class="sub"><?= $album['nama_album'] ?></div>
+                            </h5>
+                            <div class="icon">
+                                <div class="add">
+                                    <i class="bi bi-pencil-square"></i>                            </div>
+                                <div class="delete">
+                                    <i class="bi bi-trash-fill"></i>
+                                </div>
+                                <div class="more">
+                                    <i class="bi bi-three-dots"></i>
+                                </div>
                             </div>
-                            <div class="more">
-                                <i class="bi bi-three-dots"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item_album">
-                        <img src="../img/december.jpg" alt="" id="">
-                        <h5 class="judul">
-                            December
-                            <div class="sub">Neck Deep</div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square"></i>                            </div>
-                            <div class="delete">
-                                <i class="bi bi-trash-fill"></i>
-                            </div>
-                            <div class="more">
-                                <i class="bi bi-three-dots"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item_album">
-                        <img src="../img/december.jpg" alt="" id="">
-                        <h5 class="judul">
-                            December
-                            <div class="sub">Neck Deep</div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square"></i>                            </div>
-                            <div class="delete">
-                                <i class="bi bi-trash-fill"></i>
-                            </div>
-                            <div class="more">
-                                <i class="bi bi-three-dots"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item_album">
-                        <img src="../img/december.jpg" alt="" id="">
-                        <h5 class="judul">
-                            December
-                            <div class="sub">Neck Deep</div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square"></i>                            </div>
-                            <div class="delete">
-                                <i class="bi bi-trash-fill"></i>
-                            </div>
-                            <div class="more">
-                                <i class="bi bi-three-dots"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item_album">
-                        <img src="../img/december.jpg" alt="" id="">
-                        <h5 class="judul">
-                            December
-                            <div class="sub">Neck Deep</div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square"></i>                            </div>
-                            <div class="delete">
-                                <i class="bi bi-trash-fill"></i>
-                            </div>
-                            <div class="more">
-                                <i class="bi bi-three-dots"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item_album">
-                        <img src="../img/december.jpg" alt="" id="">
-                        <h5 class="judul">
-                            December
-                            <div class="sub">Neck Deep</div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square"></i>                            </div>
-                            <div class="delete">
-                                <i class="bi bi-trash-fill"></i>
-                            </div>
-                            <div class="more">
-                                <i class="bi bi-three-dots"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item_album">
-                        <img src="../img/december.jpg" alt="" id="">
-                        <h5 class="judul">
-                            December
-                            <div class="sub">Neck Deep</div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square"></i>                            </div>
-                            <div class="delete">
-                                <i class="bi bi-trash-fill"></i>
-                            </div>
-                            <div class="more">
-                                <i class="bi bi-three-dots"></i>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

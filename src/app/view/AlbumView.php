@@ -12,7 +12,7 @@
     <h1>INI VIEW ALBUM</h1>
     <ul> 
         <?php foreach($data['albumList'] as $album) : ?>
-            <li><?= $album['nama_album']; ?> </li> 
+            <li> <?= $album['nama_album']; ?> </li> 
         <?php endforeach; ?>
     </ul>
 </body>
