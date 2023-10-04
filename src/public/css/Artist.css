@@ -17,6 +17,7 @@ header .lagu{
     background: #141d2c;
     width: 100%;
     border-radius: 0px 0px 0px 20px;
+    overflow: hidden;
 }
 
 
@@ -31,104 +32,8 @@ header .lagu .artist {
     margin: 30px 5% 20px 5%;
 }
 
-header .lagu .artist_wrap {
-    cursor: pointer;
-    width: 100%;
-    height: 240px;
-    display: flex;
-    border-radius: 10px;
-    /* overflow: hidden; */
-    /* border: 1px solid #4c5262; */
-    /* justify-content: space-between;
-    align-items: center; */
-}
 
-header .lagu .item {
-    cursor: pointer;
-    width: 30%;
-    height: 240px;
-    border-radius: 10px;
-    background: rgb(184, 184, 184, .1);
-    /* border: 1px solid white; */
-    /* overflow: hidden; */
-}
-
-header .lagu .item:hover {
-    background: #0b1222;
-    transition: 0.3s;
-}   
-
-header .lagu .item img {
-    margin-top:10%;
-    margin-left: 10%;
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-}
-
-header .lagu .item h5 {
-    margin-top: 2%;
-    margin-left: 10%;
-    width: 80%;
-    overflow: hidden;
-    /* border: 1px solid white; */
-}
-
-
-header .lagu .song_item h5 .sub {
-    font-size: 16px;
-    color: #4c5262;
-}
-
-header .lagu .song_item {
-    cursor: pointer;
-    margin: 10px 0px 0px 20px;
-    width: 95%;
-    height: 65px;
-    display: flex;
-    border-radius: 10px;
-    /* border: 1px solid #4c5262; */
-    justify-content: space-between;
-    align-items: center;
-    /* overflow: hidden; */
-}
-
-header .lagu .song_item:hover {
-    background: #0b1222;
-    transition: 0.3s;
-}   
-
-header .lagu .song_item img {
-    margin-left: 1%;
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-}
-
-header .lagu .song_item h5 {
-    width: 40%;
-    margin: auto auto auto 20px;
-    /* border: 1px solid white; */
-}
-
-.song_list {  
-    margin-left: 1%;  
-    /* border: 1px solid #4c5262; */
-    width: 100%;
-    height: 240px;
-    border-radius: 10px;
-    background: rgb(184, 184, 184, .1);
-    overflow: hidden;
-    
-}
-
-header .lagu .daftar_artis_wrap {
-    /* border: 1px solid #4c5262; */
-    height: 100%;
-    overflow: hidden;
-}
-
-header .lagu .daftar_artis {
+header .lagu .item_artist {
     cursor: pointer;
     margin: 20px 0px 10px 0px;
     width: 100%;
@@ -140,15 +45,54 @@ header .lagu .daftar_artis {
     align-items: center;
 }
 
-header .lagu .daftar_artis img {
+header .lagu .item_artist:hover {
+    background: #0b1222;
+    transition: 0.3s;
+}   
+
+header .lagu .item_artist img {
     margin-left: 1%;
     width: 60px;
     height: 60px;
     border-radius: 10px;
 }
 
-header .lagu .daftar_artis h5 {
+header .lagu .item_artist h5 {
     width: 40%;
     margin: auto auto auto 20px;
     /* border: 1px solid white; */
+}
+
+@media (max-width: 768px) {
+    header .lagu .item_artist .icon{
+        opacity: 0;
+    }
+    
+}
+
+header .lagu .item_artist h5 .sub {
+    font-size: 16px;
+    color: #4c5262;
+}
+
+header .lagu .item_artist .icon {
+    /* border: 1px solid white; */
+    margin-left: 60%;
+    width: 22%;
+    display: flex;
+    align-items: center;
+}
+
+header .lagu .item_artist .icon .more, .add, .delete {
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 20px;
+    margin-right: 20px;
+    height: 5%;
+}
+
+header .lagu .item_artist .icon .more:hover, .add:hover, .delete:hover {
+    color: #ffd189;
+    transform: scale(1);
+    transition: 0.3s;
 }

@@ -11,4 +11,9 @@ class AlbumModel{
         $this->db->query('SELECT * FROM album');
         return $this->db->fetchAll();
     }
+
+    public function getDistinctArtist(){
+        $this->db->query('SELECT DISTINCT artist FROM album');
+        return $this->db->fetchAll();
+    }
 }

@@ -10,6 +10,7 @@
     <title>Home Page</title>
 </head>
 <body>
+    <!-- <? print_r($_SESSION['data1']); ?> -->
     <header>
         <div class="menu">
             <h1>SoundVibes</h1>
@@ -94,13 +95,13 @@
                 <div class="search_bar">
                     <i class="bi bi-search"></i>
                     <input type="text" placeholder="Search...">
-                    <div class="results">
+                    <!-- <div class="results">
                         <a href="#" class="card"></a>
                         <a href="#" class="card"></a>
                         <a href="#" class="card"></a>
                         <a href="#" class="card"></a>
                         
-                    </div>
+                    </div> -->
                 </div>
                 <div class="user">
                     <i class="bi bi-person" onclick="toggleMenu()"></i>
@@ -232,5 +233,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
