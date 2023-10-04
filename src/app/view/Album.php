@@ -20,48 +20,158 @@ $data1 = $_SESSION['data1'];
                 <div class="h4">
                     <h4>Daftar Album</h4>
                 </div>
-                <style>
-                    .overlay {
-                        display: none;
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background-color: rgba(0, 0, 0, 0.5);
-                        z-index: 9999;
-                    }
-                    .popup {
-                        display: none;
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        background-color: #fff;
-                        padding: 20px;
-                        border-radius: 5px;
-                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-                        z-index: 10000;
-                    }
-                </style>
+                
+                <div class="overlay" id="overlay"></div>
 
-                <div class="overlay"></div>
-
-                <div class="popup edit_profile" id="edit_profile_1">
+                <div class="popup addAlbum" id="addAlbum">
                     <div class="menu">
                         <div class="profile_pic">
-                            <h2>Edit Profile</h2>
+                            <h2>Add Album</h2>
                         </div>
                         <hr>
+
                         <div class="label">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username" placeholder="John Doe">
+                            <label for="album">Album</label>
+                            <label for="tanggal">Tanggal</label>
                         </div>
-                        <button class="close_button">Close</button>
+                        <div class="input">
+                            <input type="text" name="album" id="album" placeholder="Album">
+                            <input type="date" name="tanggal" id="tanggal" placeholder="Tanggal">
+                        </div>
+
+                        <div class="label">
+                            <label for="artist">Artist</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
+
+                        <div class="label">
+                            <label for="durasi">Durasi</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="durasi" id="durasi" placeholder="Durasi">
+                        </div>
+
+                        <div class="label">
+                            <label for="genre">Genre</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                        </div>
+                        <div class="label">
+                            <label for="poster">Poster</label>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="poster" id="poster" placeholder="Poster" accept=".jpg">
+                        </div>
+                        <button class="close_button">Add</button>
                     </div>
                 </div>
 
-                <button type="button" data-target="#edit_profile_1" class="open_button">Tambah Album</button>
+                <div class="popup addSong" id="addSong">
+                    <div class="menu">
+                        <div class="profile_pic">
+                            <h2>Add Song</h2>
+                        </div>
+                        <hr>
+
+                        <div class="label">
+                            <label for="album">Album</label>
+                            <label for="tanggal">Tanggal</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="album" id="album" placeholder="Song">
+                            <input type="date" name="tanggal" id="tanggal" placeholder="Tanggal">
+                        </div>
+
+                        <div class="label">
+                            <label for="artist">Artist</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
+
+                        <div class="label">
+                            <label for="durasi">Durasi</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="durasi" id="durasi" placeholder="Durasi">
+                        </div>
+
+                        <div class="label">
+                            <label for="genre">Genre</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                        </div>
+                        <div class="label">
+                            <label for="song">Song</label>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="song" id="song" placeholder="song" accept=".mp3">
+                        </div>
+                        <button class="close_button">Add</button>
+                    </div>
+                </div>
+
+                <div class="popup editAlbum" id="editAlbum">
+                    <div class="menu">
+                        <div class="profile_pic">
+                            <h2>Edit Album</h2>
+                        </div>
+                        <hr>
+
+                        <div class="label">
+                            <label for="album">Album</label>
+                            <label for="tanggal">Tanggal</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="album" id="album" placeholder="Album">
+                            <input type="date" name="tanggal" id="tanggal" placeholder="Tanggal">
+                        </div>
+
+                        <div class="label">
+                            <label for="artist">Artist</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
+
+                        <div class="label">
+                            <label for="durasi">Durasi</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="durasi" id="durasi" placeholder="Durasi">
+                        </div>
+
+                        <div class="label">
+                            <label for="genre">Genre</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                        </div>
+                        <div class="label">
+                            <label for="poster">Poster</label>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="poster" id="poster" placeholder="Poster" accept=".jpg">
+                        </div>
+                        <button class="close_button">Add</button>
+                    </div>
+                </div>
+
+                <div class="popup deleteSong" id="deleteSong">
+                    <div class="menu">
+                        <h5>Are you sure want to delete this song?</h5>
+                        <button class="close_button">Delete</button>
+                    </div>
+                </div>
+
+
+                
+                <button type="button" data-target="#addAlbum" class="open_button">Add Album</button>
+                <button type="button" data-target="#addSong" class="open_button">Add Song</button>
 
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
@@ -77,7 +187,7 @@ $data1 = $_SESSION['data1'];
                             });
                         });
 
-                        var closeButtons = document.querySelectorAll('.edit_profile .close_button');
+                        var closeButtons = document.querySelectorAll('.addSong .close_button');
                         closeButtons.forEach(function(closeButton) {
                             closeButton.addEventListener('click', function() {
                                 var overlay = document.querySelector('.overlay');
@@ -113,6 +223,8 @@ $data1 = $_SESSION['data1'];
             var li = document.createElement("li");
             li.className = "item_album";
 
+            
+
             var h5 = document.createElement("h5");
             h5.className = "judul";
             var sub = document.createElement("div");
@@ -128,12 +240,27 @@ $data1 = $_SESSION['data1'];
             var iconAdd = document.createElement("i");
             iconAdd.className = "bi bi-pencil-square";
             divAdd.appendChild(iconAdd);
+            iconAdd.addEventListener("click", function() {
+                var popup = document.getElementById("editAlbum");
+                var backgroundOverlay = document.getElementById("overlay");
+                popup.style.display = "block"; // Tampilkan popup
+                backgroundOverlay.style.display = "block";
+            });
 
             var divDelete = document.createElement("div");
             divDelete.className = "delete";
             var iconDelete = document.createElement("i");
             iconDelete.className = "bi bi-trash-fill";
             divDelete.appendChild(iconDelete);
+            divDelete.addEventListener("click", function() {
+    // Mengambil elemen popup
+            var popup_del = document.getElementById("deleteSong");
+            var backgroundOverlay_del = document.getElementById("overlay");
+            
+            // Menampilkan popup
+            popup_del.style.display = "block"; // Tampilkan popup
+            backgroundOverlay_del.style.display = "block";
+            });
 
             var divMore = document.createElement("div");
             divMore.className = "more";

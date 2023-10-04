@@ -20,48 +20,43 @@ $data1 = $_SESSION['data1'];
                 <div class="h4">
                     <h4>Artist</h4>
                 </div>
-                <style>
-                    .overlay {
-                        display: none;
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background-color: rgba(0, 0, 0, 0.5);
-                        z-index: 9999;
-                    }
-                    .popup {
-                        display: none;
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        background-color: #fff;
-                        padding: 20px;
-                        border-radius: 5px;
-                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-                        z-index: 10000;
-                    }
-                </style>
 
                 <div class="overlay"></div>
 
                 <div class="popup edit_profile" id="edit_profile_1">
                     <div class="menu">
                         <div class="profile_pic">
-                            <h2>Edit Profile</h2>
+                            <h2>Add Artist</h2>
                         </div>
                         <hr>
+
                         <div class="label">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username" placeholder="John Doe">
+                            <label for="artist">Artist</label>
                         </div>
-                        <button class="close_button">Close</button>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
+
+                        <div class="label">
+                            <label for="durasi">Country</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="durasi" id="durasi" placeholder="Durasi">
+                        </div>
+
+                        <div class="label">
+                            <label for="genre">Genre</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                        </div>
+
+
+                        <button class="close_button">Add</button>
                     </div>
                 </div>
 
-                <button type="button" data-target="#edit_profile_1" class="open_button">Tambah Album</button>
+                <button type="button" data-target="#edit_profile_1" class="open_button">Add Artist</button>
 
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {

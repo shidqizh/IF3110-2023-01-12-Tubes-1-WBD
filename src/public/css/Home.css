@@ -114,8 +114,6 @@ header .lagu nav .search_bar .results {
     margin-top: 10px;
     margin-left: -10px;
     border-radius: 10px;
-    /* z-index: 9999999; */
-    /* border: 1px solid white; */
 }
 
 header .lagu nav .search_bar .results .card {
