@@ -6,22 +6,232 @@
     font-family: 'Poppins', sans-serif;
 }
 
-header{
+body{
     width: 100%;
     height: 100vh;
     display: flex;
-    background: #141d2c ;
+    background: #0b1222 ;
     flex-wrap: wrap;
 }
-header .lagu{
-    background: #141d2c;
+
+.main .search_bar {
+    position: relative;
+    width: 60%;
+    padding: 1px 10px;
+    border-radius: 20px;
+    background: none;
+    color: gray; 
+    /* border: 1px solid #4c5262; */
+}
+
+.main .search_bar::before {
+    content: '';
+    position: absolute;
     width: 100%;
-    border-radius: 0px 0px 0px 20px;
+    height: 100%;
+    background: none;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+.main .search_bar .bi {
+    font-size: 15px;
+}
+
+.main .search_bar input {
+    width: 90%;
+    border: none;
+    outline: none;
+    /* padding: 5px 10px; */
+    color: white;
+    font-size: 13px;
+    background: none;
+    /* border: 1px solid #4c5262; */
+}
+
+
+.main .search_bar .results{
+    position: absolute;
+    background: #252d3b;
+    width: 100%;
+    height: 170px;
+    margin-top: 10px;
+    margin-left: -10px;
+    border-radius: 10px;
+    overflow: auto;
+    border-color: none;
+}
+
+.main .search_bar .results .card {
+    width: 100%;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main .search_bar .results .a img{
+    width: 50px;
+    height: 50px;
+    margin-left: 2px;
+    border-radius: 5px;
+}
+
+.main .search_bar .results .card .content {
+    width: 80%;
+    height: 100%;
+    font-size: 13;
+    margin-left: 10px;
+}
+
+
+
+
+.search-sort {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-box {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #252d3b;
+    /* border: 2px solid #00918e; */
+    padding: 0;
+    display: flex;
+}
+
+.search-box .bi {
+    margin:auto;
+}
+
+.search-box button {
+    padding-left: 8px;
+}
+
+.sort, .filter {
+    height: 100%;
+    display: flex;
+    margin: 0 10px 0 20px;
+    position: relative;
+}
+
+.dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: none;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #252d3b;
+    color: white;
+    border-radius: 5px;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+    text-overflow: ellipsis;
+}
+
+.sort #custom-dropdown {
+    position: absolute;
+    top: 0;
+    left: 52%;
+    width: 20px;
+    height: 100%;
+    border-radius: 15px;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort image {
+    height: 20px;
+}
+
+.filter {
+    margin-left: 0;
+    margin-right: 10px;
+    height: 100%;
+    display: flex;
+    position: relative;
+
+}
+
+.filter button {
+    position: absolute;
+    top: 23%;
+    left: 68%;
+}
+
+
+.main{
+    background: #141d2c;
+    width: 75%;
+    height: 95%;
+    border-radius: 0px 0px 0px 20px;   
     overflow: hidden;
 }
 
+.main nav {
+    width: 90%;
+    height: 10%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-header .lagu .daftar_album {
+.main nav .active {
+    color: #ffd189;
+}
+
+.main nav ul {
+    display: flex;
+}
+
+.main nav li {
+    color: white;
+    list-style: none;
+    position: relative;
+    font-size: 20px;
+    margin-right: 40px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.main nav li:hover {
+    color: #ffd189;
+}
+
+
+.main nav .user {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.main nav .user:hover{
+    color:#ffd189;
+}
+
+
+.main .daftar_album {
     color: white;
     font-size: 24px;
     align-items: center;
@@ -33,7 +243,7 @@ header .lagu .daftar_album {
 }
 
 
-header .lagu .item_album {
+.main .item_album {
     cursor: pointer;
     margin: 20px 0px 10px 0px;
     width: 100%;
@@ -45,37 +255,37 @@ header .lagu .item_album {
     align-items: center;
 }
 
-header .lagu .item_album:hover {
+.main .item_album:hover {
     background: #0b1222;
     transition: 0.3s;
 }   
 
-header .lagu .item_album img {
+.main .item_album img {
     margin-left: 1%;
     width: 60px;
     height: 60px;
     border-radius: 10px;
 }
 
-header .lagu .item_album h5 {
+.main .item_album h5 {
     width: 40%;
     margin: auto auto auto 20px;
     /* border: 1px solid white; */
 }
 
 @media (max-width: 768px) {
-    header .lagu .item_album .icon{
+    .main .item_album .icon{
         opacity: 0;
     }
     
 }
 
-header .lagu .item_album h5 .sub {
+.main .item_album h5 .sub {
     font-size: 16px;
     color: #4c5262;
 }
 
-header .lagu .item_album .icon {
+.main .item_album .icon {
     /* border: 1px solid white; */
     margin-left: 60%;
     width: 22%;
@@ -83,7 +293,7 @@ header .lagu .item_album .icon {
     align-items: center;
 }
 
-header .lagu .item_album .icon .more, .add, .delete {
+.main .item_album .icon .more, .add, .delete {
     cursor: pointer;
     font-size: 24px;
     border-radius: 20px;
@@ -91,18 +301,29 @@ header .lagu .item_album .icon .more, .add, .delete {
     height: 5%;
 }
 
-header .lagu .item_album .icon .more:hover, .add:hover, .delete:hover {
+.main .item_album .icon .more:hover, .add:hover, .delete:hover {
     color: #ffd189;
     transform: scale(1);
     transition: 0.3s;
 }
 
 
+/* .main .open_button {
+    color:white;
+    font-size: 16px;
+    font-weight: 600;
+    background: #0d6efd;
+    margin-top: 1%;
+    margin-left: 44%;
+    width: 10%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+}
 
-
-
-
-header .lagu .overlay {
+.main .overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -112,12 +333,12 @@ header .lagu .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
 }
-header .lagu .popup {
+.main .popup {
     display: none;
     position: absolute;
     top: 45%;
     left: 50%;
-    width: 37%;
+    width: 27%;
     transform: translate(-50%, -50%);
     background-color: #0b1222;
     padding: 20px;
@@ -126,20 +347,22 @@ header .lagu .popup {
     z-index: 10000;
     overflow: hidden;
     border-radius: 20px;
+    color: white;
 }
 
-header .lagu .popup .label {
+.main .popup .label {
     font-size: 16px;
     display: flex;
     margin-top: 1px;
     margin-bottom: 1px;
+    color: white;
 }
 
-header .lagu .popup label {
+.main .popup label {
     margin-right: 57%;
 }
 
-header .lagu .popup input {
+.main .popup input {
     border-radius:5px ;
     color: white;
     border: none;
@@ -147,37 +370,40 @@ header .lagu .popup input {
     background: #4c5262;
 }
 
-header .lagu .popup input[name="album"] {
+.main .popup input[name="album"] {
     margin-right: 5%;
 }
 
-header .lagu .popup button {
+.main .popup button[id="add_btn"] {
     color:white;
     font-size: 16px;
     font-weight: 600;
     background: #0d6efd;
     margin-top: 5%;
-    margin-left: 30%;
-    width: 91.2px;
+    margin-left: 2%;
+    width: 20%;
     height: 40px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    justify-content: center;
 }
 
-
-header .lagu .daftar_album button{
+.main .popup button[id="close_btn"] {
     color:white;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
-    background: #0d6efd;
-    margin-top: 1%;
-    width: 150px;
+    background: #4c5262;
+    margin-top: 5%;
+    margin-left: 30%;
+    width: 20%;
     height: 40px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    justify-content: center;
 }
 
-
-
+.main .popup .btn {
+    display: flex;
+} */

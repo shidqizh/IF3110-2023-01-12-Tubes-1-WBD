@@ -47,6 +47,7 @@ header .lagu nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 2px solid #4c5262;
 }
 
 header .lagu nav .active {
@@ -69,62 +70,6 @@ header .lagu nav li {
 
 header .lagu nav li:hover {
     color: #ffd189;
-}
-
-header .lagu nav .search_bar {
-    position: relative;
-    width: 40%;
-    padding: 1px 10px;
-    border-radius: 20px;
-    background: rgb(184, 184, 184, .1);
-    /* border: 1px solid wheat; */
-    color: gray; 
-}
-
-header .lagu nav .search_bar::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgb(184, 184, 184, .1);
-    border-radius: 20px;
-    backdrop-filter: blur(5px);
-    z-index: -1;
-}
-
-header .lagu nav .search_bar .bi {
-    font-size: 15px;
-}
-
-header .lagu nav .search_bar input {
-    width: 90%;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 5px 10px;
-    color: white;
-    font-size: 13px;
-}
-
-header .lagu nav .search_bar .results {
-    position: absolute;
-    background: #252d3b;
-    width: 100%;
-    height: 200px;
-    margin-top: 10px;
-    margin-left: -10px;
-    border-radius: 10px;
-}
-
-header .lagu nav .search_bar .results .card {
-    width: 100%;
-    min-height: 45px;
-    border: 1px solid white;
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    text-decoration: none;
-    border-radius: 10px;
 }
 
 header .lagu nav .user {
@@ -245,29 +190,6 @@ header .lagu nav .menu hr {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-.modal-content {
-    background-color: #0b1222; /* Ganti "your-color" dengan warna yang Anda inginkan */
-    border-radius: 20px;
-}
-
-.modal-title{
-    color: white;
-    border: 1px solid white;
-    width: 27%;
-    margin-left: 36.5%;
-}
 
 header .menu h1 {
     width: 90%;

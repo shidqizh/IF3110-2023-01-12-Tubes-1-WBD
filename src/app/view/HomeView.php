@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity=""> -->
     <link rel ="stylesheet" type="text/css" href="../../public/css/Home.css">
+    <link rel ="stylesheet" type="text/css" href="../../public/css/Search_bar.css">
     <title>Home Page</title>
 </head>
 <body>
@@ -29,7 +29,7 @@
                 <div class="dariplaylist" id="dariplaylist_id">
                     <li class="daftar_lagu">
                         
-                        <img src="../img/december.jpg" alt="">
+                        <img src = "../apartofme.jpg" alt="">
                         <h5>December <br>
                             <div class="sub">Neck Deep</div>
                         </h5>
@@ -93,15 +93,50 @@
                     <li class="" id="artist">Artist</li>
                 </ul>
                 <div class="search_bar">
-                    <i class="bi bi-search"></i>
-                    <input type="text" placeholder="Search...">
-                    <!-- <div class="results">
-                        <a href="#" class="card"></a>
-                        <a href="#" class="card"></a>
-                        <a href="#" class="card"></a>
-                        <a href="#" class="card"></a>
-                        
-                    </div> -->
+                    <form action="" method="get">
+                    <div class="search-sort">
+                        <div class="search-box">
+                            <i class="bi bi-search"></i>
+                            <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
+                            <input type="text" name = "song_title" placeholder="Search...">
+                        </div>
+                        <div class="sort">
+                            <select name="sort-song" id="sort-song" class= "dropdown">
+                                <option selected>Sort by</option>
+                                <option value="titla">Song Tite</option>
+                                <option value="artist">Artist Name</option>
+                            </select>
+                            <button type="button" id="custom-dropdown">
+                                <img src="../../../public/img/dropdown_button.svg" alt="">
+                            </button>
+                            <button type="submit">
+                                <img src="../../../public/img/sort.svg" alt="">
+                            </button>
+                        </div>
+                        <div class = "filter">
+                            <select name="filter-genre" id="filter-genre" class= "dropdown">
+                                <option selected>Genre</option>
+                                <option value="Pop">Pop</option>
+                                <option value="RnB">RnB</option>
+                                <option value="Dangdut">Dangdut</option>
+                                <option value="Country">Country</option>
+                            </select>
+                            <button type="button" id="custom-dropdown">
+                                <img src="../../../public/img/dropdown_button.svg" alt="">
+                            </button>
+                        </div>
+                        <div class = "filter">
+                            <select name="filter-artist" id="filter-artist" class= "dropdown">
+                                <option selected>Artist</option>
+                                <option value="Taylor Swift">Taylor Swift</option>
+                                <option value="Adam Levine">Adam Levine</option>
+                            </select>
+                            <button type="button" id="custom-dropdown">
+                                <img src="../../../public/img/dropdown_button.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </form>
                 </div>
                 <div class="user">
                     <i class="bi bi-person" onclick="toggleMenu()"></i>
@@ -144,57 +179,6 @@
             <iframe  class="inactive" src="../../app/view/Album.php" frameborder="0" id="albumFrame" style="height:100%; width:100%"></iframe>
             <iframe  class="active" src="../../app/view/Discover.php" frameborder="0" id="discoverFrame" style="height:100%; width:100%"></iframe>
             <iframe  class="inactive" src="../../app/view/Artist.php" frameborder="0" id="artistFrame" style="height:100%; width:100%"></iframe>
-
-
-            <!-- Button trigger modal -->
-            <!-- <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Profile</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" id="editModal_btn" onclick="openModalEdit()">Edit Profile</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Profile</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Edit Profile</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="modal fade" id="logoutModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      Show a second modal and hide this one with the button below.
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">Logout</button>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              
               
         </div>
 

@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #0b1222 ;
+    flex-wrap: wrap;
+}
+
+.side{
+    width: 25%;
+    height: 88%;
+    background: #0b1222 ;
+    /* border: 1px solid white; */
+}
+
+.side h1 {
+    width: 90%;
+    height: 15%;
+    color: white;
+    font-size: 2.5vw;
+    margin: 0px 5% 0px 5%;
+    font-weight: 400;
+    padding: 20px 5% 20px 5%;
+}
+
+.side .menu{
+    border-radius: 0px 0px 20px 20px;
+    width: 90%;
+    height: 85%;
+    margin: 0px 5% 20px 5%;
+    padding: 20px 0px 10px 20px;
+}
+
+
+.side .menu a {
+    color: #4c5262;
+    font-size: 1.5vw;
+    font-weight: 400;
+    padding-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: .3s linear;
+}
+
+.side .menu a:hover {
+    color: white;
+}
+
+.side .menu a span {
+    position: relative;
+    margin-right: 35px;
+}
+
+.side .menu a span::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid #4c5262;
+    border-radius: 50%;
+    top: -4px;
+    transition: .3s linear;
+}
+
+.side .menu a:hover span::before{
+   border: 2px solid white;
+}
+
+.side .menu a .bi{
+    display: none;
+ }
+
+
+.side .menu .active{
+    color: #ffd189;
+}
+
+.side .menu .active span {
+    display: none;
+}
+
+.side .menu .active .bi {
+    display: flex;
+    margin-right: 20px;
+}

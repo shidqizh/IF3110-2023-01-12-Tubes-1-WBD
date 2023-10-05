@@ -1,8 +1,3 @@
-<?php
-session_start();
-$data1 = $_SESSION['data1'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +9,62 @@ $data1 = $_SESSION['data1'];
     <title>Discover</title>
 </head>
 <body>
-    <header>
-        <div class="lagu">
-            <div class="for_you">
+    <div class="side">
+        <?php require_once 'Side.php' ?>
+    </div>
+    <div class="main">
+        <nav>
+            <div class="search_bar">
+                <form action="" method="get">
+                <div class="search-sort">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
+                        <input type="text" name = "song_title" placeholder="Search...">
+                    </div>
+                    <div class="sort">
+                        <select name="sort-song" id="sort-song" class= "dropdown">
+                            <option selected>Sort by</option>
+                            <option value="titla">Song Tite</option>
+                            <option value="artist">Artist Name</option>
+                        </select>
+                        <button type="button" id="custom-dropdown">
+                            <img src="../../../public/img/dropdown_button.svg" alt="">
+                        </button>
+                        <button type="submit">
+                            <img src="../../../public/img/sort.svg" alt="">
+                        </button>
+                    </div>
+                    <div class = "filter">
+                        <select name="filter-genre" id="filter-genre" class= "dropdown">
+                            <option selected>Genre</option>
+                            <option value="Pop">Pop</option>
+                            <option value="RnB">RnB</option>
+                            <option value="Dangdut">Dangdut</option>
+                            <option value="Country">Country</option>
+                        </select>
+                        <button type="button" id="custom-dropdown">
+                            <img src="../../../public/img/dropdown_button.svg" alt="">
+                        </button>
+                    </div>
+                    <div class = "filter">
+                        <select name="filter-artist" id="filter-artist" class= "dropdown">
+                            <option selected>Artist</option>
+                            <option value="Taylor Swift">Taylor Swift</option>
+                            <option value="Adam Levine">Adam Levine</option>
+                        </select>
+                        <button type="button" id="custom-dropdown">
+                            <img src="../../../public/img/dropdown_button.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="user">
+                <i class="bi bi-person" onclick="toggleMenu()"></i>
+            </div>
+        </nav>
+        <div class="for_you">
                 <div class="h4">
                     <h4>For You</h4>
                     <div class="buttons">
@@ -25,45 +73,75 @@ $data1 = $_SESSION['data1'];
                     </div>
                 </div>
                 <div class="lagu_for_you">
-                    
-                    
-                    
+                        <li class="items">
+                            <div class="img_for_you">
+                                <img src="../../public/images/1.jpg" alt="">
+                            </div>
+                            <h5>December
+                                <div class="sub">Neck Deep</div>
+                            </h5>
+                        </li>
                 </div>
-        </div>
-    </header>
-    <script>
-    var data1 = <?php echo json_encode($_SESSION['data1']); ?>;
-    console.log(data1);
-    if (data1) {
-        var lfy = document.querySelector('.lagu_for_you');
+        </div>      
+        <button type="button" data-target="#addSong" class="open_button">Add Song</button>
 
-        const myObj = JSON.parse(data1);
+        <div class="overlay" id="overlay"></div>
 
-        var songList = myObj.songList;
+            <div class="popup addSong" id="addSong">
+                <div class="menu">
+                    <div class="profile_pic">
+                        <h2>Add Song</h2>
+                    </div>
+                    <hr>
 
-        songList.forEach(function(song) {
-            var li = document.createElement("li");
-            li.className = "items";
+                    <form action="#" method="">
+                        <div class="label">
+                            <label for="album">Album</label>
+                            <label for="tanggal">Tanggal</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="album" id="album" placeholder="Album">
+                            <input type="date" name="tanggal" id="tanggal" placeholder="Tanggal">
+                        </div>
 
-            var divImg = document.createElement("div");
-            divImg.className = "img_for_you";
-            var img = document.createElement("img");
-            img.src = "../../public/images/test1.jpg";
+                        <div class="label">
+                            <label for="artist">Artist</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
 
-            var h5 = document.createElement("h5");
-            h5.className = "judul";
-            var sub = document.createElement("div");
-            sub.className = "sub";
-            sub.textContent = song['nama_lagu'] + " - " + song['artist'];
-            h5.appendChild(sub);
-            
-            li.appendChild(divImg);
-            li.appendChild(h5);
+                        <div class="label">
+                            <label for="durasi">Durasi</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="durasi" id="durasi" placeholder="Durasi">
+                        </div>
 
-            lfy.appendChild(li);
-        });
-    }
-</script>
-
+                        <div class="label">
+                            <label for="genre">Genre</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                        </div>
+                        <div class="label">
+                            <label for="poster">Song</label>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="poster" id="poster" placeholder="Poster" accept=".mp3">
+                        </div>
+                        <div class="btn">
+                            <button class="close_button" id="close_btn">Close</button>
+                            <button class="close_button" id="add_btn">Add</button>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+    </div>
+    
+    <div class="play">
+    
+    </div>
+    <script src="../../public/javascript/openPopUp.js"></script>
 </body>
 </html>
