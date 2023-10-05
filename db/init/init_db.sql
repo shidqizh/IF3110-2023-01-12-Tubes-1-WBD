@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2023 at 09:54 AM
+-- Generation Time: Oct 04, 2023 at 04:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,10 +46,31 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`id_album`, `nama_album`, `artist`, `durasi_album`, `image_path`, `tanggal_terbit`, `genre`) VALUES
-(1, 'Oneiric Diary', 'IZ*ONE', 22, '', '2023-08-08', 'K-Pop'),
-(2, 'type III', 'paris match', 30, '', '2023-07-20', 'Shibuya-kei'),
-(3, 'type IV', 'paris match', 31, '', '2023-07-22', 'Shibuya-kei'),
-(4, 'type adwaw', 'paris dd', 34, '', '2023-07-19', 'Shibuya-kei');
+(1, 'Oneiric Diary', 'IZ*ONE', 0, '', '2023-10-02', 'K-Pop'),
+(2, 'type III', 'paris match', 29, '', '2023-10-02', 'Shibuya-kei'),
+(3, 'Quattro', 'paris match', 23, '', '2023-10-02', 'Shibuya-kei'),
+(4, 'Vibrant Colors', 'Murphy Radio', 15, '', '2023-10-02', 'Math rock');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artist`
+--
+
+CREATE TABLE `artist` (
+  `artist` varchar(128) NOT NULL,
+  `country` varchar(128) NOT NULL,
+  `tipe` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `artist`
+--
+
+INSERT INTO `artist` (`artist`, `country`, `tipe`) VALUES
+('IZ*ONE', 'Korea', 'Group'),
+('Murphy Radio', 'Indonesia', 'Group'),
+('paris match', 'Japan', 'Group');
 
 -- --------------------------------------------------------
 
@@ -60,12 +81,11 @@ INSERT INTO `album` (`id_album`, `nama_album`, `artist`, `durasi_album`, `image_
 CREATE TABLE `song` (
   `id_song` int(11) NOT NULL,
   `nama_lagu` varchar(64) NOT NULL,
-  `artist` varchar(128) DEFAULT NULL,
+  `artist` varchar(128) NOT NULL,
   `tanggal_terbit` date NOT NULL,
   `genre` varchar(64) DEFAULT NULL,
   `durasi_lagu` int(11) NOT NULL,
   `audio_path` varchar(256) NOT NULL,
-  `image_path` varchar(256) DEFAULT NULL,
   `id_album` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -73,10 +93,12 @@ CREATE TABLE `song` (
 -- Dumping data for table `song`
 --
 
-INSERT INTO `song` (`id_song`, `nama_lagu`, `artist`, `tanggal_terbit`, `genre`, `durasi_lagu`, `audio_path`, `image_path`, `id_album`) VALUES
-(1, 'merry-go-round', 'IZ*ONE', '2023-09-04', 'K-Pop', 3, '', NULL, 1),
-(2, 'rococo', 'IZ*ONE', '2023-09-04', 'K-Pop', 3, '', NULL, 1),
-(3, 'cerulean blue', 'paris match', '2023-08-07', 'Shibuya-kei', 4, '', NULL, 2);
+INSERT INTO `song` (`id_song`, `nama_lagu`, `artist`, `tanggal_terbit`, `genre`, `durasi_lagu`, `audio_path`, `id_album`) VALUES
+(1, 'Autumn', 'Murphy Radio', '2023-10-02', 'Math rock', 4, '', 4),
+(2, 'Sandy', 'Murphy Radio', '2023-10-02', 'Math rock', 3, '', 4),
+(3, 'Merry-go-round', 'IZ*ONE', '2023-10-02', 'K-Pop', 4, '', 1),
+(4, 'cerulean blue', 'paris match', '2023-10-02', 'Shibuya-kei', 4, '', 2),
+(5, 'ANGEL', 'paris match', '2023-10-01', 'Jazz', 3, '', 3);
 
 -- --------------------------------------------------------
 
@@ -109,14 +131,22 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `is_admin`) VALU
 -- Indexes for table `album`
 --
 ALTER TABLE `album`
-  ADD PRIMARY KEY (`id_album`);
+  ADD PRIMARY KEY (`id_album`),
+  ADD KEY `artist` (`artist`);
+
+--
+-- Indexes for table `artist`
+--
+ALTER TABLE `artist`
+  ADD PRIMARY KEY (`artist`);
 
 --
 -- Indexes for table `song`
 --
 ALTER TABLE `song`
   ADD PRIMARY KEY (`id_song`),
-  ADD KEY `id_album` (`id_album`);
+  ADD KEY `id_album` (`id_album`),
+  ADD KEY `artist` (`artist`);
 
 --
 -- Indexes for table `user`
@@ -134,13 +164,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `album`
 --
 ALTER TABLE `album`
-  MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `song`
 --
 ALTER TABLE `song`
-  MODIFY `id_song` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_song` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -153,10 +183,17 @@ ALTER TABLE `user`
 --
 
 --
+-- Constraints for table `album`
+--
+ALTER TABLE `album`
+  ADD CONSTRAINT `album_ibfk_1` FOREIGN KEY (`artist`) REFERENCES `artist` (`artist`);
+
+--
 -- Constraints for table `song`
 --
 ALTER TABLE `song`
-  ADD CONSTRAINT `song_ibfk_1` FOREIGN KEY (`id_album`) REFERENCES `album` (`id_album`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `song_ibfk_1` FOREIGN KEY (`id_album`) REFERENCES `album` (`id_album`),
+  ADD CONSTRAINT `song_ibfk_2` FOREIGN KEY (`artist`) REFERENCES `artist` (`artist`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

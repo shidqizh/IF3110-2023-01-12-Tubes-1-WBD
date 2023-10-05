@@ -13,13 +13,13 @@
         <h1>SoundVibes</h1>
         <div class="menu">
             <div class="Songs">
-                <a class="active" href="../../app/view/Discover.php" id="song"><span></span><i class="bi bi-music-note-list"></i>Songs</a>
+                <a class="active" href="<? BASEURL ?>/public/home/index" id="song"><span></span><i class="bi bi-music-note-list"></i>Songs</a>
             </div>
             <div class="Album">
-                <a class="" href="../../app/view/Album.php" id="album"><span></span><i class="bi bi-music-note-list"></i></i>Album</a>
+                <a class="" href="<? BASEURL ?>/public/album/index" id="album"><span></span><i class="bi bi-music-note-list"></i></i>Album</a>
             </div>
             <div class="Artist">
-                <a class="" href="../../app/view/Artist.php" id="artist"><span></span><i class="bi bi-music-note-list"></i></i>Artist</a>
+                <a class="" href="<? BASEURL ?>/public/artist/index" id="artist"><span></span><i class="bi bi-music-note-list"></i></i>Artist</a>
             </div>
         </div>
     </div>    

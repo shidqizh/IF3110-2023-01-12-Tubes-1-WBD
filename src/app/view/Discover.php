@@ -94,14 +94,14 @@
                     </div>
                     <hr>
 
-                    <form action="#" method="">
+                    <form action="<? BASEURL ?>/public/home/add_song" method="post">
                         <div class="label">
-                            <label for="album">Album</label>
-                            <label for="tanggal">Tanggal</label>
+                            <label for="nama_lagu">Judul lagu</label>
+                            
                         </div>
                         <div class="input">
-                            <input type="text" name="album" id="album" placeholder="Album">
-                            <input type="date" name="tanggal" id="tanggal" placeholder="Tanggal">
+                            <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Judul lagu">
+                            
                         </div>
 
                         <div class="label">
@@ -112,10 +112,10 @@
                         </div>
 
                         <div class="label">
-                            <label for="durasi">Durasi</label>
+                            <label for="tanggal_terbit">Tanggal</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="durasi" id="durasi" placeholder="Durasi">
+                            <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Tanggal_terbit">
                         </div>
 
                         <div class="label">
@@ -124,12 +124,21 @@
                         <div class="input">
                             <input type="text" name="genre" id="genre" placeholder="Genre">
                         </div>
+
                         <div class="label">
-                            <label for="poster">Song</label>
+                            <label for="durasi_lagu">Durasi</label>
                         </div>
                         <div class="input">
-                            <input type="file" name="poster" id="poster" placeholder="Poster" accept=".mp3">
+                            <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Durasi">
                         </div>
+                        
+                        <div class="label">
+                            <label for="audio_path">Song</label>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="audio_path" id="audio_path" placeholder="audio_path" accept=".mp3">
+                        </div>
+
                         <div class="btn">
                             <button class="close_button" id="close_btn">Close</button>
                             <button class="close_button" id="add_btn">Add</button>

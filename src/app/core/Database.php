@@ -38,7 +38,7 @@ class Database{
         }
     }
 
-    public function bind($param, $val, $type){
+    public function bind($param, $val, $type=null){
         try{
             if(is_null($type)){
                 switch(true){

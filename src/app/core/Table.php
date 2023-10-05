@@ -25,14 +25,24 @@ class Table
     public const SONG_TABLE =
     "CREATE TABLE IF NOT EXISTS song (
         id_song             INT             AUTO_INCREMENT      PRIMARY KEY,
-        nama_album               VARCHAR(64)     NOT NULL,
-        artist            VARCHAR(128),
+        nama_lagu               VARCHAR(64)     NOT NULL,
+        artist            VARCHAR(128) NOT NULL,
         tanggal_terbit      DATE            NOT NULL,
         genre               VARCHAR(64),
         durasi_lagu            INT             NOT NULL,
         audio_path          VARCHAR(256)    NOT NULL,
-        image_path          VARCHAR(256),
-        album_id            INT,
-        FOREIGN KEY (album_id) REFERENCES album (album_id) ON UPDATE CASCADE ON DELETE SET NULL 
+        id_album            INT,
+        FOREIGN KEY (id_album) REFERENCES album (id_album)
     );";
+
+    public const ARTIST_TABLE =
+    "CREATE TABLE IF NOT EXISTS artist (
+        artist VARCHAR(128) NOT NULL PRIMARY KEY,
+        country VARCHAR(128) NOT NULL,
+        tipe VARCHAR(128) NOT NULL
+    );
+
+    ALTER TABLE album ADD FOREIGN KEY (artist) REFERENCES artist (artist);
+    ALTER TABLE song ADD FOREIGN KEY (artist) REFERENCES artist (artist);";
+
 }
