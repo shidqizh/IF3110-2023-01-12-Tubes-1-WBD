@@ -20,7 +20,7 @@
                     <div class="search-box">
                         <i class="bi bi-search"></i>
                         <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
-                        <input type="text" name = "song_title" placeholder="Search...">
+                        <input id="searchInput" type="text" name = "song_title" placeholder="Search...">
                     </div>
                     <div class="sort">
                         <select name="sort-song" id="sort-song" class= "dropdown">
@@ -61,7 +61,7 @@
             </form>
             </div>
             <div class="user">
-                <i class="bi bi-person" onclick="profileMenu()"></i>
+                <i class="bi bi-person"></i>
             </div>
         </nav>
         <div class="for_you">
@@ -72,7 +72,7 @@
                         <i class="bi"></i>
                     </div>
                 </div>
-                <div class="lagu_for_you">
+                <div class="lagu_for_you" id="songList">
                     <?php
                     $itemsPerPage = 2;
                     $start = ($data["page"] - 1) * $itemsPerPage;
@@ -82,22 +82,32 @@
                     for ($i = $start; $i < $end && $i < count($data['songList']); $i++) {
                         $song = $data['songList'][$i];
                     ?>
-                    <a class="items" href="<?php echo BASEURL ?>/public/song/index">
+                    <a class="items" href="<? BASEURL ?>/public/song/index">
                         <div class="img_for_you">
                             <img src="../../public/images/1.jpg" alt="">
                         </div>
                         <h5>
+                            <div class="judul">
                             <?php echo $song['nama_lagu'] ?>
+                            </div>
                             <div class="sub">
                                 <?php echo $song['artist'] ?>
                             </div>
                         </h5>
+                        <div class="icon">
+                            <div class="add">
+                                <i class="bi bi-pencil-square" onclick="edit(event)"></i>
+                            </div>
+                                <div class="delete">
+                                <i class="bi bi-trash-fill" onclick="delete_song(event)"></i>
+                            </div>
+                        </div>
                     </a>
                     <?php } ?>
                 </div>
 
-                
-                <div class="pagination">
+        </div>      
+        <div class="pagination">
                     <?php
                     $totalItems = count($data['songList']);
                     $totalPages = ceil($totalItems / $itemsPerPage);
@@ -110,71 +120,145 @@
                     </a>
                     <?php } ?>
                 </div>
-
-        </div>      
         <button type="button" data-target="#addSong" class="open_button">Add Song</button>
 
         <div class="overlay" id="overlay"></div>
 
-            <div class="popup addSong" id="addSong">
-                <div class="menu">
-                    <div class="profile_pic">
-                        <h2>Add Song</h2>
-                    </div>
-                    <hr>
-
-                    <form action="<? BASEURL ?>/public/home/add_song" method="post">
-                        <div class="label">
-                            <label for="nama_lagu">Judul lagu</label>
-                            
-                        </div>
-                        <div class="input">
-                            <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Judul lagu">
-                            
-                        </div>
-
-                        <div class="label">
-                            <label for="artist">Artist</label>
-                        </div>
-                        <div class="input">
-                            <input type="text" name="artist" id="artist" placeholder="Artist">
-                        </div>
-
-                        <div class="label">
-                            <label for="tanggal_terbit">Tanggal</label>
-                        </div>
-                        <div class="input">
-                            <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Tanggal_terbit">
-                        </div>
-
-                        <div class="label">
-                            <label for="genre">Genre</label>
-                        </div>
-                        <div class="input">
-                            <input type="text" name="genre" id="genre" placeholder="Genre">
-                        </div>
-
-                        <div class="label">
-                            <label for="durasi_lagu">Durasi</label>
-                        </div>
-                        <div class="input">
-                            <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Durasi">
-                        </div>
-                        
-                        <div class="label">
-                            <label for="audio_path">Song</label>
-                        </div>
-                        <div class="input">
-                            <input type="file" name="audio_path" id="audio_path" placeholder="audio_path" accept=".mp3">
-                        </div>
-
-                        <div class="btn">
-                            <button class="close_button" id="close_btn">Close</button>
-                            <button class="close_button" id="add_btn">Add</button>
-                        </div>
-                    </form> 
+        <div class="popup addSong" id="addSong">
+            <div class="menu">
+                <div class="profile_pic">
+                    <h2>Add Song</h2>
                 </div>
+                <hr>
+
+                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <div class="label">
+                        <label for="nama_lagu">Title</label>
+                        
+                    </div>
+                    <div class="input">
+                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Title">
+                        
+                    </div>
+
+                    <div class="label">
+                        <label for="artist">Artist</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="artist" id="artist" placeholder="Artist">
+                    </div>
+
+                    <div class="label">
+                        <label for="tanggal_terbit">Date</label>
+                    </div>
+                    <div class="input">
+                        <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                    </div>
+
+                    <div class="label">
+                        <label for="genre">Genre</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="genre" id="genre" placeholder="Genre">
+                    </div>
+
+                    <div class="label">
+                        <label for="durasi_lagu">Duration</label>
+                    </div>
+                    <div class="input">
+                        <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
+                    </div>
+                    
+                    <div class="label">
+                        <label for="audio_path">Song</label>
+                    </div>
+                    <div class="input">
+                        <input type="file" name="audio_path" id="audio_path" placeholder="audio_path" accept=".mp3">
+                    </div>
+
+                    <div class="btn">
+                        <button class="close_button" id="add_btn">Add</button>
+                    </div>
+                </form> 
+                <button class="close_button" id="close_btn">Close</button>
             </div>
+        </div>
+
+        <div class="popup editSong" id="editSong">
+            <div class="menu">
+                <div class="profile_pic">
+                    <h2>Edit Song</h2>
+                </div>
+                <hr>
+
+                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <div class="label">
+                        <label for="nama_lagu">Title</label>
+                        
+                    </div>
+                    <div class="input">
+                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Title">
+                        
+                    </div>
+
+                    <div class="label">
+                        <label for="artist">Artist</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="artist" id="artist" placeholder="Artist">
+                    </div>
+
+                    <div class="label">
+                        <label for="tanggal_terbit">Date</label>
+                    </div>
+                    <div class="input">
+                        <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                    </div>
+
+                    <div class="label">
+                        <label for="genre">Genre</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="genre" id="genre" placeholder="Genre">
+                    </div>
+
+                    <div class="label">
+                        <label for="durasi_lagu">Duration</label>
+                    </div>
+                    <div class="input">
+                        <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
+                    </div>
+                    
+                    <div class="label">
+                        <label for="audio_path">Song</label>
+                    </div>
+                    <div class="input">
+                        <input type="file" name="audio_path" id="audio_path" placeholder="audio_path" accept=".mp3">
+                    </div>
+
+                    <div class="btn">
+                        <button class="close_button" id="add_btn">Edit</button>
+                    </div>
+                </form> 
+                <button class="close_button" id="close_btn">Close</button>
+            </div>
+        </div>
+
+        <div class="popup deleteSong" id="deleteSong">
+            <div class="menu">
+                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <div class="label">
+                        <label for="nama_lagu">Are you sure?</label>
+                        
+                    </div>
+                
+                    <div class="btn">
+                        <button class="close_button" id="add_btn">Delete</button>
+                    </div>
+                </form> 
+                <button class="close_button" id="close_btn">Close</button>
+            </div>
+        </div>
     </div>
     
     <div class="play">
@@ -182,5 +266,7 @@
     </div>
     <script src="../../public/javascript/functional.js"></script>
     <script src="../../public/javascript/openPopUp.js"></script>
+    <script src="../../public/javascript/search.js"></script>
+</script>
 </body>
 </html>

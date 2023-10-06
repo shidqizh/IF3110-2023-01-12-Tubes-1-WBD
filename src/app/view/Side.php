@@ -13,13 +13,13 @@
         <h1>SoundVibes</h1>
         <div class="menu">
             <div class="Songs">
-                <a class="active" href="<? BASEURL ?>/public/home/index" id="song"><span></span><i class="bi bi-music-note-list"></i>Songs</a>
+                <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/home/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/home/index" id="song"><span></span><i class="bi bi-music-note-list"></i>Songs</a>
             </div>
             <div class="Album">
-                <a class="" href="<? BASEURL ?>/public/album/index" id="album"><span></span><i class="bi bi-music-note-list"></i></i>Album</a>
+                <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/album/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/album/index" id="album"><span></span><i class="bi bi-music-note-list"></i>Album</a>
             </div>
             <div class="Artist">
-                <a class="" href="<? BASEURL ?>/public/artist/index" id="artist"><span></span><i class="bi bi-music-note-list"></i></i>Artist</a>
+                <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/artist/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/artist/index" id="artist"><span></span><i class="bi bi-music-note-list"></i>Artist</a>
             </div>
         </div>
         <div class="logout">
@@ -41,7 +41,7 @@
         </div>
     </div>   
     
-    <script src="../../public/css/logout.js"></script>
-
+    <script src="../../public/javascript/logout.js"></script>
+    <script src="../../public/javascript/functional.js"></script>
 </body>
 </html>

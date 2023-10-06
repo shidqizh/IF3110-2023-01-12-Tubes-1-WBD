@@ -16,52 +16,6 @@
                 <a href="<? BASEURL ?>/public/album/index" class="" id="album" >Album</a>
                 <a href="<? BASEURL ?>/public/artist/index" class="" id="artist">Artist</a>
             </ul>
-            <div class="search_bar">
-                <form action="" method="get">
-                <div class="search-sort">
-                    <div class="search-box">
-                        <i class="bi bi-search"></i>
-                        <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
-                        <input type="text" name = "song_title" placeholder="Search...">
-                    </div>
-                    <div class="sort">
-                        <select name="sort-song" id="sort-song" class= "dropdown">
-                            <option selected>Sort by</option>
-                            <option value="titla">Song Tite</option>
-                            <option value="artist">Artist Name</option>
-                        </select>
-                        <button type="button" id="custom-dropdown">
-                            <img src="../../../public/img/dropdown_button.svg" alt="">
-                        </button>
-                        <button type="submit">
-                            <img src="../../../public/img/sort.svg" alt="">
-                        </button>
-                    </div>
-                    <div class = "filter">
-                        <select name="filter-genre" id="filter-genre" class= "dropdown">
-                            <option selected>Genre</option>
-                            <option value="Pop">Pop</option>
-                            <option value="RnB">RnB</option>
-                            <option value="Dangdut">Dangdut</option>
-                            <option value="Country">Country</option>
-                        </select>
-                        <button type="button" id="custom-dropdown">
-                            <img src="../../../public/img/dropdown_button.svg" alt="">
-                        </button>
-                    </div>
-                    <div class = "filter">
-                        <select name="filter-artist" id="filter-artist" class= "dropdown">
-                            <option selected>Artist</option>
-                            <option value="Taylor Swift">Taylor Swift</option>
-                            <option value="Adam Levine">Adam Levine</option>
-                        </select>
-                        <button type="button" id="custom-dropdown">
-                            <img src="../../../public/img/dropdown_button.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-            </form>
-            </div>
             <div class="user">
                 <i class="bi bi-person" onclick="toggleMenu()"></i>
             </div>
@@ -96,7 +50,9 @@
                 <img src="../../public/images/1.jpg" alt="" id="poster">
                 <label for="" class="label">
                     <?php echo $data['songList'][0]['nama_lagu'] ?>
-                    <div class="sub">Neck Deep</div>
+                    <div class="sub">
+                        <?php echo $data['songList'][0]['artist'] ?>
+                    </div>
                 </label>
             </div>
             <!-- <div class="poster" id="sesudah">
@@ -110,8 +66,10 @@
     <div class="play">
         <img src="../../public/images/1.jpg" alt="" id="poster_play">
         <h5 class="judul">
-            December
-            <div class="sub">Neck Deep</div>
+            <?php echo $data['songList'][0]['nama_lagu'] ?>
+            <div class="sub">
+                <?php echo $data['songList'][0]['artist'] ?>
+            </div>
         </h5>
         <div class="pemutar">
             <div class="icon">

@@ -1,26 +1,25 @@
-function profileMenu() {
-    const addSongElement = document.getElementById('addSong');
-    const overlayElement = document.getElementById('overlay');
-    
-    if (addSongElement.style.display === 'none' || addSongElement.style.display === '') {
-      addSongElement.style.display = 'block';
-      overlayElement.style.display = 'block';
-    } else {
-      addSongElement.style.display = 'none';
-      overlayElement.style.display = 'none';
-    }
-  }
+const song = document.getElementById('song');
+const album = document.getElementById('album');
+const artist= document.getElementById('artist');
 
-  var closeButtons = document.querySelectorAll('.addSong .close_button');
-  closeButtons.forEach(function(closeButton) {
-      closeButton.addEventListener('click', function() {
-          var overlay = document.querySelector('.overlay');
-          var popup = closeButton.closest('.popup');
 
-          overlay.style.display = 'none';
-          popup.style.display = 'none';
-      });
-  });
+song.addEventListener('click', function(){
+    song.classList.add('active');
+    album.classList.remove('active');
+    artist.classList.remove('active');
+});
+
+album.addEventListener('click', function(){
+    album.classList.add('active');
+    song.classList.remove('active');
+    artist.classList.remove('active');
+});
+
+artist.addEventListener('click', function(){
+    artist.classList.add('active');
+    album.classList.remove('active');
+    song.classList.remove('active');
+});
 
 // let subNav = document.getElementById('subNav');
 // let editProf = document.getElementById('edit_profile_1');

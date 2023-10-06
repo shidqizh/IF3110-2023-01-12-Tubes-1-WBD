@@ -21,7 +21,7 @@
                     <div class="search-box">
                         <i class="bi bi-search"></i>
                         <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
-                        <input type="text" name = "song_title" placeholder="Search...">
+                        <input id="searchInput" type="text" name = "song_title" placeholder="Search...">
                     </div>
                     <div class="sort">
                         <select name="sort-song" id="sort-song" class= "dropdown">
@@ -66,12 +66,13 @@
             </div>
         </nav>
         <div class="daftar_artist">
-            <h4>Daftar Album</h4>
-            <div class="item_artist_wrap">
-                <li class="item_artist">
-                    <img src="../img/december.jpg" alt="" id="">
+            <h4>Daftar Artist</h4>
+            <div class="item_artist_wrap" id="songList">
+                <?php foreach ($data['artistList'] as $artist) : ?>
+                <a class="item_artist" href="<? BASEURL ?>/public/song/index">
+                    <img src="../../public/images/1.jpg" alt="" id="">
                     <h5 class="judul">
-                        Neck Deep
+                    <?= $artist['artist'] ?>
                     </h5>
                     <div class="icon">
                         <div class="add">
@@ -84,13 +85,46 @@
                             <i class="bi bi-three-dots"></i>
                         </div>
                     </div>
-                </li>
+                </a>
+                <?php endforeach; ?>
             </div>
         </div>     
     </div>
     <div class="play">
     
     </div>
+    <script src="../../public/javascript/functional.js"></script>
+    <script>
+            const searchInput = document.getElementById('searchInput');
+    const songList = document.getElementById('songList');
+
+    // Fungsi untuk memfilter daftar lagu berdasarkan input pencarian
+    function filterSongs(searchTerm) {
+        // Mengubah daftar lagu menjadi array
+        const songs = Array.from(songList.getElementsByClassName('item_artist'));
+
+        // Iterasi melalui setiap lagu dan menyembunyikan/menampilkan sesuai pencarian
+        songs.forEach(song => {
+            const songTitle = song.querySelector('.judul').textContent.toLowerCase();
+
+            if (songTitle.includes(searchTerm.toLowerCase())) {
+                song.style.display = 'block';
+            } else {
+                song.style.display = 'none';
+            }
+        });
+    }
+
+    // Tambahkan penangan acara untuk saat formulir pencarian diserahkan
+    searchInput.addEventListener('input', function (event) {
+        event.preventDefault(); // Mencegah pengiriman formulir
+
+        const searchTerm = searchInput.value;
+        filterSongs(searchTerm);
+    });
+
+    </script>
+                    
 
 </body>
 </html>

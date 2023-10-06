@@ -243,24 +243,28 @@ button {
 }
 
 
-.main .item_artist {
+.main .item_artist { 
     cursor: pointer;
     margin: 20px 0px 10px 0px;
-    width: 100%;
+    width: 99%;
     height: 80px;
     display: flex;
     border-radius: 10px;
     border: 1px solid #4c5262;
     justify-content: space-between;
-    align-items: center;
+    text-decoration: none;
+    color: white;
 }
 
 .main .item_artist:hover {
+    color: #ffd189;
     background: #0b1222;
     transition: 0.3s;
 }   
 
 .main .item_artist img {
+    position: absolute;
+    margin-top: 10px;
     margin-left: 1%;
     width: 60px;
     height: 60px;
@@ -268,8 +272,9 @@ button {
 }
 
 .main .item_artist h5 {
+    position: absolute;
     width: 40%;
-    margin: auto auto auto 20px;
+    margin: 10px auto auto 6%;
     /* border: 1px solid white; */
 }
 
@@ -283,14 +288,15 @@ button {
 .main .item_artist h5 .sub {
     font-size: 16px;
     color: #4c5262;
+
 }
 
 .main .item_artist .icon {
-    /* border: 1px solid white; */
-    margin-left: 60%;
+    margin-top:20px;
+    position: absolute;
+    margin-left: 57%;
     width: 22%;
     display: flex;
-    align-items: center;
 }
 
 .main .item_artist .icon .more, .add, .delete {

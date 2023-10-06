@@ -3,8 +3,8 @@
 class Artist extends Controller{
     // default controller
     public function index(){
-        // $data['artistList']=$this->model('ArtistModel')->getAllArtist();
-        $this->view('Artist');
+        $data['artistList']=$this->model('ArtistModel')->getAllArtist();
+        $this->view('Artist', $data);
     }
 
     public function pakeParams($artist="Default_Artist"){
