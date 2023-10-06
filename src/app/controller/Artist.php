@@ -14,10 +14,16 @@ class Artist extends Controller{
     }
 
     public function add_artist(){
-        // if($this->model("ArtistModel")->tambahDataArtist($_POST) > 0){
-        //     header('Location:' . BASEURL . '/home');
-        // }
-        var_dump($_POST);
+        if($_SERVER['REQUEST_METHOD'] == $_POST){
+            if (!$_POST['artist'] || !$_POST['country'] || !$_POST['tipe']) {
+                header('Location:' . BASEURL . '/home/index');
+            }
+            else{
+                $this->model("ArtistModel")->tambahDataArtist($_POST);
+                header('Location:' . BASEURL . '/home/index');
+            }
+            
+        }
     }
 
     public function remove_artist($id){

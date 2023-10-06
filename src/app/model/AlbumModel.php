@@ -19,7 +19,7 @@ class AlbumModel{
 
     public function tambahDataAlbum($data){
         $query = "
-            INSERT INTO album VALUES ('', :nama_album, :artist, :durasi_album, :image_path, :tanggal_terbit, :genre)
+            INSERT INTO album (nama_album, artist, durasi_album, image_path, tanggal_terbit, genre) VALUES (:nama_album, :artist, :durasi_album, :image_path, :tanggal_terbit, :genre)
         ";
 
         $this->db->query($query);
@@ -31,7 +31,7 @@ class AlbumModel{
         $this->db->bind('genre', $data['genre']);
 
         $this->db->execute();
-        return $this->db->countRow();
+        return $this->db->lastInsertID();
 
     }
 

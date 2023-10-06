@@ -1,6 +1,6 @@
 <?php
 
-define('BASEURL', 'https://localhost:8080/public');
+define('BASEURL', 'localhost:8080/public');
 
 //db
 define('DB_HOST', 'db-tubes-1');

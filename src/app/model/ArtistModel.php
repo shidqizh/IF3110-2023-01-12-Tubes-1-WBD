@@ -24,6 +24,7 @@ class ArtistModel{
 
         $this->db->execute();
         return $this->db->countRow();
+        //blm fix pake countrow atau lastinsert
 
     }
 
