@@ -86,24 +86,25 @@
             </div>
         </nav>
         <div class="lagu">
-            <div class="poster" id="sebelum">
+            <!-- <div class="poster" id="sebelum">
                 <img src="../../public/images/1.jpg" alt="" id="poster">
                 <label for="" class="label">December
                     <div class="sub">Neck Deep</div>
                 </label>
-            </div>
+            </div> -->
             <div class="poster" id="sekarang">
                 <img src="../../public/images/1.jpg" alt="" id="poster">
-                <label for="" class="label">December
+                <label for="" class="label">
+                    <?php echo $data['songList'][0]['nama_lagu'] ?>
                     <div class="sub">Neck Deep</div>
                 </label>
             </div>
-            <div class="poster" id="sesudah">
+            <!-- <div class="poster" id="sesudah">
                 <img src="../../public/images/1.jpg" alt="" id="poster">
                 <label for="" class="label">December
                     <div class="sub">Neck Deep</div>
                 </label>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="play">

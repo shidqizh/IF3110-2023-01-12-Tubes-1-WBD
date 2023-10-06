@@ -61,7 +61,7 @@
             </form>
             </div>
             <div class="user">
-                <i class="bi bi-person" onclick="toggleMenu()"></i>
+                <i class="bi bi-person" onclick="profileMenu()"></i>
             </div>
         </nav>
         <div class="for_you">
@@ -73,15 +73,18 @@
                     </div>
                 </div>
                 <div class="lagu_for_you">
-                    <?php foreach($dataSong['songList'] as $song) : ?>
-                        <li class="items">
+                <?php foreach($data['songList'] as $song) : ?>
+                        <a class="items" href="<? BASEURL ?>/public/song/index">
                             <div class="img_for_you">
                                 <img src="../../public/images/1.jpg" alt="">
                             </div>
-                            <h5>December
-                                <div class="sub">Neck Deep</div>
+                            <h5>
+                                <?php echo $song['nama_lagu'] ?>
+                                <div class="sub">
+                                <?php echo $song['artist'] ?>
+                                </div>
                             </h5>
-                        </li>
+                        </a>
                     <?php endforeach; ?>
                 </div>
         </div>      
@@ -153,20 +156,7 @@
     <div class="play">
     
     </div>
+    <script src="../../public/javascript/functional.js"></script>
     <script src="../../public/javascript/openPopUp.js"></script>
-    <script>
-    // Temukan semua elemen dengan kelas "items"
-        const itemsElements = document.querySelectorAll('.items');
-
-        // Tambahkan penanganan klik ke setiap elemen
-        itemsElements.forEach(item => {
-            item.addEventListener('click', () => {
-                
-                // Arahkan pengguna ke URL tersebut
-                window.location.href = "<? BASEURL ?>/public/song/index";
-            });
-        });
-    </script>
-
 </body>
 </html>

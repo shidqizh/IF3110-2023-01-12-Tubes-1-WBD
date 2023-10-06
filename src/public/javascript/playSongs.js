@@ -1,4 +1,4 @@
-const music = new Audio('../../public/songs/December.mp3');
+const music = new Audio('../../public/songs/Kata.mp3');
 
 function autoplayMusic() {
     music.play();

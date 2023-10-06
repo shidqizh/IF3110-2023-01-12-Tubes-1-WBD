@@ -269,16 +269,18 @@ button {
     /* border: 1px solid white; */
 }
 
-.for_you .lagu_for_you li {
+.for_you .lagu_for_you a {
     cursor: pointer;
     min-width: 150px;
     height: 200px;
     list-style-type: none;
     margin-right: 25px;
     transition: .3s linear;
+    text-decoration: none;
+    color: white;
 }
 
-.for_you .lagu_for_you li h5 {
+.for_you .lagu_for_you a h5 {
     text-align: center;
     padding: 10px 0px 0px 0px;
     line-height: 15px;
@@ -289,12 +291,12 @@ button {
     text-overflow: ellipsis;
 }
 
-.for_you .lagu_for_you li .sub {
+.for_you .lagu_for_you a .sub {
     font-size: 12px;
     color: #4c5262;
 }
 
-.for_you .lagu_for_you li:hover {
+.for_you .lagu_for_you a:hover {
     color: #ffd189;
 }
 

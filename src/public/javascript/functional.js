@@ -1,113 +1,39 @@
-const collection = document.getElementById('collection_id');
-const history = document.getElementById('history_id');
-const recommended = document.getElementById('recommended_id');
+function profileMenu() {
+    const addSongElement = document.getElementById('addSong');
+    const overlayElement = document.getElementById('overlay');
+    
+    if (addSongElement.style.display === 'none' || addSongElement.style.display === '') {
+      addSongElement.style.display = 'block';
+      overlayElement.style.display = 'block';
+    } else {
+      addSongElement.style.display = 'none';
+      overlayElement.style.display = 'none';
+    }
+  }
 
-const dariPlaylist = document.getElementById('dariplaylist_id');
-const dariHistory = document.getElementById('darihistory_id');
-const dariRecommended = document.getElementById('darirecommended_id');
+  var closeButtons = document.querySelectorAll('.addSong .close_button');
+  closeButtons.forEach(function(closeButton) {
+      closeButton.addEventListener('click', function() {
+          var overlay = document.querySelector('.overlay');
+          var popup = closeButton.closest('.popup');
 
-collection.addEventListener('click', function(){
-    collection.classList.add('active');
-    history.classList.remove('active');
-    recommended.classList.remove('active');
+          overlay.style.display = 'none';
+          popup.style.display = 'none';
+      });
+  });
 
-    dariPlaylist.style.position = "absolute";
-    dariPlaylist.style.transform = "translateY(0px)";
+// let subNav = document.getElementById('subNav');
+// let editProf = document.getElementById('edit_profile_1');
 
-    dariHistory.style.position = "absolute";
-    dariHistory.style.transform = "translateY(400px)";
+// function toggleMenu(){
+//     subNav.classList.toggle("open");
+// }
 
-    dariRecommended.style.position = "absolute";
-    dariRecommended.style.transform = "translateY(800px)";
-});
-
-history.addEventListener('click', function(){
-    history.classList.add('active');
-    collection.classList.remove('active');
-    recommended.classList.remove('active');
-
-    dariPlaylist.style.position = "absolute";
-    dariPlaylist.style.transform = "translateY(400px)";
-
-    dariHistory.style.position = "absolute";
-    dariHistory.style.transform = "translateY(0px)";
-
-    dariRecommended.style.position = "absolute";
-    dariRecommended.style.transform = "translateY(800px)";
-});
-
-recommended.addEventListener('click', function(){
-    recommended.classList.add('active');
-    history.classList.remove('active');
-    collection.classList.remove('active');
-
-    dariPlaylist.style.position = "absolute";
-    dariPlaylist.style.transform = "translateY(400px)";
-
-    dariHistory.style.position = "absolute";
-    dariHistory.style.transform = "translateY(400px)";
-
-    dariRecommended.style.position = "absolute";
-    dariRecommended.style.transform = "translateY(0px)";
-});
+// function openEditProfile(){
+//     editProf.classList.toggle("open");
+// }
 
 
-
-let subNav = document.getElementById('subNav');
-let editProf = document.getElementById('edit_profile_1');
-
-function toggleMenu(){
-    subNav.classList.toggle("open");
-}
-
-function openEditProfile(){
-    editProf.classList.toggle("open");
-}
-
-
-const discoverFrame = document.getElementById('discoverFrame');
-const albumFrame = document.getElementById('albumFrame');
-const artistFrame = document.getElementById('artistFrame');
-
-const discoverBtn = document.getElementById('discover');
-const albumBtn = document.getElementById('album');
-const artistBtn = document.getElementById('artist');
-
-discoverBtn.addEventListener('click', function(){
-    discoverFrame.classList.add('active');
-    discoverFrame.classList.remove('inactive');
-    albumFrame.classList.remove("active");
-    albumFrame.classList.add("inactive");
-    artistFrame.classList.remove("active");
-    artistFrame.classList.add("inactive");
-    discoverBtn.classList.add("active");
-    albumBtn.classList.remove("active");
-    artistBtn.classList.remove("active");
-});
-
-albumBtn.addEventListener("click", function () {
-    albumFrame.classList.add("active");
-    albumFrame.classList.remove("inactive");
-    discoverFrame.classList.remove("active");
-    discoverFrame.classList.add("inactive");
-    artistFrame.classList.remove("active");
-    artistFrame.classList.add("inactive");
-    albumBtn.classList.add("active");
-    discoverBtn.classList.remove("active");
-    artistBtn.classList.remove("active");
-});
-
-artistBtn.addEventListener("click", function () {
-    artistFrame.classList.add("active");
-    artistFrame.classList.remove("inactive");
-    discoverFrame.classList.remove("active");
-    discoverFrame.classList.add("inactive");
-    albumFrame.classList.remove("active");
-    albumFrame.classList.add("inactive");
-    artistBtn.classList.add("active");
-    discoverBtn.classList.remove("active");
-    albumBtn.classList.remove("active");
-});
 
 
 

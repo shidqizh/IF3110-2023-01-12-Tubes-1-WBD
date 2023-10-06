@@ -3,14 +3,15 @@
 class Home extends Controller{
     // default controller
     public function index(){
-        $dataAlbum['albumList'] = $this->model('AlbumModel')->getAllAlbum();
-        $dataSong['songList'] =$this->model('SongModel')->getAllSong();
-        $dataUser['userList'] =$this->model('UserModel')->getAllUser();
+        $data['songList'] = $this->model('SongModel')->getAllSong();
+        $this->view('Discover', $data);
+        // $dataAlbum['albumList'] = $this->model('AlbumModel')->getAllAlbum();
+        // $dataSong['songList'] =$this->model('SongModel')->getAllSong();
+        // $dataUser['userList'] =$this->model('UserModel')->getAllUser();
         
-        $data = array_merge($dataAlbum, $dataSong, $dataUser);
-        $_SESSION['data1'] = json_encode($data);
+        // $data = array_merge($dataAlbum, $dataSong, $dataUser);
         
-        $this->view('Discover');
+        // $this->view('Discover', $data);
     }
 
     public function detail(){

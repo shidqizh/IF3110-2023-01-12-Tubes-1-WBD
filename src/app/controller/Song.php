@@ -3,7 +3,7 @@
 class Song extends Controller{
     // default controller
     public function index(){
-        $data['albumList'] = $this->model('AlbumModel')->getAllAlbum();
+        $data['songList'] = $this->model('SongModel')->getAllSong();
         $this->view('Song', $data);
         // $this->view('HomeView', $data);
     }
