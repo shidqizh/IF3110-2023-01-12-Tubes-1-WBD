@@ -86,6 +86,96 @@
                         </div>
                     </div>
                 </li>
+                <li class="item_album">
+                    <img src="../../public/images/1.jpg" alt="" id="">
+                    <h5 class="judul">
+                        December
+                        <div class="sub">Neck Deep</div>
+                    </h5>
+                    <div class="icon">
+                        <div class="add">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="delete">
+                            <i class="bi bi-trash-fill"></i>
+                        </div>
+                        <div class="more">
+                            <i class="bi bi-three-dots"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="item_album">
+                    <img src="../../public/images/1.jpg" alt="" id="">
+                    <h5 class="judul">
+                        December
+                        <div class="sub">Neck Deep</div>
+                    </h5>
+                    <div class="icon">
+                        <div class="add">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="delete">
+                            <i class="bi bi-trash-fill"></i>
+                        </div>
+                        <div class="more">
+                            <i class="bi bi-three-dots"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="item_album">
+                    <img src="../../public/images/1.jpg" alt="" id="">
+                    <h5 class="judul">
+                        December
+                        <div class="sub">Neck Deep</div>
+                    </h5>
+                    <div class="icon">
+                        <div class="add">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="delete">
+                            <i class="bi bi-trash-fill"></i>
+                        </div>
+                        <div class="more">
+                            <i class="bi bi-three-dots"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="item_album">
+                    <img src="../../public/images/1.jpg" alt="" id="">
+                    <h5 class="judul">
+                        December
+                        <div class="sub">Neck Deep</div>
+                    </h5>
+                    <div class="icon">
+                        <div class="add">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="delete">
+                            <i class="bi bi-trash-fill"></i>
+                        </div>
+                        <div class="more">
+                            <i class="bi bi-three-dots"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="item_album">
+                    <img src="../../public/images/1.jpg" alt="" id="">
+                    <h5 class="judul">
+                        December
+                        <div class="sub">Neck Deep</div>
+                    </h5>
+                    <div class="icon">
+                        <div class="add">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="delete">
+                            <i class="bi bi-trash-fill"></i>
+                        </div>
+                        <div class="more">
+                            <i class="bi bi-three-dots"></i>
+                        </div>
+                    </div>
+                </li>
             </div>
         </div>    
         <button type="button" data-target="#addSong" class="open_button">Add Song</button>

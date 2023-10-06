@@ -22,6 +22,26 @@
                 <a class="" href="<? BASEURL ?>/public/artist/index" id="artist"><span></span><i class="bi bi-music-note-list"></i></i>Artist</a>
             </div>
         </div>
-    </div>    
+        <div class="logout">
+            <button type="button" data-target="#logout" class="open_button">Logout</button>
+            <div class="overlay" id="overlay"></div>
+
+            <div class="popup logout" id="logout">
+                <div class="menu">
+                    <form action="#" method="">
+                        <div class="label">
+                            <label for="logout">Are you sure you want to log out?</label>
+                        </div>
+                        <div class="btn">
+                            <button class="close_button" id="close_btn">Logout</button>
+                        </div>
+                    </form> 
+                </div>
+            </div> 
+        </div>
+    </div>   
+    
+    <script src="../../public/css/logout.js"></script>
+
 </body>
 </html>

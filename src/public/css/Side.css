@@ -23,21 +23,24 @@ body{
 }
 
 .side h1 {
-    width: 90%;
+    width: 320px;
     height: 15%;
     color: white;
     font-size: 2.5vw;
-    margin: 0px 5% 0px 5%;
     font-weight: 400;
-    padding: 20px 5% 20px 5%;
+    padding: 20px 20px 20px 30px;
+    /* border: 1px solid white; */
+    margin-left: 30px;
+    background: #141d2c;
 }
 
 .side .menu{
-    border-radius: 0px 0px 20px 20px;
-    width: 90%;
-    height: 85%;
-    margin: 0px 5% 20px 5%;
-    padding: 20px 0px 10px 20px;
+    width: 320px;
+    height: 85%;    
+    padding: 20px 0px 10px 30px;
+    background: #141d2c;
+    /* border: 1px solid white; */
+    margin-left: 30px;
 }
 
 
@@ -50,6 +53,7 @@ body{
     display: flex;
     align-items: center;
     transition: .3s linear;
+    text-decoration: none;
 }
 
 .side .menu a:hover {
@@ -92,4 +96,84 @@ body{
 .side .menu .active .bi {
     display: flex;
     margin-right: 20px;
+}
+
+
+.side .open_button {
+    color:white;
+    font-size: 16px;
+    font-weight: 600;
+    background: #A30000;
+    margin-left: 35%;
+    width: 30%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+
+}
+
+.logout {
+    background: #141d2c;
+    margin-left: 30px;
+    width: 320px;
+    border-radius: 0px 0px 20px 20px;
+    padding-bottom: 20px;
+}
+
+.side .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+.side .popup {
+    display: none;
+    left: 50%;
+    width: 27%;
+    transform: translate(-50%, -50%);
+    background-color: #0b1222;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    overflow: hidden;
+    border-radius: 20px;
+    color: white;
+}
+
+.side .popup .label {
+    font-size: 16px;
+    display: flex;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: white;
+}
+
+.side .popup label {
+    margin-right: 57%;
+}
+
+.side .popup button[id="close_btn"] {
+    color:white;
+    font-size: 16px;
+    font-weight: 600;
+    background: #4c5262;
+    margin-top: 5%;
+    margin-left: 30%;
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.side .popup .btn {
+    display: flex;
 }

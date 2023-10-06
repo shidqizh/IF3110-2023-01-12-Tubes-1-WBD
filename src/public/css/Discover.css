@@ -184,7 +184,7 @@ button {
     background: #141d2c;
     width: 75%;
     height: 95%;
-    border-radius: 0px 0px 0px 20px;   
+    border-radius: 20px 0px 0px 20px;   
     overflow: hidden;
 }
 

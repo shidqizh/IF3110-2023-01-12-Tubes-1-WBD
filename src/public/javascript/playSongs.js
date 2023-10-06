@@ -1,4 +1,20 @@
 const music = new Audio('../../public/songs/December.mp3');
+
+function autoplayMusic() {
+    music.play();
+    const playButton = document.querySelector('.bi-play-circle-fill');
+    if (playButton) {
+        playButton.classList.remove('bi-play-circle-fill');
+        playButton.classList.add('bi-pause-btn-fill');
+    }
+}
+
+// Memanggil fungsi autoplayMusic setelah halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    autoplayMusic();
+});
+
+
 function playSong(play_button){
     if(music.paused){
         music.play();

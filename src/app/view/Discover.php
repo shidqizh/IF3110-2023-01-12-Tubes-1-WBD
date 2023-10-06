@@ -73,6 +73,7 @@
                     </div>
                 </div>
                 <div class="lagu_for_you">
+                    <?php foreach($dataSong['songList'] as $song) : ?>
                         <li class="items">
                             <div class="img_for_you">
                                 <img src="../../public/images/1.jpg" alt="">
@@ -81,6 +82,7 @@
                                 <div class="sub">Neck Deep</div>
                             </h5>
                         </li>
+                    <?php endforeach; ?>
                 </div>
         </div>      
         <button type="button" data-target="#addSong" class="open_button">Add Song</button>
@@ -152,5 +154,19 @@
     
     </div>
     <script src="../../public/javascript/openPopUp.js"></script>
+    <script>
+    // Temukan semua elemen dengan kelas "items"
+        const itemsElements = document.querySelectorAll('.items');
+
+        // Tambahkan penanganan klik ke setiap elemen
+        itemsElements.forEach(item => {
+            item.addEventListener('click', () => {
+                
+                // Arahkan pengguna ke URL tersebut
+                window.location.href = "<? BASEURL ?>/public/song/index";
+            });
+        });
+    </script>
+
 </body>
 </html>
