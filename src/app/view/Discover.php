@@ -68,25 +68,49 @@
                 <div class="h4">
                     <h4>For You</h4>
                     <div class="buttons">
-                        <i class="bi bi-caret-left-fill"></i>
-                        <i class="bi bi-caret-right-fill"></i>
+                        <i class="bi"></i>
+                        <i class="bi"></i>
                     </div>
                 </div>
                 <div class="lagu_for_you">
-                <?php foreach($data['songList'] as $song) : ?>
-                        <a class="items" href="<? BASEURL ?>/public/song/index">
-                            <div class="img_for_you">
-                                <img src="../../public/images/1.jpg" alt="">
-                            </div>
-                            <h5>
-                                <?php echo $song['nama_lagu'] ?>
-                                <div class="sub">
+                    <?php
+                    $itemsPerPage = 2;
+                    $start = ($data["page"] - 1) * $itemsPerPage;
+                    $end = $start + $itemsPerPage;
+
+                    
+                    for ($i = $start; $i < $end && $i < count($data['songList']); $i++) {
+                        $song = $data['songList'][$i];
+                    ?>
+                    <a class="items" href="<?php echo BASEURL ?>/public/song/index">
+                        <div class="img_for_you">
+                            <img src="../../public/images/1.jpg" alt="">
+                        </div>
+                        <h5>
+                            <?php echo $song['nama_lagu'] ?>
+                            <div class="sub">
                                 <?php echo $song['artist'] ?>
-                                </div>
-                            </h5>
-                        </a>
-                    <?php endforeach; ?>
+                            </div>
+                        </h5>
+                    </a>
+                    <?php } ?>
                 </div>
+
+                
+                <div class="pagination">
+                    <?php
+                    $totalItems = count($data['songList']);
+                    $totalPages = ceil($totalItems / $itemsPerPage);
+
+                    for ($page = 1; $page <= $totalPages; $page++) {
+                        $isActive = ($page == $data["page"]) ? 'active' : '';
+                    ?>
+                    <a class="page <?php echo $isActive ?>" href="<?php echo BASEURL ?>/home/index/<?php echo $page ?>">
+                        <?php echo $page ?>
+                    </a>
+                    <?php } ?>
+                </div>
+
         </div>      
         <button type="button" data-target="#addSong" class="open_button">Add Song</button>
 

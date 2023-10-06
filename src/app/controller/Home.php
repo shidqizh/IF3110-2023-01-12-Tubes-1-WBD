@@ -2,16 +2,10 @@
 
 class Home extends Controller{
     // default controller
-    public function index(){
+    public function index($page=1){
         $data['songList'] = $this->model('SongModel')->getAllSong();
+        $data['page'] = $page;
         $this->view('Discover', $data);
-        // $dataAlbum['albumList'] = $this->model('AlbumModel')->getAllAlbum();
-        // $dataSong['songList'] =$this->model('SongModel')->getAllSong();
-        // $dataUser['userList'] =$this->model('UserModel')->getAllUser();
-        
-        // $data = array_merge($dataAlbum, $dataSong, $dataUser);
-        
-        // $this->view('Discover', $data);
     }
 
     public function detail(){
@@ -63,6 +57,12 @@ class Home extends Controller{
         echo "This is $artist";
         $data['artist'] = $artist;
         $this->view('HomeView', $data);
+    }
+
+    public function cobaPag($page=1){
+        $data['songList'] = $this->model('SongModel')->getAllSong();
+        $data['page'] = $page;
+        $this->view('Discover', $data);
     }
 
 }
