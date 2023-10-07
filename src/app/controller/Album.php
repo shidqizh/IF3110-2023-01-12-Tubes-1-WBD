@@ -15,11 +15,11 @@ class Album extends Controller{
 
     public function add_album(){
         if (!$_POST['nama_album'] || !$_POST['artist'] || !$_POST['durasi_album'] || !$_POST['image_path'] || !$_POST['tanggal_terbit'] || !$_POST['genre']) {
-            header('Location:' . BASEURL . '/home/index');
+            header('Location:' . BASEURL . '/album/index');
         }
         else{
             $this->model("AlbumModel")->tambahDataAlbum($_POST);
-            header('Location:' . BASEURL . '/home/index');
+            header('Location:' . BASEURL . '/album/index');
         }
     }
 
