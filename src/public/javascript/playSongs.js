@@ -1,4 +1,4 @@
-const music = new Audio('../../public/songs/Kata.mp3');
+const music = new Audio('/public/songs/Terima Kasih.mp3');
 
 function autoplayMusic() {
     music.play();
@@ -99,35 +99,5 @@ vol.addEventListener('change', function() {
     music.volume = vol1 / 100;
 
 });
-
-let index = 0;
-let poster_play =document.getElementById('poster_play');
-
-Array
-
-
-const daftar_lagu = [
-    {
-        id: '1',
-        judul: ' December <br><div class="sub">Neck Deep</div>',
-        poster:"../img/december.jpg",
-    },
-    {
-        id: '2',
-        judul: ' Off My Face <br><div class="sub">Justin Bieber</div>',
-        poster:"../img/off my face.webp",
-    },
-    {
-        id: '3',
-        judul: ' A part Of Me <br><div class="sub">Neck Deep</div>',
-        poster:"../img/apartofme.jpg",
-    },
-]
-
-Array.from(document.getElementsByClassName('daftar_lagu')).forEach((e, i) => {
-    e.getElementsByTagName('img')[0].src = daftar_lagu[i].poster;
-    e.getElementsByTagName('h5')[0].innerHTML = daftar_lagu[i].judul;
-});
-
 
 

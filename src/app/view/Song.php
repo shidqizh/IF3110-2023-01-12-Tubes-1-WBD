@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel ="stylesheet" type="text/css" href="../../public/css/Song.css">
+    <link rel ="stylesheet" type="text/css" href="<? BASEURL ?>/public/css/Song.css">
     <title>Song Page</title>
 </head>
 <body>  
@@ -41,9 +41,9 @@
         </nav>
         <div class="lagu">
             <div class="poster" id="sekarang">
-                <img src="../../public/images/1.jpg" alt="" id="poster">
+                <img src="/public/images/1.jpg" alt="" id="poster">
                 <label for="" class="label">
-                    <?php echo $data['songList'][0]['nama_lagu'] ?>
+                    <?php echo $data['namaLagu']['nama_lagu'] ?>
                     <div class="sub">
                         <?php echo $data['songList'][0]['artist'] ?>
                     </div>
@@ -52,9 +52,9 @@
         </div>
     </div>
     <div class="play">
-        <img src="../../public/images/1.jpg" alt="" id="poster_play">
+        <img src="/public/images/1.jpg" alt="" id="poster_play">
         <h5 class="judul">
-            <?php echo $data['songList'][0]['nama_lagu'] ?> 
+            <?php echo $data['namaLagu']['nama_lagu'] ?>
             <div class="sub">
                 <?php echo $data['songList'][0]['artist'] ?>
             </div>
@@ -82,7 +82,7 @@
             <div class="dot_volume" id="dot_vol"></div>
         </div>
     </div>
-    <script src="../../public/javascript/functional.js"></script>
-    <script src="../../public/javascript/playSongs.js"></script>
+    <script src="<? BASEURL ?>/public/javascript/functional.js"></script>
+    <script src="<? BASEURL ?>/public/javascript/playSongs.js"></script>
 </body>
 </html>

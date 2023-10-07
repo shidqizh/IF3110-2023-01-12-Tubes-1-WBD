@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel ="stylesheet" type="text/css" href="../../public/css/Discover.css">
+    <link rel ="stylesheet" type="text/css" href="/public/css/Discover.css">
     <title>Discover</title>
 </head>
 <body>
@@ -82,9 +82,9 @@
                     for ($i = $start; $i < $end && $i < count($data['songList']); $i++) {
                         $song = $data['songList'][$i];
                     ?>
-                    <a class="items" href="<? BASEURL ?>/public/song/index?song_id=<?php echo $song['nama_lagu'] ?>">
+                    <a class="items" href="<? BASEURL ?>/public/song/index/<?php echo $song['nama_lagu'] ?>">
                         <div class="img_for_you">
-                            <img src="../../public/images/1.jpg" alt="">
+                            <img src="/public/images/1.jpg" alt="">
                         </div>
                         <h5>
                             <div class="judul">
@@ -108,18 +108,18 @@
 
         </div>      
         <div class="pagination">
-                    <?php
-                    $totalItems = count($data['songList']);
-                    $totalPages = ceil($totalItems / $itemsPerPage);
+            <?php
+            $totalItems = count($data['songList']);
+            $totalPages = ceil($totalItems / $itemsPerPage);
 
-                    for ($page = 1; $page <= $totalPages; $page++) {
-                        $isActive = ($page == $data["page"]) ? 'active' : '';
-                    ?>
-                    <a class="page <?php echo $isActive ?>" href="<?php echo BASEURL ?>/home/index/<?php echo $page ?>">
-                        <?php echo $page ?>
-                    </a>
-                    <?php } ?>
-                </div>
+            for ($page = 1; $page <= $totalPages; $page++) {
+                $isActive = ($page == $data["page"]) ? 'active' : '';
+            ?>
+            <a class="page <?php echo $isActive ?>" href="<? BASEURL ?>/public/home/index/<?php echo $page ?>">
+                <?php echo $page ?>
+            </a>
+            <?php } ?>
+        </div>
         <button type="button" data-target="#addSong" class="open_button">Add Song</button>
 
         <div class="overlay" id="overlay"></div>
@@ -319,11 +319,11 @@
     <div class="play">
     
     </div>
-    <script src="../../public/javascript/functional.js"></script>
-    <script src="../../public/javascript/openPopUp.js"></script>
-    <script src="../../public/javascript/search.js"></script>
-    <script src="../../public/javascript/sort.js"></script>
-    <script src="../../public/javascript/logout.js"></script>
+    <script src="/public/javascript/functional.js"></script>
+    <script src="/public/javascript/openPopUp.js"></script>
+    <script src="/public/javascript/search.js"></script>
+    <script src="/public/javascript/sort.js"></script>
+    <script src="/public/javascript/logout.js"></script>
 </script>
 </body>
 </html>

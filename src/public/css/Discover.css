@@ -14,7 +14,7 @@ body{
     flex-wrap: wrap;
 }
 
-.main .search_bar {
+.search_bar {
     position: relative;
     width: 60%;
     padding: 1px 10px;
@@ -24,7 +24,7 @@ body{
     /* border: 1px solid #4c5262; */
 }
 
-.main .search_bar::before {
+.search_bar::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -35,11 +35,11 @@ body{
     z-index: -1;
 }
 
-.main .search_bar .bi {
+.search_bar .bi {
     font-size: 15px;
 }
 
-.main .search_bar input {
+.search_bar input {
     width: 90%;
     border: none;
     outline: none;
@@ -51,7 +51,7 @@ body{
 }
 
 
-.main .search_bar .results{
+.search_bar .results{
     position: absolute;
     background: #252d3b;
     width: 100%;
@@ -63,7 +63,7 @@ body{
     border-color: none;
 }
 
-.main .search_bar .results .card {
+.search_bar .results .card {
     width: 100%;
     min-height: 45px;
     display: flex;
@@ -74,14 +74,14 @@ body{
     cursor: pointer;
 }
 
-.main .search_bar .results .a img{
+.search_bar .results .a img{
     width: 50px;
     height: 50px;
     margin-left: 2px;
     border-radius: 5px;
 }
 
-.main .search_bar .results .card .content {
+.search_bar .results .card .content {
     width: 80%;
     height: 100%;
     font-size: 13;
@@ -188,7 +188,7 @@ button {
     overflow: hidden;
 }
 
-.main nav {
+nav {
     width: 90%;
     height: 10%;
     margin: auto;
@@ -197,15 +197,15 @@ button {
     justify-content: space-between;
 }
 
-.main nav .active {
+nav .active {
     color: #ffd189;
 }
 
-.main nav ul {
+nav ul {
     display: flex;
 }
 
-.main nav li {
+nav li {
     color: white;
     list-style: none;
     position: relative;
@@ -215,18 +215,18 @@ button {
     transition: .3s linear;
 }
 
-.main nav li:hover {
+nav li:hover {
     color: #ffd189;
 }
 
 
-.main nav .user {
+nav .user {
     font-size: 30px;
     color: white;
     cursor: pointer;
 }
 
-.main nav .user:hover{
+nav .user:hover{
     color:#ffd189;
 }
 
@@ -356,7 +356,7 @@ button {
 }
 
 
-.main .open_button {
+.open_button {
     color:white;
     font-size: 16px;
     font-weight: 600;
@@ -371,7 +371,7 @@ button {
     justify-content: center;
 }
 
-.main .overlay {
+.overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -381,7 +381,7 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
 }
-.main .popup {
+.popup {
     display: none;
     position: absolute;
     top: 45%;
@@ -399,7 +399,7 @@ button {
     border: 1px solid white;
 }
 
-.main .popup .label {
+.popup .label {
     font-size: 16px;
     display: flex;
     margin-top: 1px;
@@ -407,11 +407,11 @@ button {
     color: white;
 }
 
-.main .popup label {
+.popup label {
     margin-right: 57%;
 }
 
-.main .popup input {
+.popup input {
     border-radius:5px ;
     color: white;
     border: none;
@@ -419,11 +419,11 @@ button {
     background: #4c5262;
 }
 
-.main .popup input[name="album"] {
+.popup input[name="album"] {
     margin-right: 5%;
 }
 
-.main .popup button[id="add_btn"] {
+.popup button[id="add_btn"] {
     color:white;
     font-size: 16px;
     font-weight: 600;
@@ -438,7 +438,7 @@ button {
     justify-content: center;
 }
 
-.main .popup button[id="close_btn"] {
+.popup button[id="close_btn"] {
     color:white;
     font-size: 16px;
     font-weight: 600;
@@ -453,12 +453,12 @@ button {
     justify-content: center;
 }
 
-.main .popup .btn {
+.popup .btn {
     display: flex;
     
 }
 
-.main .popup[id="deleteSong"] button[id="add_btn"],
+.popup[id="deleteSong"] button[id="add_btn"],
 .popup[id="logout"] button[id="add_btn"] {
     background: #A30000;
     
