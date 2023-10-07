@@ -18,17 +18,24 @@ class Album extends Controller{
             header('Location:' . BASEURL . '/album/index');
         }
         else{
-            $this->model("AlbumModel")->tambahDataAlbum($_POST);
-            header('Location:' . BASEURL . '/album/index');
+            $cekArtis = $this->model("AlbumModel")->cekArtisAda($_POST['artist']);
+            if($cekArtis){
+                $this->model("AlbumModel")->tambahDataAlbum($_POST);
+                header('Location:' . BASEURL . '/album/index');
+            }
+            else{
+                header('Location:' . BASEURL . '/album/index');
+            }
+            
         }
     }
 
     public function remove_album($id){
         if($this->model('AlbumModel')->hapusDataAlbum($id) > 0){
-            header('Location:' . BASEURL . '/album');
+            header('Location:' . BASEURL . '/album/index');
         }
         else{
-            header('Location:' . BASEURL . '/album');
+            header('Location:' . BASEURL . '/album/index');
         }
     }
 

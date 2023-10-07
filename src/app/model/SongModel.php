@@ -31,13 +31,24 @@ class SongModel{
     }
 
     public function hapusDataSong($id){
-        $query = "DELETE FROM song WHERE id_song = :id";
+        $query = "DELETE FROM song WHERE id_song = :id_song";
         $this->db->query($query);
         $this->db->bind('id_song', $id);
         $this->db->execute();
 
         return $this->db->countRow();
     }
+
+    public function cekArtisAda($namaArtis){
+        $query = "SELECT COUNT(*) AS total FROM artist WHERE artist = :nama_artis";
+        $this->db->query($query);
+        $this->db->bind('nama_artis', $namaArtis);
+        $this->db->execute();
+    
+        $result = $this->db->fetchSingle();
+        return $result['total'] > 0;
+    }
+    
 
 
 }

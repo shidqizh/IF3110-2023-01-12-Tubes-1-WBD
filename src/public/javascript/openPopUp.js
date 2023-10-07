@@ -1,8 +1,13 @@
 const open_button = document.querySelector('.open_button'); // Seleksi tombol logout
 const addPopup = document.getElementById('addSong'); // Seleksi popup logout
+const addAlbum = document.getElementById('addAlbum');
 
 open_button.addEventListener('click', function() {
     addPopup.style.display = 'block'; // Tampilkan popup logout
+});
+
+open_button.addEventListener('click', function() {
+    addAlbum.style.display = 'block'; // Tampilkan popup logout
 });
 
 
@@ -32,6 +37,20 @@ function edit(event) {
     }
 }
 
+function editAlbum(event) {
+    event.preventDefault();
+    const editAlbumElement = document.getElementById('editAlbum');
+    const overlayElement = document.getElementById('overlay');
+    
+    if (editAlbumElement.style.display === 'none' || editAlbumElement.style.display === '') {
+        editAlbumElement.style.display = 'block';
+        overlayElement.style.display = 'block';
+    } else {
+        editAlbumElement.style.display = 'none';
+        overlayElement.style.display = 'none';
+    }
+}
+
 
 function delete_song(event) {
     event.preventDefault();
@@ -43,6 +62,20 @@ function delete_song(event) {
         overlayElement.style.display = 'block';
     } else {
         editSongElement.style.display = 'none';
+        overlayElement.style.display = 'none';
+    }
+}
+
+function delete_album(event) {
+    event.preventDefault();
+    const deleteAlbumElement = document.getElementById('deleteAlbum');
+    const overlayElement = document.getElementById('overlay');
+    
+    if (deleteAlbumElement.style.display === 'none' || deleteAlbumElement.style.display === '') {
+        deleteAlbumElement.style.display = 'block';
+        overlayElement.style.display = 'block';
+    } else {
+        deleteAlbumElement.style.display = 'none';
         overlayElement.style.display = 'none';
     }
 }

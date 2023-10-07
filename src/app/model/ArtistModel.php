@@ -29,11 +29,22 @@ class ArtistModel{
     }
 
     public function hapusDataArtist($id){
-        $query = "DELETE FROM artist WHERE artist = :id";
+        $query = "DELETE FROM artist WHERE artist = :artist";
         $this->db->query($query);
         $this->db->bind('artist', $id);
         $this->db->execute();
 
         return $this->db->countRow();
     }
+
+    public function cekArtisAda($namaArtis){
+        $query = "SELECT COUNT(*) AS total FROM artist WHERE artist = :nama_artis";
+        $this->db->query($query);
+        $this->db->bind('nama_artis', $namaArtis);
+        $this->db->execute();
+    
+        $result = $this->db->fetchSingle();
+        return $result['total'] > 0;
+    }
+    
 }

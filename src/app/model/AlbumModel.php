@@ -34,9 +34,18 @@ class AlbumModel{
         return $this->db->lastInsertID();
 
     }
+    public function cekArtisAda($namaArtis){
+        $query = "SELECT COUNT(*) AS total FROM artist WHERE artist = :nama_artis";
+        $this->db->query($query);
+        $this->db->bind('nama_artis', $namaArtis);
+        $this->db->execute();
+    
+        $result = $this->db->fetchSingle();
+        return $result['total'] > 0;
+    }
 
     public function hapusDataAlbum($id){
-        $query = "DELETE FROM album WHERE id_album = :id";
+        $query = "DELETE FROM album WHERE id_album = :id_album";
         $this->db->query($query);
         $this->db->bind('id_album', $id);
         $this->db->execute();
