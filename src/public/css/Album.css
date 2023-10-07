@@ -427,3 +427,9 @@ button {
 .main .popup .btn {
     display: flex;
 }
+
+.main .popup[id="deleteSong"] button[id="add_btn"],
+.popup[id="logout"] button[id="add_btn"] {
+    background: #A30000;
+    
+}

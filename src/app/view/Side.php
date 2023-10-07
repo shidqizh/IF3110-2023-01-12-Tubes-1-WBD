@@ -23,21 +23,7 @@
             </div>
         </div>
         <div class="logout">
-            <button type="button" data-target="#logout" class="open_button">Logout</button>
-            <div class="overlay" id="overlay"></div>
-
-            <div class="popup logout" id="logout">
-                <div class="menu">
-                    <form action="#" method="">
-                        <div class="label">
-                            <label for="logout">Are you sure you want to log out?</label>
-                        </div>
-                        <div class="btn">
-                            <button class="close_button" id="close_btn">Logout</button>
-                        </div>
-                    </form> 
-                </div>
-            </div> 
+            <button type="button" data-target="#logout" class="logout_button">Logout</button>
         </div>
     </div>   
     

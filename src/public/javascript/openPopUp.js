@@ -1,3 +1,10 @@
+const open_button = document.querySelector('.open_button'); // Seleksi tombol logout
+const addPopup = document.getElementById('addSong'); // Seleksi popup logout
+
+open_button.addEventListener('click', function() {
+    addPopup.style.display = 'block'; // Tampilkan popup logout
+});
+
 
 var closeButtons = document.querySelectorAll('.close_button');
 closeButtons.forEach(function(closeButton) {
@@ -29,6 +36,20 @@ function edit(event) {
 function delete_song(event) {
     event.preventDefault();
     const editSongElement = document.getElementById('deleteSong');
+    const overlayElement = document.getElementById('overlay');
+    
+    if (editSongElement.style.display === 'none' || editSongElement.style.display === '') {
+        editSongElement.style.display = 'block';
+        overlayElement.style.display = 'block';
+    } else {
+        editSongElement.style.display = 'none';
+        overlayElement.style.display = 'none';
+    }
+}
+
+function profile(event) {
+    event.preventDefault();
+    const editSongElement = document.getElementById('editProfile');
     const overlayElement = document.getElementById('overlay');
     
     if (editSongElement.style.display === 'none' || editSongElement.style.display === '') {

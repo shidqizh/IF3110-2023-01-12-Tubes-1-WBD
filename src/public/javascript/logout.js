@@ -1,14 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var openButtons = document.querySelectorAll('button[data-target]');
-    openButtons.forEach(function(openButton) {
-        openButton.addEventListener('click', function() {
-            var target = openButton.getAttribute('data-target');
-            var overlay = document.querySelector('.overlay');
-            var popup = document.querySelector(target);
+    const logoutButton = document.querySelector('.logout_button'); // Seleksi tombol logout
+    const logoutPopup = document.getElementById('logout'); // Seleksi popup logout
 
-            overlay.style.display = 'block';
-            popup.style.display = 'block';
-        });
+    logoutButton.addEventListener('click', function() {
+      logoutPopup.style.display = 'block'; // Tampilkan popup logout
     });
 
     var closeButtons = document.querySelectorAll('.logout .close_button');

@@ -61,7 +61,7 @@
             </form>
             </div>
             <div class="user">
-                <i class="bi bi-person"></i>
+                <i class="bi bi-person" onclick="profile(event)"></i>
             </div>
         </nav>
         <div class="for_you">
@@ -82,7 +82,7 @@
                     for ($i = $start; $i < $end && $i < count($data['songList']); $i++) {
                         $song = $data['songList'][$i];
                     ?>
-                    <a class="items" href="<? BASEURL ?>/public/song/index">
+                    <a class="items" href="<? BASEURL ?>/public/song/index?song_id=<?php echo $song['nama_lagu'] ?>">
                         <div class="img_for_you">
                             <img src="../../public/images/1.jpg" alt="">
                         </div>
@@ -193,11 +193,11 @@
 
                 <form action="<? BASEURL ?>/public/home/add_song" method="post">
                     <div class="label">
-                        <label for="nama_lagu">Title</label>
+                        <label for="nama_lagu">Song</label>
                         
                     </div>
                     <div class="input">
-                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Title">
+                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Song">
                         
                     </div>
 
@@ -259,6 +259,61 @@
                 <button class="close_button" id="close_btn">Close</button>
             </div>
         </div>
+
+        <div class="popup editProfile" id="editProfile">
+            <div class="menu">
+                <div class="profile_pic">
+                    <h2>Edit Profile</h2>
+                </div>
+                <hr>
+
+                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <div class="label">
+                        <label for="nama_lagu">Email</label>
+                        
+                    </div>
+                    <div class="input">
+                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Email">
+                        
+                    </div>
+
+                    <div class="label">
+                        <label for="artist">Username</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="artist" id="artist" placeholder="Username">
+                    </div>
+
+                    <div class="label">
+                        <label for="tanggal_terbit">Password</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="tanggal_terbit" id="tanggal_terbit" placeholder="Password">
+                    </div>
+
+                    <div class="btn">
+                        <button class="close_button" id="add_btn">Edit</button>
+                    </div>
+                </form> 
+                <button class="close_button" id="close_btn">Close</button>
+            </div>
+        </div>
+
+        <div class="popup logout" id="logout">
+            <div class="menu">
+                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <div class="label">
+                        <label for="nama_lagu">Are you sure?</label>
+                        
+                    </div>
+                
+                    <div class="btn">
+                        <button class="close_button" id="add_btn">Logout</button>
+                    </div>
+                </form> 
+                <button class="close_button" id="close_btn">Close</button>
+            </div>
+        </div>
     </div>
     
     <div class="play">
@@ -267,6 +322,8 @@
     <script src="../../public/javascript/functional.js"></script>
     <script src="../../public/javascript/openPopUp.js"></script>
     <script src="../../public/javascript/search.js"></script>
+    <script src="../../public/javascript/sort.js"></script>
+    <script src="../../public/javascript/logout.js"></script>
 </script>
 </body>
 </html>

@@ -62,7 +62,7 @@
             </form>
             </div>
             <div class="user">
-                <i class="bi bi-person" onclick="toggleMenu()"></i>
+                <i class="bi bi-person" onclick="profile(event)"></i>
             </div>
         </nav>
         <div class="daftar_album">
@@ -230,41 +230,70 @@
                 <button class="close_button" id="close_btn">Close</button>
             </div>
         </div> 
+
+        <div class="popup editProfile" id="editProfile">
+            <div class="menu">
+                <div class="profile_pic">
+                    <h2>Edit Profile</h2>
+                </div>
+                <hr>
+
+                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <div class="label">
+                        <label for="nama_lagu">Email</label>
+                        
+                    </div>
+                    <div class="input">
+                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Email">
+                        
+                    </div>
+
+                    <div class="label">
+                        <label for="artist">Username</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="artist" id="artist" placeholder="Username">
+                    </div>
+
+                    <div class="label">
+                        <label for="tanggal_terbit">Password</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="tanggal_terbit" id="tanggal_terbit" placeholder="Password">
+                    </div>
+
+                    <div class="btn">
+                        <button class="close_button" id="add_btn">Edit</button>
+                    </div>
+                </form> 
+                <button class="close_button" id="close_btn">Close</button>
+            </div>
+        </div>
+
+        <div class="popup logout" id="logout">
+            <div class="menu">
+                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <div class="label">
+                        <label for="nama_lagu">Are you sure?</label>
+                        
+                    </div>
+                
+                    <div class="btn">
+                        <button class="close_button" id="add_btn">Logout</button>
+                    </div>
+                </form> 
+                <button class="close_button" id="close_btn">Close</button>
+            </div>
+        </div>
     </div>
     <div class="play">
     
     </div>
     <script src="../../public/javascript/openPopUp.js"></script>
     <script src="../../public/javascript/functional.js"></script>
-    <script>
-    const searchInput = document.getElementById('searchInput');
-    const songList = document.getElementById('songList');
-
-    // Fungsi untuk memfilter daftar lagu berdasarkan input pencarian
-    function filterSongs(searchTerm) {
-        // Mengubah daftar lagu menjadi array
-        const songs = Array.from(songList.getElementsByClassName('item_album'));
-
-        // Iterasi melalui setiap lagu dan menyembunyikan/menampilkan sesuai pencarian
-        songs.forEach(song => {
-            const songTitle = song.querySelector('.judul').textContent.toLowerCase();
-
-            if (songTitle.includes(searchTerm.toLowerCase())) {
-                song.style.display = 'block';
-            } else {
-                song.style.display = 'none';
-            }
-        });
-    }
-
-    // Tambahkan penangan acara untuk saat formulir pencarian diserahkan
-    searchInput.addEventListener('input', function (event) {
-        event.preventDefault(); // Mencegah pengiriman formulir
-
-        const searchTerm = searchInput.value;
-        filterSongs(searchTerm);
-    });
-
+    <script src="../../public/javascript/logout.js"></script>
+    <script src="../../public/javascript/search.js"></script>
+    <script src="../../public/javascript/sort.js"></script>
     <script src="../../public/javascript/openPopUp.js"></script>
 
 </body>

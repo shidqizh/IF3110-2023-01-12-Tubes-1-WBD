@@ -40,12 +40,6 @@
             </div>
         </nav>
         <div class="lagu">
-            <!-- <div class="poster" id="sebelum">
-                <img src="../../public/images/1.jpg" alt="" id="poster">
-                <label for="" class="label">December
-                    <div class="sub">Neck Deep</div>
-                </label>
-            </div> -->
             <div class="poster" id="sekarang">
                 <img src="../../public/images/1.jpg" alt="" id="poster">
                 <label for="" class="label">
@@ -55,18 +49,12 @@
                     </div>
                 </label>
             </div>
-            <!-- <div class="poster" id="sesudah">
-                <img src="../../public/images/1.jpg" alt="" id="poster">
-                <label for="" class="label">December
-                    <div class="sub">Neck Deep</div>
-                </label>
-            </div> -->
         </div>
     </div>
     <div class="play">
         <img src="../../public/images/1.jpg" alt="" id="poster_play">
         <h5 class="judul">
-            <?php echo $data['songList'][0]['nama_lagu'] ?>
+            <?php echo $data['songList'][0]['nama_lagu'] ?> 
             <div class="sub">
                 <?php echo $data['songList'][0]['artist'] ?>
             </div>

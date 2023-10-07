@@ -21,6 +21,19 @@ artist.addEventListener('click', function(){
     song.classList.remove('active');
 });
 
+
+
+
+
+
+function setLabelToMatchTitle() {
+    // Ambil judul dari kelas judul di halaman "Discover"
+    const discoverTitle = document.querySelector('.judul').innerText;
+  
+    // Setel nilai label pada kelas song sesuai dengan judul dari halaman "Discover"
+    const songLabel = document.querySelector('.label');
+    songLabel.innerText = discoverTitle;
+  }
 // let subNav = document.getElementById('subNav');
 // let editProf = document.getElementById('edit_profile_1');
 
