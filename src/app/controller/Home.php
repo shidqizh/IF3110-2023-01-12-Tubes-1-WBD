@@ -17,35 +17,25 @@ class Home extends Controller{
             header('Location:' . BASEURL . '/home/index');
         }
         else{
-            $this->model("SongModel")->tambahDataSong($_POST);
-            header('Location:' . BASEURL . '/home/index');
-        }
-    }
-    
-    
-
-    public function add_user(){
-        if($this->model("UserModel")->tambahDataUser($_POST) > 0){
-            header('Location:' . BASEURL . '/home');
+            $cekArtis = $this->model("SongModel")->cekArtisAda($_POST['artist']);
+            if($cekArtis){
+                $this->model("SongModel")->tambahDataSong($_POST);
+                header('Location:' . BASEURL . '/home/index');
+            }
+            else{
+                header('Location:' . BASEURL . '/home/index');
+            }
+            
         }
     }
 
 
     public function remove_song($id){
         if($this->model('SongModel')->hapusDataSong($id) > 0){
-            header('Location:' . BASEURL . '/home');
+            header('Location:' . BASEURL . '/home/index');
         }
         else{
-            header('Location:' . BASEURL . '/home');
-        }
-    }
-
-    public function remove_user($id){
-        if($this->model('UserModel')->hapusDataUser($id) > 0){
-            header('Location:' . BASEURL . '/home');
-        }
-        else{
-            header('Location:' . BASEURL . '/home');
+            header('Location:' . BASEURL . '/home/index');
         }
     }
 

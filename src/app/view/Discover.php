@@ -246,14 +246,14 @@
 
         <div class="popup deleteSong" id="deleteSong">
             <div class="menu">
-                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                <form action="<? BASEURL ?>/public/home/remove_song/<?php echo $song['id_song'] ?>" method="post">
                     <div class="label">
                         <label for="nama_lagu">Are you sure?</label>
                         
                     </div>
                 
                     <div class="btn">
-                        <button class="close_button" id="add_btn">Delete</button>
+                        <button class="close_button" id="add_btn" type="submit">Delete</button>
                     </div>
                 </form> 
                 <button class="close_button" id="close_btn">Close</button>

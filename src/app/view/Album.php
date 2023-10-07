@@ -81,10 +81,10 @@
                     </h5>
                     <div class="icon">
                         <div class="add">
-                            <i class="bi bi-pencil-square" onclick="edit(event)"></i>
+                            <i class="bi bi-pencil-square" onclick="editAlbum(event)"></i>
                         </div>
                         <div class="delete">
-                            <i class="bi bi-trash-fill" onclick="delete_song(event)"></i>
+                            <i class="bi bi-trash-fill" onclick="delete_album(event)"></i>
                         </div>
                     </div>
                 </a>
@@ -95,14 +95,14 @@
 
         <div class="overlay" id="overlay"></div>
 
-        <div class="popup addSong" id="addSong">
+        <div class="popup addAlbum" id="addAlbum">
             <div class="menu">
                 <div class="profile_pic">
                     <h2>Add Album</h2>
                 </div>
                 <hr>
 
-                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                <form action="<? BASEURL ?>/public/home/add_album" method="post">
                     <div class="label">
                         <label for="nama_lagu">Album Name</label>
                         
@@ -155,14 +155,14 @@
             </div>
         </div>
 
-        <div class="popup editSong" id="editSong">
+        <div class="popup editAlbum" id="editAlbum">
             <div class="menu">
                 <div class="profile_pic">
                     <h2>Edit Album</h2>
                 </div>
                 <hr>
 
-                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                <form action="<? BASEURL ?>/public/home/edit_album" method="post">
                     <div class="label">
                         <label for="nama_lagu">Album Name</label>
                         
@@ -215,9 +215,9 @@
             </div>
         </div>
 
-        <div class="popup deleteSong" id="deleteSong">
+        <div class="popup deleteAlbum" id="deleteAlbum">
             <div class="menu">
-                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                <form action="<? BASEURL ?>/public/home/delete_album" method="post">
                     <div class="label">
                         <label for="nama_lagu">Are you sure?</label>
                         

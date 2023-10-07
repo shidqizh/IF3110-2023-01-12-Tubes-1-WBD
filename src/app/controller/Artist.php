@@ -18,8 +18,15 @@ class Artist extends Controller{
             header('Location:' . BASEURL . '/artist/index');
         }
         else{
-            $this->model("ArtistModel")->tambahDataArtist($_POST);
-            header('Location:' . BASEURL . '/artist/index');
+            $cekArtis = $this->model("ArtistModel")->cekArtisAda($_POST['artist']);
+            if($cekArtis){
+                $this->model("ArtistModel")->tambahDataArtist($_POST);
+                header('Location:' . BASEURL . '/artist/index');
+            }
+            else{
+                header('Location:' . BASEURL . '/artist/index');
+            }
+            
         }
     }
 
