@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel ="stylesheet" type="text/css" href="../../public/css/Album.css">
+    <link rel ="stylesheet" type="text/css" href="/public/css/Album.css">
 
     <title>Album</title>
 </head>
@@ -15,8 +15,8 @@
     </div>
     <div class="main">
         <nav>
-            <div class="search_bar">
-            <form action="" method="get">
+        <div class="search_bar">
+                <form action="" method="get">
                 <div class="search-sort">
                     <div class="search-box">
                         <i class="bi bi-search"></i>
@@ -67,10 +67,11 @@
         </nav>
         <div class="daftar_album">
             <h4>Daftar Album</h4>
-            <div class="item_album_wrap" id="albumList">
+            <div class="item_album_wrap" id="songList">
                 <?php foreach($data['albumList'] as $album) : ?>
-                <a class="item_album" href="<? BASEURL ?>/public/song/index">
-                    <img src="../../public/images/1.jpg" alt="" id="">
+                <a class="item_album" >
+                    <div class="wrap">
+                    <img src="/public/images/1.jpg" alt="" id="">
                     <h5>
                         <div class="judul">
                             <?php echo $album['nama_album'] ?>
@@ -86,6 +87,7 @@
                         <div class="delete">
                             <i class="bi bi-trash-fill" onclick="delete_album(event)"></i>
                         </div>
+                    </div>
                     </div>
                 </a>
                 <?php endforeach; ?>
@@ -290,12 +292,11 @@
     <div class="play">
     
     </div>
-    <script src="../../public/javascript/openPopUp.js"></script>
-    <script src="../../public/javascript/functional.js"></script>
-    <script src="../../public/javascript/logout.js"></script>
-    <script src="../../public/javascript/search.js"></script>
-    <script src="../../public/javascript/sort.js"></script>
-    <script src="../../public/javascript/openPopUp.js"></script>
+    <script src="/public/javascript/functional.js"></script>
+    <script src="/public/javascript/openPopUp.js"></script>
+    <script src="/public/javascript/search.js"></script>
+    <script src="/public/javascript/sort.js"></script>
+    <script src="/public/javascript/logout.js"></script>
 
 </body>
 </html>

@@ -257,6 +257,11 @@ button {
     display: none;
 }
 
+.main .wrap {
+    display: flex;
+    /* border: 1px solid white; */
+}
+
 .main .item_album { 
     cursor: pointer;
     margin: 20px 0px 10px 0px;
@@ -277,18 +282,18 @@ button {
 }   
 
 .main .item_album img {
-    position: absolute;
+    /* position: absolute; */
     margin-top: 10px;
-    margin-left: 1%;
+    margin-left: 10px;
     width: 60px;
     height: 60px;
     border-radius: 10px;
 }
 
 .main .item_album h5 {
-    position: absolute;
-    width: 40%;
-    margin: 10px auto auto 6%;
+    /* position: absolute; */
+    width: 780px;
+    margin: 10px auto auto 20px;
     /* border: 1px solid white; */
 }
 
@@ -307,8 +312,8 @@ button {
 
 .main .item_album .icon {
     margin-top:20px;
-    position: absolute;
-    margin-left: 57%;
+    /* position: absolute; */
+    margin-left: 70px;
     width: 22%;
     display: flex;
 }
@@ -428,7 +433,7 @@ button {
     display: flex;
 }
 
-.main .popup[id="deleteSong"] button[id="add_btn"],
+.main .popup[id="deleteAlbum"] button[id="add_btn"],
 .popup[id="logout"] button[id="add_btn"] {
     background: #A30000;
     

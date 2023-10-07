@@ -7,11 +7,11 @@ function filterSongs(searchTerm) {
     // Mengubah daftar lagu menjadi array
     const songs = Array.from(songList.getElementsByClassName('items'));
     const albums = Array.from(songList.getElementsByClassName('item_album'));
-    const artist = Array.from(songList.getElementsByClassName('item_artist'));
+    const artists = Array.from(songList.getElementsByClassName('item_artist'));
 
     // Iterasi melalui setiap lagu dan menyembunyikan/menampilkan sesuai pencarian
     songs.forEach(song => {
-        const songTitle = song.querySelector('.judul').textContent.toLowerCase();
+        const songTitle = song.querySelector('h5').textContent.toLowerCase();
 
         if (songTitle.includes(searchTerm.toLowerCase())) {
             song.style.display = 'block';
@@ -20,23 +20,23 @@ function filterSongs(searchTerm) {
         }
     });
 
-    albums.forEach(song => {
-        const songTitle = song.querySelector('.judul').textContent.toLowerCase();
+    albums.forEach(album => {
+        const albumTitle = album.querySelector('h5').textContent.toLowerCase();
 
-        if (songTitle.includes(searchTerm.toLowerCase())) {
-            song.style.display = 'block';
+        if (albumTitle.includes(searchTerm.toLowerCase())) {
+            album.style.display = 'block';
         } else {
-            song.style.display = 'none';
+            album.style.display = 'none';
         }
     });
 
-    artist.forEach(song => {
-        const songTitle = song.querySelector('.judul').textContent.toLowerCase();
+    artists.forEach(artist => {
+        const artistTitle = artist.querySelector('h5').textContent.toLowerCase();
 
-        if (songTitle.includes(searchTerm.toLowerCase())) {
-            song.style.display = 'block';
+        if (artistTitle.includes(searchTerm.toLowerCase())) {
+            artist.style.display = 'block';
         } else {
-            song.style.display = 'none';
+            artist.style.display = 'none';
         }
     });
 }

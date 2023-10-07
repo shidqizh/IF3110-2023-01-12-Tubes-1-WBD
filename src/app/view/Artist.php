@@ -69,32 +69,221 @@
             <h4>Daftar Artist</h4>
             <div class="item_artist_wrap" id="songList">
                 <?php foreach ($data['artistList'] as $artist) : ?>
-                <a class="item_artist" href="<? BASEURL ?>/public/song/index">
+                <a class="item_artist" href="<? BASEURL ?>/public/song/index/<?php echo $artist['artist'] ?>">
                     <img src="../../public/images/1.jpg" alt="" id="">
                     <h5 class="judul">
                     <?= $artist['artist'] ?>
                     </h5>
                     <div class="icon">
                         <div class="add">
-                            <i class="bi bi-pencil-square"></i>
+                            <i class="bi bi-pencil-square" onclick="editArtist(event)"></i>
                         </div>
                         <div class="delete">
-                            <i class="bi bi-trash-fill"></i>
-                        </div>
-                        <div class="more">
-                            <i class="bi bi-three-dots"></i>
+                            <i class="bi bi-trash-fill" onclick="delete_artist(event)"></i>
                         </div>
                     </div>
                 </a>
                 <?php endforeach; ?>
+            </div>
+
+            <button type="button" data-target="#addArtist" class="open_button">Add Artist</button>
+
+            <div class="overlay" id="overlay"></div>
+
+            <div class="popup addArtist" id="addArtist">
+                <div class="menu">
+                    <div class="profile_pic">
+                        <h2>Add Artist</h2>
+                    </div>
+                    <hr>
+
+                    <form action="<? BASEURL ?>/public/album/add_artist" method="post">
+                        <div class="label">
+                            <label for="nama_album">Album Name</label>
+                            
+                        </div>
+                        <div class="input">
+                            <input type="text" name="nama_album" id="nama_album" placeholder="Album Name">
+                            
+                        </div>
+
+                        <div class="label">
+                            <label for="artist">Artist</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
+
+                        <div class="label">
+                            <label for="tanggal_terbit">Date</label>
+                        </div>
+                        <div class="input">
+                            <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                        </div>
+
+                        <div class="label">
+                            <label for="genre">Genre</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                        </div>
+
+                        <div class="label">
+                            <label for="durasi_album">Duration</label>
+                        </div>
+                        <div class="input">
+                            <input type="number" name="durasi_album" id="durasi_album" placeholder="Duration">
+                        </div>
+
+                        <div class="btn">
+                            <button class="close_button" id="add_btn">Add</button>
+                        </div>
+                    </form> 
+                    <button class="close_button" id="close_btn">Close</button>
+                </div>
+            </div>
+
+            <div class="popup editArtist" id="editArtist">
+                <div class="menu">
+                    <div class="profile_pic">
+                        <h2>Edit Artist</h2>
+                    </div>
+                    <hr>
+
+                    <form action="<? BASEURL ?>/public/home/edit_artist" method="post">
+                        <div class="label">
+                            <label for="nama_lagu">Album Name</label>
+                            
+                        </div>
+                        <div class="input">
+                            <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Album Name">
+                            
+                        </div>
+
+                        <div class="label">
+                            <label for="artist">Artist</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
+
+                        <div class="label">
+                            <label for="tanggal_terbit">Date</label>
+                        </div>
+                        <div class="input">
+                            <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                        </div>
+
+                        <div class="label">
+                            <label for="genre">Genre</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                        </div>
+
+                        <div class="label">
+                            <label for="durasi_lagu">Duration</label>
+                        </div>
+                        <div class="input">
+                            <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
+                        </div>
+                        
+                        <div class="label">
+                            <label for="image_path">Poster</label>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="image_path" id="image_path" placeholder="image_path" accept=".jpg">
+                        </div>
+
+                        <div class="btn">
+                            <button class="close_button" id="add_btn">Edit</button>
+                        </div>
+                    </form> 
+                    <button class="close_button" id="close_btn">Close</button>
+                </div>
+            </div>
+
+            <div class="popup deleteArtist" id="deleteArtist">
+                <div class="menu">
+                    
+                    <form action="<? BASEURL ?>/public/album/remove_album/<?php echo $album['id_album'] ?>" method="post">
+                        <div class="label">
+                            <label for="nama_lagu">Are you sure?</label>
+                            
+                        </div>
+                    
+                        <div class="btn">
+                            <button class="close_button" id="add_btn" type="submit">Delete</button>
+                        </div>
+                    </form> 
+                    <button class="close_button" id="close_btn">Close</button>
+                </div>
+            </div> 
+
+            <div class="popup editProfile" id="editProfile">
+                <div class="menu">
+                    <div class="profile_pic">
+                        <h2>Edit Profile</h2>
+                    </div>
+                    <hr>
+
+                    <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                        <div class="label">
+                            <label for="nama_lagu">Email</label>
+                            
+                        </div>
+                        <div class="input">
+                            <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Email">
+                            
+                        </div>
+
+                        <div class="label">
+                            <label for="artist">Username</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="artist" id="artist" placeholder="Username">
+                        </div>
+
+                        <div class="label">
+                            <label for="tanggal_terbit">Password</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="tanggal_terbit" id="tanggal_terbit" placeholder="Password">
+                        </div>
+
+                        <div class="btn">
+                            <button class="close_button" id="add_btn">Edit</button>
+                        </div>
+                    </form> 
+                    <button class="close_button" id="close_btn">Close</button>
+                </div>
+            </div>
+
+            <div class="popup logout" id="logout">
+                <div class="menu">
+                    <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                        <div class="label">
+                            <label for="nama_lagu">Are you sure?</label>
+                            
+                        </div>
+                    
+                        <div class="btn">
+                            <button class="close_button" id="add_btn">Logout</button>
+                        </div>
+                    </form> 
+                    <button class="close_button" id="close_btn">Close</button>
+                </div>
             </div>
         </div>     
     </div>
     <div class="play">
     
     </div>
-    <script src="../../public/javascript/functional.js"></script>
-    <script src="../../public/javascript/search.js"></script>
+    <script src="/public/javascript/openPopUp.js"></script>
+    <script src="/public/javascript/functional.js"></script>
+    <script src="/public/javascript/logout.js"></script>
+    <script src="/public/javascript/search.js"></script>
+    <script src="/public/javascript/sort.js"></script>
                     
 
 </body>

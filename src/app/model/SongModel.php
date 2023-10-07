@@ -17,6 +17,18 @@ class SongModel{
         return $this->db->fetchAll();
     }
 
+    public function ambilLagu($namaLagu){
+        $this->db->query('SELECT * FROM song WHERE nama_lagu = :nama_lagu');
+        $this->db->bind('nama_lagu', $namaLagu);
+        return $this->db->fetchSingle();
+    }
+
+    public function ambilAlbum($namaLagu){
+        $this->db->query('SELECT * FROM song WHERE id_album = :id_album');
+        $this->db->bind('id_album', $namaLagu);
+        return $this->db->fetchSingle();
+    }
+
     public function tambahDataSong($data){
         $query = "
             INSERT INTO song (nama_lagu, artist, tanggal_terbit, genre, durasi_lagu, audio_path, id_album )VALUES ( :nama_lagu, :artist, :tanggal_terbit, :genre, :durasi_lagu, :audio_path, '1')
