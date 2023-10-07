@@ -14,15 +14,12 @@ class Artist extends Controller{
     }
 
     public function add_artist(){
-        if($_SERVER['REQUEST_METHOD'] == $_POST){
-            if (!$_POST['artist'] || !$_POST['country'] || !$_POST['tipe']) {
-                header('Location:' . BASEURL . '/home/index');
-            }
-            else{
-                $this->model("ArtistModel")->tambahDataArtist($_POST);
-                header('Location:' . BASEURL . '/home/index');
-            }
-            
+        if (!$_POST['artist'] || !$_POST['country'] || !$_POST['tipe']) {
+            header('Location:' . BASEURL . '/home/index');
+        }
+        else{
+            $this->model("ArtistModel")->tambahDataArtist($_POST);
+            header('Location:' . BASEURL . '/home/index');
         }
     }
 

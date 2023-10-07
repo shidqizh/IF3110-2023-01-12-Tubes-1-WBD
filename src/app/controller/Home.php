@@ -13,15 +13,12 @@ class Home extends Controller{
     }
 
     public function add_song(){
-        if($_SERVER['REQUEST_METHOD'] == $_POST){
-            if (!$_POST['nama_lagu'] || !$_POST['artist'] || !$_POST['tanggal_terbit'] || !$_POST['genre'] || !$_POST['durasi_lagu'] || !$_POST['audio_path']) {
-                header('Location:' . BASEURL . '/home/index');
-            }
-            else{
-                $this->model("SongModel")->tambahDataSong($_POST);
-                header('Location:' . BASEURL . '/home/index');
-            }
-            
+        if (!$_POST['nama_lagu'] || !$_POST['artist'] || !$_POST['tanggal_terbit'] || !$_POST['genre'] || !$_POST['durasi_lagu']) {
+            header('Location:' . BASEURL . '/home/index');
+        }
+        else{
+            $this->model("SongModel")->tambahDataSong($_POST);
+            header('Location:' . BASEURL . '/home/index');
         }
     }
     
