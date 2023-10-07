@@ -13,8 +13,8 @@ class Album extends Controller{
         $this->view('HomeView', $data);
     }
 
-    public function add_album(){
-        if (!$_POST['nama_album'] || !$_POST['artist'] || !$_POST['durasi_album'] || !$_POST['image_path'] || !$_POST['tanggal_terbit'] || !$_POST['genre']) {
+    public function add_album(){ //post[imagepath] diapus dulu
+        if (!$_POST['nama_album'] || !$_POST['artist'] || !$_POST['durasi_album'] || !$_POST['tanggal_terbit'] || !$_POST['genre']) {
             header('Location:' . BASEURL . '/album/index');
         }
         else{

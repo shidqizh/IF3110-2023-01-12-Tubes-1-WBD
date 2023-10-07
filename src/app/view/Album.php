@@ -67,7 +67,7 @@
         </nav>
         <div class="daftar_album">
             <h4>Daftar Album</h4>
-            <div class="item_album_wrap" id="songList">
+            <div class="item_album_wrap" id="albumList">
                 <?php foreach($data['albumList'] as $album) : ?>
                 <a class="item_album" href="<? BASEURL ?>/public/song/index">
                     <img src="../../public/images/1.jpg" alt="" id="">
@@ -102,13 +102,13 @@
                 </div>
                 <hr>
 
-                <form action="<? BASEURL ?>/public/home/add_album" method="post">
+                <form action="<? BASEURL ?>/public/album/add_album" method="post">
                     <div class="label">
-                        <label for="nama_lagu">Album Name</label>
+                        <label for="nama_album">Album Name</label>
                         
                     </div>
                     <div class="input">
-                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Album Name">
+                        <input type="text" name="nama_album" id="nama_album" placeholder="Album Name">
                         
                     </div>
 
@@ -134,10 +134,10 @@
                     </div>
 
                     <div class="label">
-                        <label for="durasi_lagu">Duration</label>
+                        <label for="durasi_album">Duration</label>
                     </div>
                     <div class="input">
-                        <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
+                        <input type="number" name="durasi_album" id="durasi_album" placeholder="Duration">
                     </div>
                     
                     <div class="label">
@@ -217,14 +217,15 @@
 
         <div class="popup deleteAlbum" id="deleteAlbum">
             <div class="menu">
-                <form action="<? BASEURL ?>/public/home/delete_album" method="post">
+                
+                <form action="<? BASEURL ?>/public/album/remove_album/<?php echo $album['id_album'] ?>" method="post">
                     <div class="label">
                         <label for="nama_lagu">Are you sure?</label>
                         
                     </div>
                 
                     <div class="btn">
-                        <button class="close_button" id="add_btn">Delete</button>
+                        <button class="close_button" id="add_btn" type="submit">Delete</button>
                     </div>
                 </form> 
                 <button class="close_button" id="close_btn">Close</button>
