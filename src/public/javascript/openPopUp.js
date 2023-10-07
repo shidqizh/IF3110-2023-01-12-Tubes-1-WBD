@@ -1,6 +1,7 @@
 const open_button = document.querySelector('.open_button'); // Seleksi tombol logout
 const addPopup = document.getElementById('addSong'); // Seleksi popup logout
 const addAlbum = document.getElementById('addAlbum');
+const addArtist = document.getElementById('addArtist');
 
 open_button.addEventListener('click', function() {
     addPopup.style.display = 'block'; // Tampilkan popup logout
@@ -8,6 +9,10 @@ open_button.addEventListener('click', function() {
 
 open_button.addEventListener('click', function() {
     addAlbum.style.display = 'block'; // Tampilkan popup logout
+});
+
+open_button.addEventListener('click', function() {
+    addArtist.style.display = 'block'; // Tampilkan popup logout
 });
 
 
@@ -51,6 +56,20 @@ function editAlbum(event) {
     }
 }
 
+function editArtist(event) {
+    event.preventDefault();
+    const editArtistElement = document.getElementById('editArtist');
+    const overlayElement = document.getElementById('overlay');
+    
+    if (editArtistElement.style.display === 'none' || editArtistElement.style.display === '') {
+        editArtistElement.style.display = 'block';
+        overlayElement.style.display = 'block';
+    } else {
+        editArtistElement.style.display = 'none';
+        overlayElement.style.display = 'none';
+    }
+}
+
 
 function delete_song(event) {
     event.preventDefault();
@@ -76,6 +95,20 @@ function delete_album(event) {
         overlayElement.style.display = 'block';
     } else {
         deleteAlbumElement.style.display = 'none';
+        overlayElement.style.display = 'none';
+    }
+}
+
+function delete_artist(event) {
+    event.preventDefault();
+    const deleteArtistElement = document.getElementById('deleteArtist');
+    const overlayElement = document.getElementById('overlay');
+    
+    if (deleteArtistElement.style.display === 'none' || deleteArtistElement.style.display === '') {
+        deleteArtistElement.style.display = 'block';
+        overlayElement.style.display = 'block';
+    } else {
+        deleteArtistElement.style.display = 'none';
         overlayElement.style.display = 'none';
     }
 }
