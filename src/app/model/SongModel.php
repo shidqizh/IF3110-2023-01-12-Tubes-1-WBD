@@ -11,6 +11,11 @@ class SongModel{
         $this->db->query('SELECT * FROM song');
         return $this->db->fetchAll();
     }
+    public function getSongById($id){
+        $this->db->query('SELECT * FROM song WHERE id=:id');
+        $this->db->bind('id', $id);
+        return $this->db->fetchAll();
+    }
 
     public function tambahDataSong($data){
         $query = "
@@ -47,6 +52,27 @@ class SongModel{
     
         $result = $this->db->fetchSingle();
         return $result['total'] > 0;
+    }
+
+    public function ubahDataSong($data){
+        $query = "UPDATE song SET nama_lagu = :nama_lagu,
+         artist = :artist, 
+         tanggal_terbit = :tanggal_terbit,
+        genre = :genre,
+         durasi_lagu = :durasi_lagu, 
+         audio_path = :audio_path";
+
+         $this->db->query($query);
+         $this->db->bind('nama_lagu', $data['nama_lagu']);
+         $this->db->bind('artist', $data['artist']);
+         $this->db->bind('tanggal_terbit', $data['tanggal_terbit']);
+         $this->db->bind('genre', $data['genre']);
+         $this->db->bind('durasi_lagu', $data['durasi_lagu']);
+         $this->db->bind('audio_path', $data['audio_path']);
+ 
+         $this->db->execute();
+         return $this->db->countRow();
+         
     }
     
 

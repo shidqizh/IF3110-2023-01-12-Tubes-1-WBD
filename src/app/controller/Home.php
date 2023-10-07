@@ -12,6 +12,7 @@ class Home extends Controller{
         
     }
 
+
     public function add_song(){
         if (!$_POST['nama_lagu'] || !$_POST['artist'] || !$_POST['tanggal_terbit'] || !$_POST['genre'] || !$_POST['durasi_lagu']) {
             header('Location:' . BASEURL . '/home/index');
@@ -39,6 +40,22 @@ class Home extends Controller{
         }
     }
 
+    public function edit_song(){
+        if (!$_POST['nama_lagu'] || !$_POST['artist'] || !$_POST['tanggal_terbit'] || !$_POST['genre'] || !$_POST['durasi_lagu']) {
+            header('Location:' . BASEURL . '/home/index');
+        }
+        else{
+            $cekArtis = $this->model("SongModel")->cekArtisAda($_POST['artist']);
+            if($cekArtis){
+                $this->model('SongModel')->ubahDataSong($_POST);
+                header('Location:' . BASEURL . '/home/index');
+            }
+            else{
+                header('Location:' . BASEURL . '/home/index');
+            }
+            
+        }
+    }
     
     public function pakeParams($artist="Default_Artist"){
         echo "This is $artist";

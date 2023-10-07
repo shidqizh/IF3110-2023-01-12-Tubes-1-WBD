@@ -96,7 +96,7 @@
                         </h5>
                         <div class="icon">
                             <div class="add">
-                                <i class="bi bi-pencil-square" onclick="edit(event)"></i>
+                                <i class="bi bi-pencil-square" onclick="edit(event)" data-song-id="<?php echo $song['id_song']; ?>"></i>
                             </div>
                                 <div class="delete">
                                 <i class="bi bi-trash-fill" onclick="delete_song(event)"></i>
@@ -191,13 +191,14 @@
                 </div>
                 <hr>
 
-                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                <form action="<? BASEURL ?>/public/home/edit_song/<? echo $song['id_song']; ?>" method="post" data-id=<? echo $song['id_song']; ?>>
+                    
                     <div class="label">
                         <label for="nama_lagu">Song</label>
                         
                     </div>
                     <div class="input">
-                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Song">
+                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Song" value="<? echo $song['nama_lagu'] ?>">
                         
                     </div>
 
@@ -205,35 +206,35 @@
                         <label for="artist">Artist</label>
                     </div>
                     <div class="input">
-                        <input type="text" name="artist" id="artist" placeholder="Artist">
+                        <input type="text" name="artist" id="artist" placeholder="Artist" value="<? echo $song['artist'] ?>">
                     </div>
 
                     <div class="label">
                         <label for="tanggal_terbit">Date</label>
                     </div>
                     <div class="input">
-                        <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                        <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date" value="<? echo $song['tanggal_terbit'] ?>">
                     </div>
 
                     <div class="label">
                         <label for="genre">Genre</label>
                     </div>
                     <div class="input">
-                        <input type="text" name="genre" id="genre" placeholder="Genre">
+                        <input type="text" name="genre" id="genre" placeholder="Genre" value="<? echo $song['genre'] ?>">
                     </div>
 
                     <div class="label">
                         <label for="durasi_lagu">Duration</label>
                     </div>
                     <div class="input">
-                        <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
+                        <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration" value="<? echo $song['durasi_lagu'] ?>">
                     </div>
                     
                     <div class="label">
                         <label for="audio_path">Song</label>
                     </div>
                     <div class="input">
-                        <input type="file" name="audio_path" id="audio_path" placeholder="audio_path" accept=".mp3">
+                        <input type="file" name="audio_path" id="audio_path" placeholder="audio_path" accept=".mp3" value="<? echo $song['audio_path'] ?>">
                     </div>
 
                     <div class="btn">
@@ -324,6 +325,7 @@
     <script src="/public/javascript/search.js"></script>
     <script src="/public/javascript/sort.js"></script>
     <script src="/public/javascript/logout.js"></script>
+
 </script>
 </body>
 </html>

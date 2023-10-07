@@ -91,7 +91,7 @@
                 <?php endforeach; ?>
             </div>
         </div>    
-        <button type="button" data-target="#addSong" class="open_button">Add Album</button>
+        <button type="button" data-target="#addAlbum" class="open_button">Add Album</button>
 
         <div class="overlay" id="overlay"></div>
 
