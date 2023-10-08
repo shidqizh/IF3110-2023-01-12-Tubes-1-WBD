@@ -15,7 +15,8 @@
     <div class="main">
         <nav>
             <div class="search_bar">
-                <form action="" method="get">
+                <form action="<?php echo BASEURL ?>/public/home/index/<?php echo $data['page'] ?>" method="get">
+
                 <div class="search-sort">
                     <div class="search-box">
                         <i class="bi bi-search"></i>
@@ -83,23 +84,25 @@
                         $song = $data['songList'][$i];
                     ?>
                     <a class="items" href="<? BASEURL ?>/public/song/index/<?php echo $song['nama_lagu'] ?>">
-                        <div class="img_for_you">
-                            <img src="/public/images/1.jpg" alt="">
-                        </div>
-                        <h5>
-                            <div class="judul">
-                            <?php echo $song['nama_lagu'] ?>
+                        <div class="wrap">
+                            <div class="img_for_you">
+                                <img src="/public/images/1.jpg" alt="">
                             </div>
-                            <div class="sub">
-                                <?php echo $song['artist'] ?>
-                            </div>
-                        </h5>
-                        <div class="icon">
-                            <div class="add">
-                                <i class="bi bi-pencil-square" onclick="edit(event)" data-song-id="<?php echo $song['id_song']; ?>"></i>
-                            </div>
-                                <div class="delete">
-                                <i class="bi bi-trash-fill" onclick="delete_song(event)"></i>
+                            <h5>
+                                <div class="judul">
+                                <?php echo $song['nama_lagu'] ?>
+                                </div>
+                                <div class="sub">
+                                    <?php echo $song['artist'] ?>
+                                </div>
+                            </h5>
+                            <div class="icon">
+                                <div class="add">
+                                    <i class="bi bi-pencil-square" onclick="edit(event)" data-song-id="<?php echo $song['id_song']; ?>"></i>
+                                </div>
+                                    <div class="delete">
+                                    <i class="bi bi-trash-fill" onclick="delete_song(event)"></i>
+                                </div>
                             </div>
                         </div>
                     </a>

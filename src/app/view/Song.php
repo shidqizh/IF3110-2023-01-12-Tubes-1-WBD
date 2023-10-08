@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel ="stylesheet" type="text/css" href="<? BASEURL ?>/public/css/Song.css">
+    <link rel ="stylesheet" type="text/css" href="<? BASEURL ?>/public/css/ResponsivitasSong.css">
     <title>Song Page</title>
 </head>
 <body>  
@@ -16,28 +17,6 @@
                 <a href="<? BASEURL ?>/public/album/index" class="" id="album" >Album</a>
                 <a href="<? BASEURL ?>/public/artist/index" class="" id="artist">Artist</a>
             </ul>
-            <div class="user">
-                <i class="bi bi-person" onclick="toggleMenu()"></i>
-            </div>
-            <div class="profile" id="subNav">
-                <div class="sub_menu">
-                    <div class="profile_pic">
-                        <h2>John Doe</h2>
-                    </div>
-                    <hr>
-                        
-                    <a href="#" class="submenu-link" onclick="openModalProfile()">
-                        <i class="bi bi-person"></i>
-                        <p>Profile</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="submenu-link" onclick="openModalLogout()">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <p>Logout</p>
-                        <span>></span>
-                    </a>
-                </div>
-            </div>
         </nav>
         <div class="lagu">
             <div class="poster" id="sekarang">
