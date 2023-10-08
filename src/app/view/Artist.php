@@ -37,8 +37,8 @@
                         </button>
                     </div>
                     <div class = "filter">
-                        <select name="filter-genre" id="filter-genre" class= "dropdown">
-                            <option selected>Genre</option>
+                        <select name="filter-country" id="filter-country" class= "dropdown">
+                            <option selected>country</option>
                             <option value="Pop">Pop</option>
                             <option value="RnB">RnB</option>
                             <option value="Dangdut">Dangdut</option>
@@ -97,15 +97,7 @@
                     </div>
                     <hr>
 
-                    <form action="<? BASEURL ?>/public/album/add_artist" method="post">
-                        <div class="label">
-                            <label for="nama_album">Album Name</label>
-                            
-                        </div>
-                        <div class="input">
-                            <input type="text" name="nama_album" id="nama_album" placeholder="Album Name">
-                            
-                        </div>
+                    <form action="<? BASEURL ?>/public/artist/add_artist" method="post">
 
                         <div class="label">
                             <label for="artist">Artist</label>
@@ -115,24 +107,17 @@
                         </div>
 
                         <div class="label">
-                            <label for="tanggal_terbit">Date</label>
+                            <label for="country">Country</label>
                         </div>
                         <div class="input">
-                            <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                            <input type="text" name="country" id="country" placeholder="Country">
                         </div>
 
                         <div class="label">
-                            <label for="genre">Genre</label>
+                            <label for="tipe">Type</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="genre" id="genre" placeholder="Genre">
-                        </div>
-
-                        <div class="label">
-                            <label for="durasi_album">Duration</label>
-                        </div>
-                        <div class="input">
-                            <input type="number" name="durasi_album" id="durasi_album" placeholder="Duration">
+                            <input type="text" name="tipe" id="tipe" placeholder="Type">
                         </div>
 
                         <div class="btn">
@@ -175,10 +160,10 @@
                         </div>
 
                         <div class="label">
-                            <label for="genre">Genre</label>
+                            <label for="country">country</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="genre" id="genre" placeholder="Genre">
+                            <input type="text" name="country" id="country" placeholder="country">
                         </div>
 
                         <div class="label">
@@ -206,7 +191,9 @@
             <div class="popup deleteArtist" id="deleteArtist">
                 <div class="menu">
                     
-                    <form action="<? BASEURL ?>/public/album/remove_album/<?php echo $album['id_album'] ?>" method="post">
+                    
+                    
+                    <form action="<? BASEURL ?>/public/artist/remove_artist/<?php echo $artist['artist'] ?>" method="post">
                         <div class="label">
                             <label for="nama_lagu">Are you sure?</label>
                             
@@ -216,6 +203,7 @@
                             <button class="close_button" id="add_btn" type="submit">Delete</button>
                         </div>
                     </form> 
+                    
                     <button class="close_button" id="close_btn">Close</button>
                 </div>
             </div> 

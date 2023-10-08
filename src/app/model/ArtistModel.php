@@ -23,7 +23,7 @@ class ArtistModel{
         $this->db->bind('tipe', $data['tipe']);
 
         $this->db->execute();
-        return $this->db->countRow();
+        return $this->db->lastInsertID();
         //blm fix pake countrow atau lastinsert
 
     }
