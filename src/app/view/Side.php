@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel ="stylesheet" type="text/css" href="/public/css/Side.css">
-    <title>Home Page</title>
+    <title>Side Page</title>
 </head>
 <body>
     <div class="side">

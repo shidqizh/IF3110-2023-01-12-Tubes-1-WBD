@@ -71,23 +71,23 @@
                 <?php foreach($data['albumList'] as $album) : ?>
                 <a class="item_album" >
                     <div class="wrap">
-                    <img src="/public/images/1.jpg" alt="" id="">
-                    <h5>
-                        <div class="judul">
-                            <?php echo $album['nama_album'] ?>
+                        <img src="/public/images/1.jpg" alt="" id="">
+                        <h5>
+                            <div class="judul">
+                                <?php echo $album['nama_album'] ?>
+                            </div>
+                            <div class="sub">
+                            <?php echo $album['artist'] ?>
+                            </div>
+                        </h5>
+                        <div class="icon">
+                            <div class="add">
+                                <i class="bi bi-pencil-square" onclick="editAlbum(event)"></i>
+                            </div>
+                            <div class="delete">
+                                <i class="bi bi-trash-fill" onclick="delete_album(event)"></i>
+                            </div>
                         </div>
-                        <div class="sub">
-                        <?php echo $album['artist'] ?>
-                        </div>
-                    </h5>
-                    <div class="icon">
-                        <div class="add">
-                            <i class="bi bi-pencil-square" onclick="editAlbum(event)"></i>
-                        </div>
-                        <div class="delete">
-                            <i class="bi bi-trash-fill" onclick="delete_album(event)"></i>
-                        </div>
-                    </div>
                     </div>
                 </a>
                 <?php endforeach; ?>

@@ -10,13 +10,13 @@
         <div class="title">
             SoundVibes
         </div>
-        <form action="<? BASEURL ?>/public/home">
+        <form action="<? BASEURL ?>/public/login/cek_login" method="post" >
             <div class="field">
-                <input type="text" required>
+                <input type="text" name="username_or_email" required>
                 <label>Username or Email</label>
             </div>
             <div class="field">
-                <input type="text" required>
+                <input type="text" name="password" required>
                 <label>Password</label>
             </div>
             <div class="content">
