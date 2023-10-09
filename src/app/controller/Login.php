@@ -10,10 +10,10 @@ class Login extends Controller{
     public function cek_login(){
         $cekLogin = $this->model("UserModel")->checkLogin($_POST['username_or_email'], $_POST['password']);
         if($cekLogin){
-            header('Location:' . BASEURL . '/public/home/index');
+            header('Location:http://localhost:8080/public/home/index');
         }
         else{
-            header('Location:' . BASEURL . '/public/login/index');
+            header('Location:' . BASEURL . '/login/index');
         }
         
     }

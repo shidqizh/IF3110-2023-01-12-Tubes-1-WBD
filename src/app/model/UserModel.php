@@ -12,15 +12,16 @@ class UserModel{
     }
 
     public function checkLogin($usernameOrEmail, $password){
-        $query = "SELECT * FROM user WHERE username = :username_or_email OR email = :username_or_email";
+        $query = "SELECT * FROM user WHERE (username = :username_or_email OR email = :username_or_email)";
         $this->db->query($query);
-        $this->db->bind(':username_or_email', $usernameOrEmail);
-        // $this->db->bind(':password', $password);
+        $this->db->bind('username_or_email', $usernameOrEmail);
+        
         $this->db->execute();
 
         $result = $this->db->fetchSingle();
+        $this->db->bind('password', $password);
         if($result){
-            if(password_verify($password, $result['password'])){
+            if($password == $result['password']){
                 return true;
             }
         }

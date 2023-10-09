@@ -75,7 +75,7 @@
                 </div>
                 <div class="lagu_for_you" id="songList">
                     <?php
-                    $itemsPerPage = 2;
+                    $itemsPerPage = 3;
                     $start = ($data["page"] - 1) * $itemsPerPage;
                     $end = $start + $itemsPerPage;
 

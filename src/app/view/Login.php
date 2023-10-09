@@ -12,11 +12,11 @@
         </div>
         <form action="<? BASEURL ?>/public/login/cek_login" method="post" >
             <div class="field">
-                <input type="text" name="username_or_email" required>
+                <input type="text" name="username_or_email" id="username_or_email" required>
                 <label>Username or Email</label>
             </div>
             <div class="field">
-                <input type="text" name="password" required>
+                <input type="text" name="password" id="password" required>
                 <label>Password</label>
             </div>
             <div class="content">
@@ -31,10 +31,11 @@
             <div class="field">
                 <input type="submit" value="Sign in">
             </div>
-            <div class="signup-link">
-                Don't have an account yet?<a href="<? BASEURL ?>/public/register">Register now</a>
-            </div>
         </form>
+            <div class="signup-link">
+                Don't have an account yet?<a href="<? BASEURL ?>/public/register"> Register now</a>
+            </div>
+        
     </div>
 </body>
 </html>
