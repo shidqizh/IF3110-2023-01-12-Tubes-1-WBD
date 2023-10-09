@@ -11,6 +11,12 @@ class SongModel{
         $this->db->query('SELECT * FROM song');
         return $this->db->fetchAll();
     }
+
+    public function getSongImage(){
+        $this->db->query('SELECT * FROM song NATURAL JOIN album');
+        return $this->db->fetchAll();
+    }
+
     public function getSongById($id){
         $this->db->query('SELECT * FROM song WHERE id=:id');
         $this->db->bind('id', $id);
@@ -18,7 +24,7 @@ class SongModel{
     }
 
     public function ambilLagu($namaLagu){
-        $this->db->query('SELECT * FROM song WHERE nama_lagu = :nama_lagu');
+        $this->db->query('SELECT * FROM song NATURAL JOIN album WHERE nama_lagu = :nama_lagu');
         $this->db->bind('nama_lagu', $namaLagu);
         return $this->db->fetchSingle();
     }

@@ -4,6 +4,7 @@ class Home extends Controller{
     // default controller
     public function index($page=1){
         $data['songList'] = $this->model('SongModel')->getAllSong();
+        $data['imageSong'] = $this->model('SongModel')->getSongImage();
         $data['page'] = $page;
         $this->view('Discover', $data);
     }

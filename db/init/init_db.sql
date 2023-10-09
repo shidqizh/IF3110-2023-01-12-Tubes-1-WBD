@@ -46,10 +46,10 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`id_album`, `nama_album`, `artist`, `durasi_album`, `image_path`, `tanggal_terbit`, `genre`) VALUES
-(1, 'Oneiric Diary', 'IZ*ONE', 0, '', '2023-10-02', 'K-Pop'),
-(2, 'type III', 'paris match', 29, '', '2023-10-02', 'Shibuya-kei'),
-(3, 'Quattro', 'paris match', 23, '', '2023-10-02', 'Shibuya-kei'),
-(4, 'Vibrant Colors', 'Murphy Radio', 15, '', '2023-10-02', 'Math rock');
+(1, 'Oneiric Diary', 'IZ*ONE', 0, '/public/images/1.jpg', '2023-10-02', 'K-Pop'),
+(2, 'type III', 'paris match', 29, '/public/images/1.jpg', '2023-10-02', 'Shibuya-kei'),
+(3, 'Quattro', 'paris match', 23, '/public/images/1.jpg', '2023-10-02', 'Shibuya-kei'),
+(4, 'Vibrant Colors', 'Murphy Radio', 15, '/public/images/apartofme.jpg', '2023-10-02', 'Math rock');
 
 -- --------------------------------------------------------
 
@@ -94,11 +94,11 @@ CREATE TABLE `song` (
 --
 
 INSERT INTO `song` (`id_song`, `nama_lagu`, `artist`, `tanggal_terbit`, `genre`, `durasi_lagu`, `audio_path`, `id_album`) VALUES
-(1, 'Autumn', 'Murphy Radio', '2023-10-02', 'Math rock', 4, '', 4),
-(2, 'Sandy', 'Murphy Radio', '2023-10-02', 'Math rock', 3, '', 4),
-(3, 'Merry-go-round', 'IZ*ONE', '2023-10-02', 'K-Pop', 4, '', 1),
-(4, 'cerulean blue', 'paris match', '2023-10-02', 'Shibuya-kei', 4, '', 2),
-(5, 'ANGEL', 'paris match', '2023-10-01', 'Jazz', 3, '', 3);
+(1, 'Autumn', 'Murphy Radio', '2023-10-02', 'Math rock', 4, '/public/songs/December.mp3', 4),
+(2, 'Sandy', 'Murphy Radio', '2023-10-02', 'Math rock', 3, '/public/songs/Kata.mp3', 4),
+(3, 'Merry-go-round', 'IZ*ONE', '2023-10-02', 'K-Pop', 4, '/public/songs/Kata.mp3', 1),
+(4, 'cerulean-blue', 'paris match', '2023-10-02', 'Shibuya-kei', 4, '/public/songs/Terima Kasih.mp3', 2),
+(5, 'ANGEL', 'paris match', '2023-10-01', 'Jazz', 3, '/public/songs/December.mp3', 3);
 
 -- --------------------------------------------------------
 

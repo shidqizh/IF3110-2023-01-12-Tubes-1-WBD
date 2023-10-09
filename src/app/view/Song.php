@@ -11,6 +11,7 @@
 </head>
 <body>  
     <div class="main">
+        <?php $pathImage = $data['namaLagu']['image_path'] ?>
         <nav>
             <ul>
                 <a href="<? BASEURL ?>/public/home/index" class="active" id="songs">Songs</a>
@@ -20,22 +21,24 @@
         </nav>
         <div class="lagu">
             <div class="poster" id="sekarang">
-                <img src="/public/images/1.jpg" alt="" id="poster">
+                <img src="<?php echo $pathImage; ?>" alt="" id="poster">
                 <label for="" class="label">
                     <?php echo $data['namaLagu']['nama_lagu'] ?>
                     <div class="sub">
-                        <?php echo $data['songList'][0]['artist'] ?>
+                        <?php echo $data['namaLagu']['artist'] ?>
                     </div>
                 </label>
             </div>
         </div>
     </div>
     <div class="play">
-        <img src="/public/images/1.jpg" alt="" id="poster_play">
+        <?php $pathAudio = $data['namaLagu']['audio_path'] ?>
+
+        <img src="<?php echo $pathImage; ?>" alt="" id="poster_play">
         <h5 class="judul">
             <?php echo $data['namaLagu']['nama_lagu'] ?>
             <div class="sub">
-                <?php echo $data['songList'][0]['artist'] ?>
+                <?php echo $data['namaLagu']['artist'] ?>
             </div>
         </h5>
         <div class="pemutar">
@@ -61,6 +64,7 @@
             <div class="dot_volume" id="dot_vol"></div>
         </div>
     </div>
+    <audio id="music" src="<?php echo $pathAudio; ?>"></audio>
     <script src="<? BASEURL ?>/public/javascript/functional.js"></script>
     <script src="<? BASEURL ?>/public/javascript/playSongs.js"></script>
 </body>

@@ -1,4 +1,4 @@
-const music = new Audio('/public/songs/Terima Kasih.mp3');
+const music = document.getElementById('music');
 
 function autoplayMusic() {
     music.play();
