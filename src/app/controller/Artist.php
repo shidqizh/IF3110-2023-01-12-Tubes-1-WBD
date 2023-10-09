@@ -25,10 +25,10 @@ class Artist extends Controller{
 
     public function remove_artist($id){
         if($this->model('ArtistModel')->hapusDataArtist($id) > 0){
-            header('Location:' . BASEURL . '/artist');
+            header('Location:' . BASEURL . '/artist/index');
         }
         else{
-            header('Location:' . BASEURL . '/artist');
+            header('Location:' . BASEURL . '/artist/index');
         }
     }
 

@@ -170,7 +170,7 @@
                         
                     </div>
                     <div class="input">
-                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Album Name">
+                        <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Album Name" value="<? echo $album['nama_album'] ?>">
                         
                     </div>
 
@@ -178,35 +178,35 @@
                         <label for="artist">Artist</label>
                     </div>
                     <div class="input">
-                        <input type="text" name="artist" id="artist" placeholder="Artist">
+                        <input type="text" name="artist" id="artist" placeholder="Artist" value="<? echo $album['artist'] ?>">
                     </div>
 
                     <div class="label">
                         <label for="tanggal_terbit">Date</label>
                     </div>
                     <div class="input">
-                        <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                        <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date" value="<? echo $album['tanggal_terbit'] ?>">
                     </div>
 
                     <div class="label">
                         <label for="genre">Genre</label>
                     </div>
                     <div class="input">
-                        <input type="text" name="genre" id="genre" placeholder="Genre">
+                        <input type="text" name="genre" id="genre" placeholder="Genre" value="<? echo $album['genre'] ?>">
                     </div>
 
                     <div class="label">
                         <label for="durasi_lagu">Duration</label>
                     </div>
                     <div class="input">
-                        <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
+                        <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration" value="<? echo $album['durasi_album'] ?>">
                     </div>
                     
                     <div class="label">
                         <label for="image_path">Poster</label>
                     </div>
                     <div class="input">
-                        <input type="file" name="image_path" id="image_path" placeholder="image_path" accept=".jpg">
+                        <input type="file" name="image_path" id="image_path" placeholder="image_path" accept=".jpg" value="<? echo $album['image_path'] ?>">
                     </div>
 
                     <div class="btn">

@@ -135,49 +135,26 @@
                     </div>
                     <hr>
 
-                    <form action="<? BASEURL ?>/public/home/edit_artist" method="post">
-                        <div class="label">
-                            <label for="nama_lagu">Album Name</label>
-                            
-                        </div>
-                        <div class="input">
-                            <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Album Name">
-                            
-                        </div>
-
+                    <form action="<? BASEURL ?>/public/home/edit_artist" method="post">                        
                         <div class="label">
                             <label for="artist">Artist</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="artist" id="artist" placeholder="Artist">
-                        </div>
-
-                        <div class="label">
-                            <label for="tanggal_terbit">Date</label>
-                        </div>
-                        <div class="input">
-                            <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
+                            <input type="text" name="artist" id="artist" placeholder="Artist" value="<? echo $artist['artist'] ?>">
                         </div>
 
                         <div class="label">
                             <label for="country">country</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="country" id="country" placeholder="country">
+                            <input type="text" name="country" id="country" placeholder="country" value="<? echo $artist['country'] ?>">
                         </div>
 
                         <div class="label">
-                            <label for="durasi_lagu">Duration</label>
+                            <label for="tipe">Type</label>
                         </div>
                         <div class="input">
-                            <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
-                        </div>
-                        
-                        <div class="label">
-                            <label for="image_path">Poster</label>
-                        </div>
-                        <div class="input">
-                            <input type="file" name="image_path" id="image_path" placeholder="image_path" accept=".jpg">
+                            <input type="text" name="tipe" id="tipe" placeholder="Type" value="<? echo $artist['tipe'] ?>">
                         </div>
 
                         <div class="btn">
@@ -187,13 +164,12 @@
                     <button class="close_button" id="close_btn">Close</button>
                 </div>
             </div>
-
+    
             <div class="popup deleteArtist" id="deleteArtist">
+                
                 <div class="menu">
                     
-                    
-                    
-                    <form action="<? BASEURL ?>/public/artist/remove_artist/<?php echo $artist['artist'] ?>" method="post">
+                    <form action="<? BASEURL ?>/public/artist/remove_artist/<?= $artist['artist'] ?>" method="post">
                         <div class="label">
                             <label for="nama_lagu">Are you sure?</label>
                             
@@ -202,7 +178,8 @@
                         <div class="btn">
                             <button class="close_button" id="add_btn" type="submit">Delete</button>
                         </div>
-                    </form> 
+                    </form>
+                
                     
                     <button class="close_button" id="close_btn">Close</button>
                 </div>
