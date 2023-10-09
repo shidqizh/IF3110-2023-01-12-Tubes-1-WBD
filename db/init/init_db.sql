@@ -98,7 +98,7 @@ INSERT INTO `song` (`id_song`, `nama_lagu`, `artist`, `tanggal_terbit`, `genre`,
 (2, 'Sandy', 'Murphy Radio', '2023-10-02', 'Math rock', 3, '/public/songs/Kata.mp3', 4),
 (3, 'Merry-go-round', 'IZ*ONE', '2023-10-02', 'K-Pop', 4, '/public/songs/Kata.mp3', 1),
 (4, 'cerulean-blue', 'paris match', '2023-10-02', 'Shibuya-kei', 4, '/public/songs/Terima Kasih.mp3', 2),
-(5, 'ANGEL', 'paris match', '2023-10-01', 'Jazz', 3, '/public/songs/December.mp3', 3);
+(5, 'Kata', 'Murphy Radio', '2023-10-02', 'Math rock', 3, '/public/songs/Kata.mp3', 4);
 
 -- --------------------------------------------------------
 

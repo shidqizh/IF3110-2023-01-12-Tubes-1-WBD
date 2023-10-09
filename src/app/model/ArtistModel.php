@@ -12,6 +12,16 @@ class ArtistModel{
         return $this->db->fetchAll();
     }
 
+    public function getImageArtist(){
+        $this->db->query('SELECT * FROM artist NATURAL JOIN album');
+        return $this->db->fetchAll();
+    }
+
+    public function getAllitem(){
+        $this->db->query('SELECT DISTINCT artist, genre FROM artist NATURAL JOIN song');
+        return $this->db->fetchAll();
+    }
+
     public function tambahDataArtist($data){
         $query = "
             INSERT INTO artist VALUES (:artist, :country, :tipe)

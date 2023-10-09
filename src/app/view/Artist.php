@@ -23,36 +23,49 @@
                         <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
                         <input id="searchInput" type="text" name = "song_title" placeholder="Search...">
                     </div>
-                    <div class="sort">
-                        <select name="sort-song" id="sort-song" class= "dropdown">
-                            <option selected>Sort by</option>
-                            <option value="titla">Song Tite</option>
-                            <option value="artist">Artist Name</option>
-                        </select>
+                    <div class = "filter">
+                        <select name="filter-genre" id="filter-genre" class= "dropdown">
+                            <option selected>Genre</option>
+                                <?php
+                                $genres = array(); // Membuat array kosong untuk mengumpulkan nama-nama artis
+
+                                // Loop melalui data untuk mengumpulkan nama-nama artis unik
+                                for ($i = 0; $i < count($data['itemList']); $i++) {
+                                    $song = $data['itemList'][$i];
+                                    $genre = $song['genre'];
+
+                                    // Tambahkan nama artis ke dalam array jika belum ada
+                                    if (!in_array($genre, $genres)) {
+                                        $genres[] = $genre;
+                                        // Buat option dengan nama artis sebagai nilai dan teks
+                                        echo '<option value="' . $genre . '">' . $genre . '</option>';
+                                    }
+                                }
+                                ?>
+                            </select>
                         <button type="button" id="custom-dropdown">
                             <img src="../../../public/img/dropdown_button.svg" alt="">
                         </button>
-                        <button type="submit">
-                            <img src="../../../public/img/sort.svg" alt="">
-                        </button>
                     </div>
                     <div class = "filter">
-                        <select name="filter-country" id="filter-country" class= "dropdown">
-                            <option selected>country</option>
-                            <option value="Pop">Pop</option>
-                            <option value="RnB">RnB</option>
-                            <option value="Dangdut">Dangdut</option>
-                            <option value="Country">Country</option>
-                        </select>
-                        <button type="button" id="custom-dropdown">
-                            <img src="../../../public/img/dropdown_button.svg" alt="">
-                        </button>
-                    </div>
-                    <div class = "filter">
-                        <select name="filter-artist" id="filter-artist" class= "dropdown">
+                        <select name="filter-artist" id="filter-artist" class="dropdown">
                             <option selected>Artist</option>
-                            <option value="Taylor Swift">Taylor Swift</option>
-                            <option value="Adam Levine">Adam Levine</option>
+                            <?php
+                            $artists = array(); // Membuat array kosong untuk mengumpulkan nama-nama artis
+
+                            // Loop melalui data untuk mengumpulkan nama-nama artis unik
+                            for ($i = 0; $i < count($data['itemList']); $i++) {
+                                $song = $data['itemList'][$i];
+                                $artist = $song['artist'];
+
+                                // Tambahkan nama artis ke dalam array jika belum ada
+                                if (!in_array($artist, $artists)) {
+                                    $artists[] = $artist;
+                                    // Buat option dengan nama artis sebagai nilai dan teks
+                                    echo '<option value="' . $artist . '">' . $artist . '</option>';
+                                }
+                            }
+                            ?>
                         </select>
                         <button type="button" id="custom-dropdown">
                             <img src="../../../public/img/dropdown_button.svg" alt="">
@@ -62,7 +75,7 @@
             </form>
             </div>
             <div class="user">
-                <i class="bi bi-person" onclick="toggleMenu()"></i>
+                <i class="bi bi-person" onclick="profile(event)"></i>
             </div>
         </nav>
         <div class="daftar_artist">
@@ -76,17 +89,34 @@
                     </h5>
                     <div class="icon">
                         <div class="add">
-                            <i class="bi bi-pencil-square" onclick="editArtist(event)"></i>
+                            <?php
+                                    $isAdmin = $_SESSION['is_admin'] ?? false; // Mengambil status admin dari session
+
+                                    // Tampilkan tombol "Add Song" hanya jika pengguna adalah admin
+                                    if ($isAdmin) {
+                                        echo '<i class="bi bi-pencil-square" onclick="editArtist(event)"></i>';
+                                    }
+                                ?>
                         </div>
                         <div class="delete">
-                            <i class="bi bi-trash-fill" onclick="delete_artist(event)"></i>
+                            <?php
+                                    if ($isAdmin) {
+                                        echo '<i class="bi bi-trash-fill" onclick="delete_artist(event)"></i>';
+                                    }
+                                    ?>
                         </div>
                     </div>
                 </a>
                 <?php endforeach; ?>
             </div>
 
-            <button type="button" data-target="#addArtist" class="open_button">Add Artist</button>
+            <?php
+            $isAdmin = $_SESSION['is_admin'] ?? false; 
+
+            if ($isAdmin) {
+                echo '<button type="button" data-target="#addArtist" class="open_button">Add Artist</button>';
+            }
+        ?>
 
             <div class="overlay" id="overlay"></div>
 
@@ -135,26 +165,49 @@
                     </div>
                     <hr>
 
-                    <form action="<? BASEURL ?>/public/home/edit_artist" method="post">                        
+                    <form action="<? BASEURL ?>/public/home/edit_artist" method="post">
+                        <div class="label">
+                            <label for="nama_lagu">Album Name</label>
+                            
+                        </div>
+                        <div class="input">
+                            <input type="text" name="nama_lagu" id="nama_lagu" placeholder="Album Name">
+                            
+                        </div>
+
                         <div class="label">
                             <label for="artist">Artist</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="artist" id="artist" placeholder="Artist" value="<? echo $artist['artist'] ?>">
+                            <input type="text" name="artist" id="artist" placeholder="Artist">
+                        </div>
+
+                        <div class="label">
+                            <label for="tanggal_terbit">Date</label>
+                        </div>
+                        <div class="input">
+                            <input type="date" name="tanggal_terbit" id="tanggal_terbit" placeholder="Date">
                         </div>
 
                         <div class="label">
                             <label for="country">country</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="country" id="country" placeholder="country" value="<? echo $artist['country'] ?>">
+                            <input type="text" name="country" id="country" placeholder="country">
                         </div>
 
                         <div class="label">
-                            <label for="tipe">Type</label>
+                            <label for="durasi_lagu">Duration</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="tipe" id="tipe" placeholder="Type" value="<? echo $artist['tipe'] ?>">
+                            <input type="number" name="durasi_lagu" id="durasi_lagu" placeholder="Duration">
+                        </div>
+                        
+                        <div class="label">
+                            <label for="image_path">Poster</label>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="image_path" id="image_path" placeholder="image_path" accept=".jpg">
                         </div>
 
                         <div class="btn">
@@ -164,12 +217,13 @@
                     <button class="close_button" id="close_btn">Close</button>
                 </div>
             </div>
-    
+
             <div class="popup deleteArtist" id="deleteArtist">
-                
                 <div class="menu">
                     
-                    <form action="<? BASEURL ?>/public/artist/remove_artist/<?= $artist['artist'] ?>" method="post">
+                    
+                    
+                    <form action="<? BASEURL ?>/public/artist/remove_artist/<?php echo $artist['artist'] ?>" method="post">
                         <div class="label">
                             <label for="nama_lagu">Are you sure?</label>
                             
@@ -178,8 +232,7 @@
                         <div class="btn">
                             <button class="close_button" id="add_btn" type="submit">Delete</button>
                         </div>
-                    </form>
-                
+                    </form> 
                     
                     <button class="close_button" id="close_btn">Close</button>
                 </div>
@@ -192,7 +245,7 @@
                     </div>
                     <hr>
 
-                    <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <form action="#" method="post">
                         <div class="label">
                             <label for="nama_lagu">Email</label>
                             
@@ -226,7 +279,7 @@
 
             <div class="popup logout" id="logout">
                 <div class="menu">
-                    <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                    <form action="<? BASEURL ?>/public/login" method="post">
                         <div class="label">
                             <label for="nama_lagu">Are you sure?</label>
                             
@@ -236,7 +289,7 @@
                             <button class="close_button" id="add_btn">Logout</button>
                         </div>
                     </form> 
-                    <button class="close_button" id="close_btn">Close</button>
+                    <button class="close_button" id="close_btn" >Close</button>
                 </div>
             </div>
         </div>     

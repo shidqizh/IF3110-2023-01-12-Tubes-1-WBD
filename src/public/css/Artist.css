@@ -109,9 +109,10 @@ button {
     height: 100%;
     width: 100%;
     border-radius: 15px;
+    margin-right: 10px;
     background-color: #252d3b;
     /* border: 2px solid #00918e; */
-    padding: 0;
+    padding-right: 10px;
     display: flex;
 }
 
@@ -295,8 +296,9 @@ button {
     margin-top:20px;
     position: absolute;
     margin-left: 57%;
-    width: 22%;
+    width: 70px;
     display: flex;
+    /* border: 1px solid white; */
 }
 
 .main .item_artist .icon .more, .add, .delete {

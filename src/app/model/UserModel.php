@@ -11,6 +11,15 @@ class UserModel{
         return $this->db->fetchAll();
     }
 
+    public function getUserByUsername($usernameOrEmail){
+        $query = "SELECT * FROM user WHERE (username = :username_or_email OR email = :username_or_email)";
+        $this->db->query($query);
+        $this->db->bind('username_or_email', $usernameOrEmail);
+        $this->db->execute();
+
+        return $this->db->fetchSingle();
+    }
+
     public function checkLogin($usernameOrEmail, $password){
         $query = "SELECT * FROM user WHERE (username = :username_or_email OR email = :username_or_email)";
         $this->db->query($query);
@@ -27,30 +36,31 @@ class UserModel{
         }
         return false;
     }
-    // {
-    //     $query = "SELECT COUNT(*) AS total FROM user WHERE username = :username_or_email";
-    //     $this->db->query($query);
-    //     $this->db->bind(':username_or_email', $usernameOrEmail);
-    //     // $this->db->bind(':password', $password);
-    //     $this->db->execute();
 
-    //     $result = $this->db->fetchSingle();
-    //     return $result['total'] > 0;
-    // }
+    public function checkRegister($username, $email)
+    {
+        $query = "SELECT COUNT(*) AS total FROM user WHERE username = :username OR email = :email";
+        $this->db->query($query);
+        $this->db->bind('username', $username);
+        $this->db->bind('email', $email);
+        $this->db->execute();
+
+        $result = $this->db->fetchSingle();
+        return $result['total'] > 0;
+    }
 
     public function tambahDataUser($data){
         $query = "
-            INSERT INTO user VALUES ('', :email, :username, :password, :is_admin)
+            INSERT INTO user (username, email, password, is_admin)VALUES ( :username, :email, :password, '0')
         ";
 
         $this->db->query($query);
-        $this->db->bind('email', $data['email']);
         $this->db->bind('username', $data['username']);
+        $this->db->bind('email', $data['email']);
         $this->db->bind('password', $data['password']);
-        $this->db->bind('is_admin', $data['is_admin']);
 
         $this->db->execute();
-        return $this->db->countRow();
+        return $this->db->lastInsertID();
 
     }
 

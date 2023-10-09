@@ -13,17 +13,17 @@
                 Already have an account?<a href="<? BASEURL ?>/public/login">Log in</a>
             </div>
         </div>
-        <form action="<? BASEURL ?>/public/login">
+        <form action="<? BASEURL ?>/public/register/cek_register" method="post">
             <div class="field">
-                <input type="text" required>
+                <input type="text" name="username" id="username" required>
                 <label>Username</label>
             </div>
             <div class="field">
-                <input type="text" required>
+                <input type="text" name="email" id="email" required>
                 <label>Email</label>
             </div>
             <div class="field">
-                <input type="text" required>
+                <input type="text" name="password" id="password" required>
                 <label>Password</label>
             </div>
             <div class="sign-in">

@@ -4,6 +4,7 @@ class Album extends Controller{
     // default controller
     public function index(){
         $data['albumList'] = $this->model('AlbumModel')->getAllAlbum();
+        $data['itemList'] = $this->model('AlbumModel')->getAllitem();
         $this->view('Album', $data);
     }
 

@@ -23,36 +23,49 @@
                         <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
                         <input id="searchInput" type="text" name = "song_title" placeholder="Search...">
                     </div>
-                    <div class="sort">
-                        <select name="sort-song" id="sort-song" class= "dropdown">
-                            <option selected>Sort by</option>
-                            <option value="titla">Song Tite</option>
-                            <option value="artist">Artist Name</option>
-                        </select>
-                        <button type="button" id="custom-dropdown">
-                            <img src="../../../public/img/dropdown_button.svg" alt="">
-                        </button>
-                        <button type="submit">
-                            <img src="../../../public/img/sort.svg" alt="">
-                        </button>
-                    </div>
                     <div class = "filter">
                         <select name="filter-genre" id="filter-genre" class= "dropdown">
                             <option selected>Genre</option>
-                            <option value="Pop">Pop</option>
-                            <option value="RnB">RnB</option>
-                            <option value="Dangdut">Dangdut</option>
-                            <option value="Country">Country</option>
-                        </select>
+                                <?php
+                                $genres = array(); // Membuat array kosong untuk mengumpulkan nama-nama artis
+
+                                // Loop melalui data untuk mengumpulkan nama-nama artis unik
+                                for ($i = 0; $i < count($data['itemList']); $i++) {
+                                    $song = $data['itemList'][$i];
+                                    $genre = $song['genre'];
+
+                                    // Tambahkan nama artis ke dalam array jika belum ada
+                                    if (!in_array($genre, $genres)) {
+                                        $genres[] = $genre;
+                                        // Buat option dengan nama artis sebagai nilai dan teks
+                                        echo '<option value="' . $genre . '">' . $genre . '</option>';
+                                    }
+                                }
+                                ?>
+                            </select>
                         <button type="button" id="custom-dropdown">
                             <img src="../../../public/img/dropdown_button.svg" alt="">
                         </button>
                     </div>
                     <div class = "filter">
-                        <select name="filter-artist" id="filter-artist" class= "dropdown">
+                        <select name="filter-artist" id="filter-artist" class="dropdown">
                             <option selected>Artist</option>
-                            <option value="Taylor Swift">Taylor Swift</option>
-                            <option value="Adam Levine">Adam Levine</option>
+                            <?php
+                            $artists = array(); // Membuat array kosong untuk mengumpulkan nama-nama artis
+
+                            // Loop melalui data untuk mengumpulkan nama-nama artis unik
+                            for ($i = 0; $i < count($data['itemList']); $i++) {
+                                $song = $data['itemList'][$i];
+                                $artist = $song['artist'];
+
+                                // Tambahkan nama artis ke dalam array jika belum ada
+                                if (!in_array($artist, $artists)) {
+                                    $artists[] = $artist;
+                                    // Buat option dengan nama artis sebagai nilai dan teks
+                                    echo '<option value="' . $artist . '">' . $artist . '</option>';
+                                }
+                            }
+                            ?>
                         </select>
                         <button type="button" id="custom-dropdown">
                             <img src="../../../public/img/dropdown_button.svg" alt="">
@@ -71,7 +84,7 @@
                 <?php foreach($data['albumList'] as $album) : ?>
                 <a class="item_album" >
                     <div class="wrap">
-                        <img src="/public/images/1.jpg" alt="" id="">
+                        <img src="<?php echo $album['image_path'] ?>" alt="" id="">
                         <h5>
                             <div class="judul">
                                 <?php echo $album['nama_album'] ?>
@@ -82,10 +95,21 @@
                         </h5>
                         <div class="icon">
                             <div class="add">
-                                <i class="bi bi-pencil-square" onclick="editAlbum(event)"></i>
+                                <?php
+                                    $isAdmin = $_SESSION['is_admin'] ?? false; // Mengambil status admin dari session
+
+                                    // Tampilkan tombol "Add Song" hanya jika pengguna adalah admin
+                                    if ($isAdmin) {
+                                        echo '<i class="bi bi-pencil-square" onclick="editAlbum(event)"></i>';
+                                    }
+                                ?>
                             </div>
                             <div class="delete">
-                                <i class="bi bi-trash-fill" onclick="delete_album(event)"></i>
+                                <?php
+                                    if ($isAdmin) {
+                                        echo '<i class="bi bi-trash-fill" onclick="delete_album(event)"></i>';
+                                    }
+                                    ?>
                             </div>
                         </div>
                     </div>
@@ -93,7 +117,14 @@
                 <?php endforeach; ?>
             </div>
         </div>    
-        <button type="button" data-target="#addAlbum" class="open_button">Add Album</button>
+
+        <?php
+            $isAdmin = $_SESSION['is_admin'] ?? false; 
+
+            if ($isAdmin) {
+                echo '<button type="button" data-target="#addAlbum" class="open_button">Add Album</button>';
+            }
+        ?>
 
         <div class="overlay" id="overlay"></div>
 
@@ -275,7 +306,7 @@
 
         <div class="popup logout" id="logout">
             <div class="menu">
-                <form action="<? BASEURL ?>/public/home/add_song" method="post">
+                <form action="<? BASEURL ?>/public/login" method="post">
                     <div class="label">
                         <label for="nama_lagu">Are you sure?</label>
                         

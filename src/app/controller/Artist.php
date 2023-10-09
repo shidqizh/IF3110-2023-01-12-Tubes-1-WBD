@@ -4,6 +4,8 @@ class Artist extends Controller{
     // default controller
     public function index(){
         $data['artistList']=$this->model('ArtistModel')->getAllArtist();
+        $data['itemList'] = $this->model('ArtistModel')->getAllitem();
+        $data['imagePath'] = $this->model('ArtistModel')->getImageArtist();
         $this->view('Artist', $data);
     }
 

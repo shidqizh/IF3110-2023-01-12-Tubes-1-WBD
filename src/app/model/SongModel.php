@@ -37,7 +37,7 @@ class SongModel{
 
     public function tambahDataSong($data){
         $query = "
-            INSERT INTO song (nama_lagu, artist, tanggal_terbit, genre, durasi_lagu, audio_path, id_album )VALUES ( :nama_lagu, :artist, :tanggal_terbit, :genre, :durasi_lagu, :audio_path, '1')
+            INSERT INTO song (nama_lagu, artist, tanggal_terbit, genre, durasi_lagu, audio_path, id_album )VALUES ( :nama_lagu, :artist, :tanggal_terbit, :genre, :durasi_lagu, '/public/songs/December.mp3', '1')
         ";
 
         $this->db->query($query);
@@ -46,7 +46,6 @@ class SongModel{
         $this->db->bind('tanggal_terbit', $data['tanggal_terbit']);
         $this->db->bind('genre', $data['genre']);
         $this->db->bind('durasi_lagu', $data['durasi_lagu']);
-        $this->db->bind('audio_path', $data['audio_path']);
 
         $this->db->execute();
         return $this->db->lastInsertID();
