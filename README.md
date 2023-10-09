@@ -16,11 +16,11 @@ Program ini merupakan Web music player yang menggunakan implementasi dari HTML, 
 
 ## Tampilan
 <p align="center">
-    <img src="https://github.com/shidqizh/Tubes-1-WBD/tree/main/src/public/images/pageAdmin.png">
+    <img src="https://github.com/shidqizh/IF3110-2023-01-12-Tubes-1-WBD/blob/main/src/public/images/pageAdmin.png">
 </p>
 
 <p align="center">
-    <img src="https://github.com/shidqizh/Tubes-1-WBD/tree/main/src/public/images/pageUser.png">
+    <img src="https://github.com/shidqizh/IF3110-2023-01-12-Tubes-1-WBD/blob/main/src/public/images/pageUser.png">
 </p>
 
 
