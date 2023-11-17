@@ -25,6 +25,9 @@
             <div class="Artist">
                 <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/artist/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/artist/index" id="artist"><span></span><i class="bi bi-music-note-list"></i>Artist</a>
             </div>
+            <div class="subs">
+                <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/subs/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/subs/index" id="subs"><span></span><i class="bi bi-music-note-list"></i>Subs</a>
+            </div>
         </div>
         <div class="search_bar">
             <form action="#" method="get">
