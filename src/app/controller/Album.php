@@ -1,11 +1,30 @@
 <?php
 
 class Album extends Controller{
-    // default controller
-    public function index(){
-        $data['albumList'] = $this->model('AlbumModel')->getAllAlbum();
-        $data['itemList'] = $this->model('AlbumModel')->getAllitem();
+    public function index($page=1){
+        $page = $page < 1 ? 1 : $page;
+        $albumModel = $this->model('AlbumModel');
+        $countItems = $albumModel->countItems();
+        $itemsPerPage = 1;
+        $totalPages = ceil($countItems/$itemsPerPage);
+        $offset = ($page - 1) * $itemsPerPage;
+        
+        $items = $albumModel->getItems($offset, $itemsPerPage);
+        $data['items'] = $items;
+        $data['totalPages'] = $totalPages;
+        $data['page'] = $page;
         $this->view('Album', $data);
+    }
+
+    public function search() {
+        $albumModel = $this->model('AlbumModel');
+        $searchInput = $_GET['search']; // Get the search input from the query string
+
+        // Modify the 'getItems' method in your model to accept a search input
+        $items = $albumModel->getItemsBySearch($searchInput);
+
+        // Return the search results as JSON
+        echo json_encode($items);
     }
 
     public function pakeParams($artist="Default_Artist"){

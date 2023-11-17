@@ -9,151 +9,94 @@
     <title>Discover</title>
 </head>
 <body>
-    <div class="side">
-        <?php require_once 'Side.php' ?>
+    <div class="navbar">
+        <div class="logo">
+            <a href="<? BASEURL ?>/public/home/index/1">
+                <img src="../../../public/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="menu">
+            <div class="Songs">
+                <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/home/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/home/index" id="song"><span></span><i class="bi bi-music-note-list"></i>Songs</a>
+            </div>
+            <div class="Album">
+                <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/album/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/album/index" id="album"><span></span><i class="bi bi-music-note-list"></i>Album</a>
+            </div>
+            <div class="Artist">
+                <a class="<?php echo ($_SERVER['REQUEST_URI'] === '/public/artist/index') ? 'active' : ''; ?>" href="<? BASEURL ?>/public/artist/index" id="artist"><span></span><i class="bi bi-music-note-list"></i>Artist</a>
+            </div>
+        </div>
+        <div class="search_bar">
+            <form action="#" method="get">
+
+            <div class="search-sort">
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
+                    <input id="searchInput" type="text" name = "song_title" placeholder="Search...">
+                </div>
+                <div class = "filter">
+                    <select name="filter-genre" id="filter-genre" class= "dropdown">
+                        <option selected>Genre</option>
+                        
+                        </select>
+                    <button type="button" id="custom-dropdown">
+                        <img src="../../../public/img/dropdown_button.svg" alt="">
+                    </button>
+                </div>
+                <div class = "filter">
+                    <select name="filter-artist" id="filter-artist" class="dropdown">
+                        <option selected>Artist</option>
+                    
+                    </select>
+                    <button type="button" id="custom-dropdown">
+                        <img src="../../../public/img/dropdown_button.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="user">
+            <i class="bi bi-person" onclick="profile(event)"></i>
+        </div>
     </div>
     <div class="main">
-        <nav>
-            <div class="search_bar">
-                <form action="<?php echo BASEURL ?>/public/home/index/<?php echo $data['page'] ?>" method="get">
-
-                <div class="search-sort">
-                    <div class="search-box">
-                        <i class="bi bi-search"></i>
-                        <button type="submit"><img src="../../../public/img/search.svg" alt=""></button>
-                        <input id="searchInput" type="text" name = "song_title" placeholder="Search...">
-                    </div>
-                    <div class = "filter">
-                        <select name="filter-genre" id="filter-genre" class= "dropdown">
-                            <option selected>Genre</option>
-                                <?php
-                                $genres = array(); // Membuat array kosong untuk mengumpulkan nama-nama artis
-
-                                // Loop melalui data untuk mengumpulkan nama-nama artis unik
-                                for ($i = 0; $i < count($data['songList']); $i++) {
-                                    $song = $data['songList'][$i];
-                                    $genre = $song['genre'];
-
-                                    // Tambahkan nama artis ke dalam array jika belum ada
-                                    if (!in_array($genre, $genres)) {
-                                        $genres[] = $genre;
-                                        // Buat option dengan nama artis sebagai nilai dan teks
-                                        echo '<option value="' . $genre . '">' . $genre . '</option>';
-                                    }
-                                }
-                                ?>
-                            </select>
-                        <button type="button" id="custom-dropdown">
-                            <img src="../../../public/img/dropdown_button.svg" alt="">
-                        </button>
-                    </div>
-                    <div class = "filter">
-                        <select name="filter-artist" id="filter-artist" class="dropdown">
-                            <option selected>Artist</option>
-                            <?php
-                            $artists = array(); 
-
-                            for ($i = 0; $i < count($data['songList']); $i++) {
-                                $song = $data['songList'][$i];
-                                $artist = $song['artist'];
-
-                                if (!in_array($artist, $artists)) {
-                                    $artists[] = $artist;
-                                    echo '<option value="' . $artist . '">' . $artist . '</option>';
-                                }
-                            }
-                            ?>
-                        </select>
-                        <button type="button" id="custom-dropdown">
-                            <img src="../../../public/img/dropdown_button.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-            </form>
-            </div>
-            <div class="user">
-                <i class="bi bi-person" onclick="profile(event)"></i>
-            </div>
-        </nav>
         <div class="for_you">
-                <div class="h4">
-                    <h4>For You</h4>
-                    <div class="buttons">
-                        <i class="bi"></i>
-                        <i class="bi"></i>
+            <div class="h4">
+                <h4>For You</h4>
+            </div>
+            <div class="lagu_for_you" id="songList">
+                <?php foreach($data['items'] as $item) : ?>
+                <a class="items" >
+                    <div class="wrap">
+                        <img src="<?php echo $item['image_path'] ?>" alt="" id="">
+                        <h5>
+                            <div class="judul">
+                                <?php echo $item['nama_lagu'] ?>
+                            </div>
+                            <div class="sub">
+                            <?php echo $item['artist'] ?>
+                            </div>
+                        </h5>
                     </div>
-                </div>
-                <div class="lagu_for_you" id="songList">
-                    <?php
-                    $itemsPerPage = 3;
-                    $start = ($data["page"] - 1) * $itemsPerPage;
-                    $end = $start + $itemsPerPage;
-
-                    
-                    for ($i = $start; $i < $end && $i < count($data['songList']); $i++) {
-                        $song = $data['songList'][$i];
-                        $pathImage = $data['imageSong'][$i]['image_path']
-                    ?>
-                    <a class="items" href="<? BASEURL ?>/public/song/index/<?php echo $song['nama_lagu'] ?>">
-                        <div class="wrap">
-                            <div class="img_for_you">
-                                <img src="<?php echo $pathImage; ?>" alt="">
-                            </div>
-                            <h5>
-                                <div class="judul">
-                                <?php echo $song['nama_lagu'] ?>
-                                </div>
-                                <div class="sub">
-                                    <?php echo $song['artist'] ?>
-                                </div>
-                            </h5>
-                            <div class="icon">
-                                <div class="add">
-                                <?php
-                                    $isAdmin = $_SESSION['is_admin'] ?? false; // Mengambil status admin dari session
-
-                                    // Tampilkan tombol "Add Song" hanya jika pengguna adalah admin
-                                    if ($isAdmin) {
-                                        echo '<i class="bi bi-pencil-square" onclick="edit(event)" data-song-id="' . $song['id_song'] . '"></i>';
-                                    }
-                                ?>
-                                </div>
-                                    <div class="delete">
-                                    <?php
-                                    if ($isAdmin) {
-                                        echo '<i class="bi bi-trash-fill" onclick="delete_song(event)"></i>';
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <?php } ?>
-                </div>
-
+                </a>
+                <?php endforeach; ?>
+            </div>
         </div>      
         <div class="pagination">
-            <?php
-            $totalItems = count($data['songList']);
-            $totalPages = ceil($totalItems / $itemsPerPage);
+            <?php if($data['page'] - 1 > 0) : ?>
+                <a href="<? BASEURL ?>/public/home/index/<?php echo $data['page'] - 1 ?>" class="prev <?php echo ($data['page'] == 1) ? 'disabled' : '' ?>"><</a>
+            <?php endif; ?>
+            <?php for ($i = 1; $i <= $data['totalPages']; $i++) : ?>
+                <a href="<? BASEURL ?>/public/home/index/<?php echo $i ?>" class="<?php echo ($data['page'] == $i) ? 'active' : '' ?>"><?php echo $i ?></a>
+            <?php endfor; ?>
+            <?php if($data['page'] + 1 < $data['totalPages']) : ?>
+                <a href="<? BASEURL ?>/public/home/index/<?php echo $data['page'] + 1 ?>" class="next">></a>
+            <?php endif; ?>
+            
+        </div>  
 
-            for ($page = 1; $page <= $totalPages; $page++) {
-                $isActive = ($page == $data["page"]) ? 'active' : '';
-            ?>
-            <a class="page <?php echo $isActive ?>" href="<? BASEURL ?>/public/home/index/<?php echo $page ?>">
-                <?php echo $page ?>
-            </a>
-            <?php } ?>
-        </div>
-        <?php
-            $isAdmin = $_SESSION['is_admin'] ?? false; 
-
-            if ($isAdmin) {
-                echo '<button type="button" data-target="#addSong" class="open_button">Add Song</button>';
-            }
-        ?>
-
-        <div class="overlay" id="overlay"></div>
+        <div class="overlay" id="overl ay"></div>
 
         <div class="popup addSong" id="addSong">
             <div class="menu">
@@ -347,10 +290,7 @@
             </div>
         </div>
     </div>
-    
-    <div class="play">
-    
-    </div>
+
     <script src="/public/javascript/functional.js"></script>
     <script src="/public/javascript/openPopUp.js"></script>
     <script src="/public/javascript/search.js"></script>

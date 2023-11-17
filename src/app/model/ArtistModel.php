@@ -57,4 +57,16 @@ class ArtistModel{
         return $result['total'] > 0;
     }
     
+    public function getItems($offset, $itemsPerPage){
+        $this->db->query("SELECT * FROM artist NATURAL JOIN album LIMIT :offset, :itemsPerPage");
+        $this->db->bind('offset', $offset);
+        $this->db->bind('itemsPerPage', $itemsPerPage);
+        return $this->db->fetchAll();
+    }
+
+    public function countItems(){
+        $this->db->query('SELECT COUNT(*) AS total FROM artist');
+        $result = $this->db->fetchSingle();
+        return $result['total'];
+    }
 }

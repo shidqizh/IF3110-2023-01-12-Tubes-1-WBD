@@ -1,18 +1,21 @@
 <?php
 
 class Home extends Controller{
-    // default controller
-    public function index($page=1){
-        $data['songList'] = $this->model('SongModel')->getAllSong();
-        $data['imageSong'] = $this->model('SongModel')->getSongImage();
+    public function index($page = 1){
+        $page = $page < 1 ? 1 : $page;        
+        $songModel = $this->model('SongModel');
+        $countItems = $songModel->countItems();
+        $itemsPerPage = 3;
+        $totalPages = ceil($countItems/$itemsPerPage);
+        $offset = ($page - 1) * $itemsPerPage;
+
+
+        $items = $songModel->getItems($offset, $itemsPerPage);
+        $data['items'] = $items;
+        $data['totalPages'] = $totalPages;
         $data['page'] = $page;
         $this->view('Discover', $data);
     }
-
-    public function detail(){
-        
-    }
-
 
     public function add_song(){
         if (!$_POST['nama_lagu'] || !$_POST['artist'] || !$_POST['tanggal_terbit'] || !$_POST['genre'] || !$_POST['durasi_lagu']) {

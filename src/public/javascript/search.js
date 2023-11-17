@@ -1,55 +1,73 @@
-const searchInput = document.getElementById('searchInput');
-const songList = document.getElementById('songList');
-let debounceTimer;
+// document.getElementById("searchForm").addEventListener("submit", function (event) {
+//     event.preventDefault(); 
+//     const searchInput = document.getElementById("searchInput").value;
 
-// Fungsi untuk memfilter daftar lagu berdasarkan input pencarian
-function filterSongs(searchTerm) {
-    // Mengubah daftar lagu menjadi array
-    const songs = Array.from(songList.getElementsByClassName('items'));
-    const albums = Array.from(songList.getElementsByClassName('item_album'));
-    const artists = Array.from(songList.getElementsByClassName('item_artist'));
+//     fetch("/search", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({ searchInput })
+//         .then(response => response.json())
+//             .then(data => {
+//                 // Update the content of the 'songList' with the search results
+//                 const songList = document.getElementById("songList");
+//                 songList.innerHTML = "";
 
-    // Iterasi melalui setiap lagu dan menyembunyikan/menampilkan sesuai pencarian
-    songs.forEach(song => {
-        const songTitle = song.querySelector('h5').textContent.toLowerCase();
+//                 data.forEach(item => {
+//                     // Create and append elements for each search result item
+//                     const itemAlbum = document.createElement("a");
+//                     itemAlbum.className = "item_album";
 
-        if (songTitle.includes(searchTerm.toLowerCase())) {
-            song.style.display = 'block';
-        } else {
-            song.style.display = 'none';
-        }
-    });
+//                     const wrap = document.createElement("div");
+//                     wrap.className = "wrap";
 
-    albums.forEach(album => {
-        const albumTitle = album.querySelector('h5').textContent.toLowerCase();
+//                     const img = document.createElement("img");
+//                     img.src = item.image_path;
+//                     img.alt = "";
 
-        if (albumTitle.includes(searchTerm.toLowerCase())) {
-            album.style.display = 'block';
-        } else {
-            album.style.display = 'none';
-        }
-    });
+//                     const h5 = document.createElement("h5");
 
-    artists.forEach(artist => {
-        const artistTitle = artist.querySelector('h5').textContent.toLowerCase();
+//                     const judul = document.createElement("div");
+//                     judul.textContent = item.nama_album;
 
-        if (artistTitle.includes(searchTerm.toLowerCase())) {
-            artist.style.display = 'block';
-        } else {
-            artist.style.display = 'none';
-        }
-    });
-}
+//                     const sub = document.createElement("div");
+//                     sub.textContent = item.artist;
 
-// Tambahkan penangan acara untuk saat formulir pencarian diserahkan
-searchInput.addEventListener('input', function (event) {
-    event.preventDefault(); // Mencegah pengiriman formulir
+//                     h5.appendChild(judul);
+//                     h5.appendChild(sub);
 
-    const searchTerm = searchInput.value;
-    clearTimeout(debounceTimer);
+//                     wrap.appendChild(img);
+//                     wrap.appendChild(h5);
+//                     itemAlbum.appendChild(wrap);
+//                     songList.appendChild(itemAlbum);
+//                 });
+//             })
+//             .catch(error => console.error(error));
+// }
+// );
 
-    // Set timer debounce baru
-    debounceTimer = setTimeout(function () {
-        filterSongs(searchTerm);
-    }, 300);
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -91,6 +91,22 @@ class SongModel{
          return $this->db->countRow();
          
     }
+
+    public function getItems($offset, $itemsPerPage){
+        $this->db->query("SELECT * FROM song NATURAL JOIN album LIMIT :offset, :itemsPerPage");
+        $this->db->bind('offset', $offset);
+        $this->db->bind('itemsPerPage', $itemsPerPage);
+        return $this->db->fetchAll();
+    }
+
+    public function countItems(){
+        $this->db->query('SELECT COUNT(*) AS total FROM song');
+        $result = $this->db->fetchSingle();
+        return $result['total'];
+    }
+    
+
+   
     
 
 

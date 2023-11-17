@@ -1,11 +1,19 @@
 <?php
 
 class Artist extends Controller{
-    // default controller
-    public function index(){
-        $data['artistList']=$this->model('ArtistModel')->getAllArtist();
-        $data['itemList'] = $this->model('ArtistModel')->getAllitem();
-        $data['imagePath'] = $this->model('ArtistModel')->getImageArtist();
+    public function index($page=1){
+        $page = $page < 1 ? 1 : $page;
+        $artistModel = $this->model('ArtistModel');
+        $countItems = $artistModel->countItems();
+        $itemsPerPage = 1;
+        $totalPages = ceil($countItems/$itemsPerPage);
+        $offset = ($page - 1) * $itemsPerPage;
+
+        $items = $artistModel->getItems($offset, $itemsPerPage);
+
+        $data['items'] = $items;
+        $data['totalPages'] = $totalPages;
+        $data['page'] = $page;
         $this->view('Artist', $data);
     }
 

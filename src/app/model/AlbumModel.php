@@ -57,4 +57,23 @@ class AlbumModel{
 
         return $this->db->countRow();
     }
+
+    public function getItems($offset, $itemsPerPage){
+        $this->db->query("SELECT * FROM album LIMIT :offset, :itemsPerPage");
+        $this->db->bind('offset', $offset);
+        $this->db->bind('itemsPerPage', $itemsPerPage);
+        return $this->db->fetchAll();
+    }
+
+    public function countItems(){
+        $this->db->query('SELECT COUNT(*) AS total FROM album');
+        $result = $this->db->fetchSingle();
+        return $result['total'];
+    }
+
+    public function getItemsBySearch($searchInput) {
+        $this->db->query("SELECT * FROM album WHERE nama_album LIKE :searchInput");
+        $this->db->bind('searchInput', "%$searchInput%");
+        return $this->db->fetchAll();
+    }
 }
